@@ -57,7 +57,7 @@ export default function Home({ locale }) {
     <>
       <Head>
         <title>
-          inckd. -  Find the right artist for your next tattoo and book it trough inckd. Make your mark.
+          inckd. -  Find the right artist for your next tattoo and book it through inckd. Make your mark.
         </title>
         <meta
           name="description"
