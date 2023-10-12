@@ -479,8 +479,8 @@ export default function Dictionary({locale}) {
                     priority
                     src="/aztec-symbols.png" 
                     alt="Picture of the author"
-                    width={1436}
-                    height={1252}
+                    width={500}
+                    height={800}
                     placeholder="blur"
                     blurDataURL={blurDataURL}
                     layout="responsive"
