@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "@/pages/artist/artistdetail.module.css";
 import useTranslation from "next-translate/useTranslation";
-
+import Link from "next/link";
 
 
 const ArtistInfo = ({data}) => {
@@ -21,13 +21,15 @@ const ArtistInfo = ({data}) => {
                   data.style.map((e) => {
                     return (
                       <li key={e.id}>
-                        <a href="#" disabled>
+                        <Link  href={`/search?term=${
+                                e.name
+                              }&category=${"all"}`} >
                           {e.name}
                           <img
                             src="/arrow-right-gray.svg"
                             alt="Abstract Realism"
                           />
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}
