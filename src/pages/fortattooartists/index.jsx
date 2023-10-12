@@ -1,18 +1,18 @@
-import React ,{useEffect} from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
 import styles from "./custom.module.css";
-import { APP_LINK_APPLE, APP_LINK_GOOGLE ,blurDataURL} from "@/constants/constants";
+import { APP_LINK_APPLE, APP_LINK_GOOGLE, blurDataURL } from "@/constants/constants";
 import useTranslation from "next-translate/useTranslation";
 import { useGlobalState } from "@/context/Context";
 import { getLocaleProps } from '@/utils/getlocale';
 
 
 
-export default function Tattooartists({locale}) {
+export default function Tattooartists({ locale }) {
 
-  const {getLocale } = useGlobalState();
+  const { getLocale } = useGlobalState();
 
   const { t } = useTranslation();
 
@@ -22,16 +22,16 @@ export default function Tattooartists({locale}) {
       getLocale({
         locale,
       });
-    } catch (error) {}
+    } catch (error) { }
   }, [locale]);
 
 
   return (
     <>
 
-<Head>
+      <Head>
         <title>
-        Empower Tattoo artists with our comprehensive business management tool
+          Empower Tattoo artists with our comprehensive business management tool
         </title>
         <meta
           name="description"
@@ -42,7 +42,7 @@ export default function Tattooartists({locale}) {
           content="Tattoo artist software, Tattoo studio management tool, Tattoo business management, Tattoo shop software, Artist scheduling tool, Ink business management, Tattoo artist productivity, Tattoo parlor software, Tattoo shop organization, Ink studio software"
         />
       </Head>
-    
+
 
 
       <main>
@@ -54,39 +54,39 @@ export default function Tattooartists({locale}) {
                   <div className={styles.banner_inner}>
 
 
-                  <Image
-                    src="/iStock-1367127235.jpg"
-                    alt="Boost your business with inckd"
-                  fill
-                  blurDataURL={blurDataURL}
-                  placeholder="blur"
-                  priority
-                  objectFit="cover"
-                  className="mob_hidden"
-                />
+                    <Image
+                      src="/iStock-1367127235.jpg"
+                      alt="Boost your business with inckd"
+                      fill
+                      blurDataURL={blurDataURL}
+                      placeholder="blur"
+                      priority
+                      objectFit="cover"
+                      className="mob_hidden"
+                    />
 
-              <Image
+                    <Image
                       src="/iStock-1367127235-mob.jpg"
                       alt="Boost your business with inckd"
-                  fill
-                  blurDataURL={blurDataURL}
-                  placeholder="blur"
-                  priority
-                  objectFit="cover"
-                  className="desk_hidden"
-                /> 
-               </div>
+                      fill
+                      blurDataURL={blurDataURL}
+                      placeholder="blur"
+                      priority
+                      objectFit="cover"
+                      className="desk_hidden"
+                    />
+                  </div>
                 </div>
                 <div className={styles.banner_content}>
                   <div className={styles.banner_content_wrap}>
                     <div className={styles.banner_caption}>
                       <h1 class="color_white m_auto mxw_720 m_mxw_280">
                         <span>
-                        {t("common:forArtistPage.bannerContent1")}
+                          {t("common:forArtistPage.bannerContent1")}
                         </span>
                       </h1>
                       <p className="m_m_auto m_mxw_305">
-                      {t("common:forArtistPage.bannerContent2")}
+                        {t("common:forArtistPage.bannerContent2")}
                       </p>
                     </div>
                     <ul className={styles.download_app}>
@@ -109,13 +109,13 @@ export default function Tattooartists({locale}) {
                         <li className={styles.list_inline_item}>
                           <img src="/hourglass-icon.svg" alt="Easy setup" />
                           <span>
-                          {t("common:forArtistPage.easySetup")}
+                            {t("common:forArtistPage.easySetup")}
                           </span>
                         </li>
                         <li className={styles.list_inline_item}>
                           <img src="/heart-icon.svg" alt="Free to use" />
                           <span>
-                          {t("common:forArtistPage.free-to-use")}
+                            {t("common:forArtistPage.free-to-use")}
                           </span>
                         </li>
                         <li className={styles.list_inline_item}>
@@ -166,7 +166,7 @@ export default function Tattooartists({locale}) {
                     </div>
                     <div className="img_box_wrap block_bg_orange justify_content_center">
 
-                  {/* <Image
+                      {/* <Image
                      priority
                      src="/mockup-iPhone-business.png"
                      alt="Manage your business"
@@ -178,13 +178,17 @@ export default function Tattooartists({locale}) {
 
   layout="responsive"
     />   */}
-
-
-                  <img
-                         src="/mockup-iPhone-business.png"
+                      <Image
+                        priority
                         alt="Manage your business"
-                        className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow"
-                      />    
+                        src="/mockup-iPhone-business.png"
+                        fill
+                        objectFit="contain"
+                        objectPosition="bottom"
+                        blurDataURL={blurDataURL}
+                        className="img_box_shadow"
+                        placeholder="blur"
+                      />
                     </div>
                   </div>
                 </div>
@@ -194,19 +198,17 @@ export default function Tattooartists({locale}) {
                     <div className="img_box_wrap block_bg_yellow justify_content_center">
 
 
-                    <Image
-                     priority
-                     src="/mockup-iPhone-artist-profile.png"
-                     alt="Your tattoo business ally"
-                     width={100}
-                     height={100}
-    layout="responsive"
-    placeholder="blur"
-    blurDataURL={blurDataURL}
-    className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow"
-    />
-
-
+                      <Image
+                        priority
+                        src="/mockup-iPhone-artist-profile.png"
+                        alt="Your tattoo business ally"
+                        fill
+                        objectFit="contain"
+                        objectPosition="bottom"
+                        blurDataURL={blurDataURL}
+                        className="img_box_shadow"
+                        placeholder="blur"
+                      />
                       {/* <img
                         src="/mockup-iPhone-artist-profile.png"
                         alt="Your tattoo business ally"
@@ -217,13 +219,13 @@ export default function Tattooartists({locale}) {
                       <div className="text_box_content_inner pr_40 m_pr_0">
                         <h2 className="d_max_320 m_max_270">{t("common:forArtistPage.your-tattoo-business")}</h2>
                         <p className="custom_fs_20 custom_fs_m_16">
-                         {t("common:forArtistPage.content1")}  
+                          {t("common:forArtistPage.content1")}
                         </p>
                         <Link
                           href={"/joinartist"}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
-                      {t("common:forArtistPage.button")}
+                          {t("common:forArtistPage.button")}
                         </Link>
                       </div>
                     </div>
@@ -236,13 +238,13 @@ export default function Tattooartists({locale}) {
                       <div className="text_box_content_inner m_pr_0">
                         <h2 className="d_max_320 m_max_270">{t("common:forArtistPage.title2")}</h2>
                         <p className="custom_fs_20 custom_fs_m_16">
-                        {t("common:forArtistPage.content2")}
+                          {t("common:forArtistPage.content2")}
                         </p>
                         <Link
                           href={"/joinartist"}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
-                     {t("common:forArtistPage.button")}  
+                          {t("common:forArtistPage.button")}
                         </Link>
                       </div>
                     </div>
@@ -250,18 +252,17 @@ export default function Tattooartists({locale}) {
 
 
 
-                    <Image
-                     priority
-                     src="/mockup-iPhone-loop.png"
+                      <Image
+                        priority
+                        src="/mockup-iPhone-loop.png"
                         alt="Keep clients in the Loop"
-                     width={100}
-                     height={100}
-    layout="responsive"
-    placeholder="blur"
-    blurDataURL={blurDataURL}
-    className="w_auto max_w_100pc object_fit_contain object_position"
-    />
-{/* 
+                        fill
+                        objectFit="contain"
+                        objectPosition="bottom"
+                        blurDataURL={blurDataURL}
+                        placeholder="blur"
+                      />
+                      {/* 
                       <img
                         src="/mockup-iPhone-loop.png"
                         alt="Keep clients in the Loop"
@@ -276,13 +277,13 @@ export default function Tattooartists({locale}) {
                     <div className="justify_content_start container w_100pc">
                       <div className="text_box_content_inner m_pr_0">
                         <h3 className="m_m_auto m_mxw_280">
-                        {t("common:forArtistPage.title3")}
+                          {t("common:forArtistPage.title3")}
                         </h3>
                         <Link
                           href={"/joinartist"}
                           className="btn_secondary btn_cutom_new bdr_rad_4"
                         >
-                  {t("common:forArtistPage.button")}  
+                          {t("common:forArtistPage.button")}
                         </Link>
                       </div>
                     </div>
@@ -293,19 +294,19 @@ export default function Tattooartists({locale}) {
                   <div className="img_text_box_inner">
                     <div className="img_box_wrap block_bg_aero_blue justify_content_center">
 
-                    <Image
-                     priority
-                     alt="Your booking buddy"
-                     src="/mockup-iPhone-booking.png"
-                     width={100}
-                     height={100}
-    layout="responsive"
-    placeholder="blur"
-    blurDataURL={blurDataURL}
-    className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow"
-    />
+                      <Image
+                        priority
+                        alt="Your booking buddy"
+                        src="/mockup-iPhone-booking.png"
+                        fill
+                        objectFit="contain"
+                        objectPosition="bottom"
+                        blurDataURL={blurDataURL}
+                        className="img_box_shadow"
+                        placeholder="blur"
+                      />
 
-{/* 
+                      {/* 
                       <img
                         src="/mockup-iPhone-booking.png"
                         alt="Your booking buddy"
@@ -316,7 +317,7 @@ export default function Tattooartists({locale}) {
                       <div className="text_box_content_inner pr_40 m_pr_0">
                         <h2 className="d_max_320 m_max_270">{t("common:forArtistPage.title4")}</h2>
                         <p className="custom_fs_20 custom_fs_m_16">
-                        {t("common:forArtistPage.content4")}
+                          {t("common:forArtistPage.content4")}
                         </p>
                         <Link
                           href={"/joinartist"}
@@ -335,29 +336,29 @@ export default function Tattooartists({locale}) {
                       <div className="text_box_content_inner m_pr_0">
                         <h2 className="d_max_320 m_max_270">{t("common:forArtistPage.title5")}</h2>
                         <p className="custom_fs_20 custom_fs_m_16">
-                        {t("common:forArtistPage.content5")}
+                          {t("common:forArtistPage.content5")}
                         </p>
                         <Link
                           href={"/joinartist"}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
-                           {t("common:forArtistPage.button")}
+                          {t("common:forArtistPage.button")}
                         </Link>
                       </div>
                     </div>
                     <div className="img_box_wrap block_bg_green_100 justify_content_center">
 
-                    <Image
-                     priority
-                     alt="Manage Payments"
-                     src="/mockup-iPhone-payment.png"
-                     width={100}
-                     height={100}
-    layout="responsive"
-    placeholder="blur"
-    blurDataURL={blurDataURL}
-    className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow"
-    />
+                      <Image
+                        priority
+                        alt="Manage Payments"
+                        src="/mockup-iPhone-payment.png"
+                        fill
+                        objectFit="contain"
+                        objectPosition="bottom"
+                        blurDataURL={blurDataURL}
+                        className="img_box_shadow"
+                        placeholder="blur"
+                      />
 
 
                       {/* <img
@@ -374,22 +375,22 @@ export default function Tattooartists({locale}) {
                     <div className="img_box_wrap block_bg_aero_blue_lite justify_content_center">
 
 
-                    <Image
-                     priority
-                     alt="Manage your Studios"
-                     src="/mockup-iPhone-studio-features.png"
-                     width={100}
-                     height={100}
-                     placeholder="blur"
-                     blurDataURL={blurDataURL}
-                     layout="responsive"
-                     className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow"
- 
-      style={{
-        margin : "0 auto"
-      }}
-   
-    />
+                      <Image
+                        priority
+                        alt="Manage your Studios"
+                        src="/mockup-iPhone-studio-features.png"
+                        fill
+                        objectFit="contain"
+                        objectPosition="bottom"
+                        blurDataURL={blurDataURL}
+                        className="img_box_shadow"
+                        placeholder="blur"
+
+                        style={{
+                          margin: "0 auto"
+                        }}
+
+                      />
                       {/* <img
                         src="/mockup-iPhone-studio-features.png"
                         alt="Manage your Studios"
@@ -403,14 +404,14 @@ export default function Tattooartists({locale}) {
                       <div className="text_box_content_inner pr_40 m_pr_0">
                         <h2 className="d_max_320 m_max_270">{t("common:forArtistPage.title6")}</h2>
                         <p className="custom_fs_20 custom_fs_m_16">
-                        {t("common:forArtistPage.content6")}
+                          {t("common:forArtistPage.content6")}
                         </p>
                         <Link
                           href={"/joinartist"}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
                           {t("common:forArtistPage.button")}
-                      
+
                         </Link>
                       </div>
                     </div>
@@ -422,8 +423,8 @@ export default function Tattooartists({locale}) {
                     <div className="justify_content_start container w_100pc ">
                       <div className="text_box_content_inner m_pr_0 pb_20 m_pb_40">
                         <h3 className="mb_0">
-                       <span>{t("common:explore")}</span>
-                       <span className="textBlock">{t("common:featuresApp")}</span>
+                          <span>{t("common:explore")}</span>
+                          <span className="textBlock">{t("common:featuresApp")}</span>
                         </h3>
                       </div>
                     </div>
@@ -443,8 +444,8 @@ export default function Tattooartists({locale}) {
 export async function getServerSideProps(context) {
   const { props } = await getLocaleProps(context);
   return {
-    props:{
-      locale:props.locale
+    props: {
+      locale: props.locale
     }
   };
 }
