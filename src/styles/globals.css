@@ -4055,7 +4055,7 @@ li {
   .m_w_4vw {
     width: calc(100% - 4vw)!important
   }   
-
+  
   .header_cookie_desktop {
     display: none;
   }

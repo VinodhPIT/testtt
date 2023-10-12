@@ -165,19 +165,7 @@ export default function Tattooartists({ locale }) {
                       </div>
                     </div>
                     <div className="img_box_wrap block_bg_orange justify_content_center">
-
-                      {/* <Image
-                     priority
-                     src="/mockup-iPhone-business.png"
-                     alt="Manage your business"
-                     width={720}
-                     height={700}
- 
-    placeholder="blur"
-    blurDataURL={blurDataURL}
-
-  layout="responsive"
-    />   */}
+                  
                       <Image
                         priority
                         alt="Manage your business"
@@ -209,11 +197,7 @@ export default function Tattooartists({ locale }) {
                         className="img_box_shadow m_m_l_4vw m_w_4vw"
                         placeholder="blur"
                       />
-                      {/* <img
-                        src="/mockup-iPhone-artist-profile.png"
-                        alt="Your tattoo business ally"
-                        className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow"
-                      /> */}
+                      
                     </div>
                     <div className="text_box_content justify_content_start">
                       <div className="text_box_content_inner pr_40 m_pr_0">
@@ -263,12 +247,7 @@ export default function Tattooartists({ locale }) {
                         blurDataURL={blurDataURL}
                         placeholder="blur"
                       />
-                      {/* 
-                      <img
-                        src="/mockup-iPhone-loop.png"
-                        alt="Keep clients in the Loop"
-                        className="w_auto max_w_100pc object_fit_contain object_position"
-                      /> */}
+                     
                     </div>
                   </div>
                 </div>
@@ -307,12 +286,7 @@ export default function Tattooartists({ locale }) {
                         placeholder="blur"
                       />
 
-                      {/* 
-                      <img
-                        src="/mockup-iPhone-booking.png"
-                        alt="Your booking buddy"
-                        className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow"
-                      /> */}
+                    
                     </div>
                     <div className="text_box_content justify_content_start">
                       <div className="text_box_content_inner pr_40 m_pr_0">
@@ -360,13 +334,7 @@ export default function Tattooartists({ locale }) {
                         className="img_box_shadow m_m_r_4vw m_w_4vw"
                         placeholder="blur"
                       />
-
-
-                      {/* <img
-                        src="/mockup-iPhone-payment.png"
-                        alt="Manage Payments"
-                        className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow img_box_shadow"
-                      /> */}
+                      
                     </div>
                   </div>
                 </div>
@@ -391,13 +359,7 @@ export default function Tattooartists({ locale }) {
                           margin: "0 auto"
                         }}
 
-                      />
-                      {/* <img
-                        src="/mockup-iPhone-studio-features.png"
-                        alt="Manage your Studios"
-                        className="w_auto max_w_100pc object_fit_contain object_position img_box_shadow"
-                      /> */}
-
+                      />                    
 
 
                     </div>
