@@ -21,7 +21,7 @@ const ImageSlider = ({
       infinite: false,
       speed: 200,
       slidesToShow: 1.5,
-      slidesToScroll: 1.5,
+      slidesToScroll: 1,
     };
   }
 
