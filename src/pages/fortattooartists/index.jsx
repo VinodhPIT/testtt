@@ -186,7 +186,7 @@ export default function Tattooartists({ locale }) {
                         objectFit="contain"
                         objectPosition="bottom"
                         blurDataURL={blurDataURL}
-                        className="img_box_shadow"
+                        className="img_box_shadow m_m_r_4vw m_w_4vw"
                         placeholder="blur"
                       />
                     </div>
@@ -206,7 +206,7 @@ export default function Tattooartists({ locale }) {
                         objectFit="contain"
                         objectPosition="bottom"
                         blurDataURL={blurDataURL}
-                        className="img_box_shadow"
+                        className="img_box_shadow m_m_l_4vw m_w_4vw"
                         placeholder="blur"
                       />
                       {/* <img
@@ -259,6 +259,7 @@ export default function Tattooartists({ locale }) {
                         fill
                         objectFit="contain"
                         objectPosition="bottom"
+                        className="m_m_r_4vw m_w_4vw"
                         blurDataURL={blurDataURL}
                         placeholder="blur"
                       />
@@ -302,7 +303,7 @@ export default function Tattooartists({ locale }) {
                         objectFit="contain"
                         objectPosition="bottom"
                         blurDataURL={blurDataURL}
-                        className="img_box_shadow"
+                        className="img_box_shadow m_m_l_4vw m_w_4vw"
                         placeholder="blur"
                       />
 
@@ -356,7 +357,7 @@ export default function Tattooartists({ locale }) {
                         objectFit="contain"
                         objectPosition="bottom"
                         blurDataURL={blurDataURL}
-                        className="img_box_shadow"
+                        className="img_box_shadow m_m_r_4vw m_w_4vw"
                         placeholder="blur"
                       />
 
@@ -383,7 +384,7 @@ export default function Tattooartists({ locale }) {
                         objectFit="contain"
                         objectPosition="bottom"
                         blurDataURL={blurDataURL}
-                        className="img_box_shadow"
+                        className="img_box_shadow m_m_l_4vw m_w_4vw"
                         placeholder="blur"
 
                         style={{
