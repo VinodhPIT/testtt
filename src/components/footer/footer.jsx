@@ -84,6 +84,12 @@ export default function Footer() {
       title: t("common:menus.faq"),
       url: "/faq",
     },
+
+    {
+      id: 3,
+      title: t("common:menus.privacypolicy"),
+      url: "/privacypolicy",
+    },
   ];
 
 

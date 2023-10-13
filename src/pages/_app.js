@@ -47,6 +47,7 @@ function MyApp({ Component, pageProps }) {
   
 
       case "/faq":
+        case "/privacypolicy":
         return (
           <Header
             logo={"/Inckd-logo-footer-black.svg"}
