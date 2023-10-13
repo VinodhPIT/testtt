@@ -45,9 +45,9 @@ export default function Artist({ data }) {
                           <Image
                               priority={true}
                               src={item._source.image_url}
-                              layout="fill"
-                              alt={item._source.first_name}
-                              objectFit="cover"
+                              width={30}
+                              height={30}              
+                              alt={item._source.first_name}                             
                               placeholder="blur"
                               blurDataURL={blurDataURL}
                             />
@@ -55,11 +55,11 @@ export default function Artist({ data }) {
                           <div className={styles.grid_profile_details}>
                             <h6 className={styles.grid_profile_title}>{item._source.first_name} {item._source.last_name}  </h6>
                             <span className={styles.grid_profile_address}>{item._source.locations[0].city}, {item._source.locations[0].country} </span>
-                            <div className={styles.grid_profile_link}>
+                            {/* <div className={styles.grid_profile_link}>
                             <Link href={`/artist/${item._source.slug}`} >
                                 <span>Check profile</span>
                               </Link>
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                     </div> 
