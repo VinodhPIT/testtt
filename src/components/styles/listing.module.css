@@ -245,7 +245,7 @@
 
 .listing_gridItem {
   position: relative;
-  height: 285px;
+  /*height: 285px;*/
 }
 
 .grid_item_block {
@@ -267,6 +267,7 @@
   flex-flow: wrap;
   width: 100%;
   justify-content: center;
+  height: 100%;
 }
 .grid_img_col {
   flex-basis: 100%;
@@ -274,7 +275,7 @@
   max-width: 100%;
   position: relative;
   min-height: 230px;
-  max-height: 230px;
+  /*max-height: 230px;*/
 }
 
 .grid_img_col img {
