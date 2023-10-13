@@ -332,11 +332,9 @@
   font-size: 14px;
   font-weight: 400;
   color: var(--black);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   display: block;
   max-width: 100%;
+  word-break: break-word;
 }
 
 .grid_profile_address {
@@ -490,11 +488,11 @@
 
   /* tattoo */
   .listing_gridItem {
-    height: 242px;
+    height: inherit;
   }      
   .grid_img_col {
     min-height: 187px;
-    max-height: 187px;
+    max-height: inherit;
   }  
   
   .grid_profile_link {
@@ -508,6 +506,9 @@
   /* */
   .grid_wrapper_tattoo .listing_gridItem {
     height: 187px;
+  }
+  .grid_img_bg {
+    height: 100%;
   }
 
 }
