@@ -245,19 +245,16 @@
 
 .listing_gridItem {
   position: relative;
-  height: 256px;
+  /*height: 285px;*/
 }
 
 .grid_item_block {
-  overflow: hidden;
   padding: 0;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   height: 100%;
-  max-height: 256px;
   width: 100%;
-  border-radius: 16px 16px 0 0;
 }
 
 .grid_img_wrap {
@@ -270,17 +267,15 @@
   flex-flow: wrap;
   width: 100%;
   justify-content: center;
-
+  height: 100%;
 }
-
 .grid_img_col {
   flex-basis: 100%;
-  -webkit-box-flex: 0;
   flex-grow: 0;
   max-width: 100%;
   position: relative;
-  min-height: 158px;
-  max-height: 158px;
+  min-height: 230px;
+  /*max-height: 230px;*/
 }
 
 .grid_img_col img {
@@ -293,30 +288,28 @@
 }
 
 .grid_content_wrap {
-  border-radius: 16px;
-  background-color: var(--gray-light-150);
   margin-top: 0px;
-  bottom: 0;
-  position: absolute;
   width: 100%;
+  display: flex;
+  padding: 8px 8px;
+  align-items: center;
+  border: 1px solid #E1E4E8;
+  border-top: 0;
+  background: #FFF;
 }
 
 .grid_img_profile {
-  width: 64px;
-  height: 64px;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  margin: 0 auto;
-  top: -32px;
-  background: var(--white);
-  padding: 2px;
-  border-radius: 50%;
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  min-height: 30px;
+  margin: 0 8px 0 0;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 66.49px;
-  border: 2.506px solid var(--white);
+  border-radius: 50%;
+  border: 0;
   background: lightgray -10.896px 2.989px / 133.789% 89.193% no-repeat;
 }
 
@@ -330,35 +323,28 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 47px 23px 13px 23px;
+  align-items: self-start;
+  padding: 0;
 }
 
 .grid_profile_details h6.grid_profile_title {
   margin: 0;
-  padding-bottom: 2px;
-  line-height: 30px;
-  font-size: 20px;
+  line-height: 21px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--black);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   display: block;
   max-width: 100%;
-  -webkit-box-align: center;
+  word-break: break-word;
 }
 
 .grid_profile_address {
   margin: 0px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 19px;
   color: var(--gray-400);
-  /*white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;*/
-  text-align: center;
+  text-align: left;
 }
 
 .grid_profile_link {
@@ -489,6 +475,11 @@
     font-size: 22px;
     line-height: 27px;
   }
+  .grid_wrapper {
+    margin-right: -15px;
+    margin-left: -15px;
+    width: calc(100% + 30px);
+  }
   .grid_wrapper_tattoo {
     float: left;
     margin-right: -15px;
@@ -498,35 +489,13 @@
 
   /* tattoo */
   .listing_gridItem {
-    height: 192px;
-  }    
-  .grid_item_block {
-    max-height: 192px;
-    border-radius: 12px 12px 0 0;
-  }
+    height: inherit;
+  }      
   .grid_img_col {
-    min-height: 119px;
-    max-height: 119px;
-  }
-  .grid_content_wrap {
-    border-radius: 12px;    
-  }
-  .grid_img_profile {
-    width: 50px;
-    height: 50px;
-    top: -25px;
-  }
-  .grid_profile_details {
-    padding: 34px 17px 10px 17px;
-  }
-  .grid_profile_details h6.grid_profile_title {
-    line-height: 24px;
-    font-size: 16px;
-  }
-  .grid_profile_address {
-    font-size: 12px;
-    line-height: 18px;
-  }
+    min-height: 187px;
+    max-height: inherit;
+  }  
+  
   .grid_profile_link {
     margin-top: 5px;
     padding-top: 5px;
@@ -538,6 +507,9 @@
   /* */
   .grid_wrapper_tattoo .listing_gridItem {
     height: 187px;
+  }
+  .grid_img_bg {
+    height: 100%;
   }
 
 }
