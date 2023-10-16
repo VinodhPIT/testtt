@@ -23,7 +23,7 @@ export default function Artist({ data }) {
             return item._index === "ad" ? (
              null
             ) : (
-                <Link href={`/artist/${item._source.slug}`} className={styles.listing_gridItem } key={key}>                   
+                <Link href={`/artists/${item._source.slug}`} className={styles.listing_gridItem } key={key}>                   
                     <div className={styles.grid_item_block}>
                       <div className={styles.grid_img_wrap}>
                         <div className={styles.grid_img_bg}>
