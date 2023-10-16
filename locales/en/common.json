@@ -67,14 +67,11 @@
   "enterLocation":"Enter Location",
   "loadMore":"LOAD MORE",
 
-
-
-
   "tabs": {
     "all": "All",
     "tattoo": "Tattoo",
     "flash": "Flash",
-    "artist": "Artist",
+    "artist": "Artists",
     "info": "Information",
     "tattooLovers":"TattooLovers",
     "general":"General"
