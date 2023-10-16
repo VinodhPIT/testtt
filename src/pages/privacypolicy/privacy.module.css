@@ -22,7 +22,7 @@
   margin: 32px 0px 16px 0px;
 }
 
-.listing {
+.listing > li {
   list-style-type: unset !important;
   margin-bottom: 6px;
   font-size: 18px;
