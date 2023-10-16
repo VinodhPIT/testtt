@@ -16,13 +16,24 @@ export const searchParam = (parameters) => {
     paginator_count: parameters.category === "all" ? 10 : 24,
     search_key: parameters.search_key,
   };
-
   if (parameters.latitude && parameters.category == "artist") {
     request.longitude = parameters.longitude;
     request.latitude = parameters.latitude;
   }
-  request.style = parameters.style ? [parameters.style] : [];
-
+  if (parameters.style) {
+    // Check if parameters.style is a string
+    if (typeof parameters.style === "string") {
+      // Split the string by commas and convert to an array
+      request.style = parameters.style.split(',').map(item => item.trim());
+    } else if (Array.isArray(parameters.style)) {
+      // If parameters.style is already an array, use it as is
+      request.style = parameters.style;
+    } else {
+      request.style = [];
+    }
+  } else {
+    request.style = [];
+  }
   return request;
 };
 

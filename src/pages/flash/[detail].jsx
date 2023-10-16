@@ -17,6 +17,8 @@ import { useRouter } from "next/router";
 import TattooSearchModalPopup from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
+import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
+
 
 export default function Detail({ data, status, locale }) {
   const router = useRouter();
@@ -65,10 +67,6 @@ export default function Detail({ data, status, locale }) {
     return null;
   }
 
-  const searchStyle = (searchStyle) => {
-    router.push(`/search?term=${""}&category=${"flash"}&style=${searchStyle}`);
-  };
-
  
   return (
     <>
@@ -97,26 +95,16 @@ export default function Detail({ data, status, locale }) {
                 </div>
               </div>
 
-              <div className={style.main_wrap}>
-                <div className={style.wrapper_filter}>
-                  <img
-                    src="/setting_tuning.svg"
-                    alt="location"
-                    className={style.filter_icon}
-                  />
-                  <select
-                    onChange={(event) => searchStyle(event.target.value)}
-                    value={state.selectedStyle}
-                  >
-                    <option value="0">Choose Style</option>
-                    {state.styleCollection.map((el) => (
-                      <option key={el._id} value={el._id}>
-                        {el.sort[0]}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+              <SelectDropdown
+                searchKey={""}
+                currentTab={"flash"}
+                selectedStyle={""}
+                lat={""}
+                lon={""}
+                router={router}
+                isDetail={true}
+              />
+
             </div>
 
             <div className={styles.product_detail_wrap}>

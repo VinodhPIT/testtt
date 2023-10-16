@@ -10,7 +10,8 @@
     "faq": "FAQ",
     "artistSearch": "Artist search",
     "flashSearch": "Flash search",
-    "search":"Search"
+    "search":"Search",
+    "privacypolicy":"Privacy Policy"
     
   },
   "downloadOurApp":"Download our app from",
@@ -67,11 +68,14 @@
   "enterLocation":"Enter Location",
   "loadMore":"LOAD MORE",
 
+
+
+
   "tabs": {
     "all": "All",
     "tattoo": "Tattoo",
     "flash": "Flash",
-    "artist": "Artists",
+    "artist": "Artist",
     "info": "Information",
     "tattooLovers":"TattooLovers",
     "general":"General"

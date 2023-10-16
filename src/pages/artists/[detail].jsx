@@ -6,13 +6,16 @@ import { useRouter } from "next/router";
 import { fetchArtistDetail, artistGallery } from "@/action/action";
 import { blurDataURL } from "@/constants/constants";
 import SearchField from "@/components/tattooSearch/tattooSearch";
-import Autocomplete from "react-google-autocomplete";
+ 
 import style from "@/pages/search/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import { renderArtistGallery } from "@/components/customTabs/tab";
 import TattooSearchModalPopup from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
+import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
+
+
 
 export default function Detail({ data, locale }) {
   const { isPopupOpen, openPopup, closePopup } = useModal();
@@ -90,19 +93,7 @@ export default function Detail({ data, locale }) {
     }
   }, [data]);
 
-  const handlePlaceSelected = async (place) => {
-    const { lat, lng } = place.geometry.location;
-    const latitude = lat();
-    const longitude = lng();
 
-    router.push(
-      `/search?term=${""}&category=${"artist"}&lat=${latitude}&lon=${longitude}`
-    );
-  };
-
-  const searchStyle = (searchStyle) => {
-    router.push(`/search?term=${""}&category=${"artist"}&style=${searchStyle}`);
-  };
 
   return (
     <>
@@ -132,38 +123,18 @@ export default function Detail({ data, locale }) {
                 </div>
               </div>
 
-              <div className={style.main_wrap}>
-                <div className={style.wrapper_block}>
-                  <img
-                    src="/location-small.svg"
-                    alt="location"
-                    className={style.location_icon}
-                  />
-                  <Autocomplete
-                    apiKey={process.env.googlePlacesApiKey}
-                    onPlaceSelected={handlePlaceSelected}
-                  />
-                </div>
+              
+              <SelectDropdown
+                searchKey={""}
+                currentTab={"artist"}
+                selectedStyle={""}
+                lat={""}
+                lon={""}
+                router={router}
+                isDetail={true}
+              />
+            
 
-                <div className={style.wrapper_filter}>
-                  <img
-                    src="/setting_tuning.svg"
-                    alt="location"
-                    className={style.filter_icon}
-                  />
-                  <select
-                    onChange={(event) => searchStyle(event.target.value)}
-                    value={state.selectedStyle}
-                  >
-                    <option value="0">Choose Style</option>
-                    {state.styleCollection.map((el) => (
-                      <option key={el._id} value={el._id}>
-                        {el.sort[0]}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
             </div>
 
             <div className={styles.search_profile_block}>

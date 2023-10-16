@@ -155,7 +155,7 @@ function SearchBar({ isPage  ,currentTab}) {
             onFocus={() =>
               setSearchState((prevSearchState) => ({
                 ...prevSearchState,
-                // showDropdown: true,
+                //  showDropdown: true,
               }))
             }
             value={searchState.query}

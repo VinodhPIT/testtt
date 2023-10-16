@@ -1,10 +1,9 @@
-// GlobalState.js
+
 import React, { createContext, useReducer, useContext } from "react";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { Parameters } from "@/components/parameters/params";
-
-
 const initialState = {
+  address:"Location",
   categoryCollection: [],
   currentTab: "",
   isTriggered: false,
@@ -20,24 +19,45 @@ const initialState = {
   latitude: "",
   longitude: "",
   searchData: [],
-
   toggle: false,
-  locale:"EN",
+  locale: "EN",
+  isLoad: false,
+  styleCount:"0"
 };
 
 const reducer = (state, action) => {
-  let data, currentTab, totalItems, searchKey, selectedStyle, pageNo, lat, lon ,locale;
+  let data,
+    currentTab,
+    totalItems,
+    searchKey,
+    selectedStyle,
+    pageNo,
+    lat,
+    lon,
+    locale;
 
   switch (action.type) {
 
 
+    case "GET_IDS":
+      return {
+        ...state,
+        styleCount: action.payload,
+      };
+  
+    case "GET_ADDRESS":
+      return {
+        ...state,
+        address: action.payload,
+      };
+
+
+
     case "GET_LOCALE":
-    
       return {
         ...state,
         locale: action.payload.locale,
       };
-
 
     case "IS_LOADING":
       return {
@@ -54,7 +74,8 @@ const reducer = (state, action) => {
         searchKey,
         selectedStyle,
         lat,
-        lon,locale
+        lon,
+        locale,
       } = action.payload);
 
       return {
@@ -68,18 +89,13 @@ const reducer = (state, action) => {
         selectedStyle,
         latitude: lat,
         longitude: lon,
-        locale
+        locale,
       };
-      
-
-
- 
 
     case "COUNT":
       const pageNo = action.payload;
       return { ...state, pageNo };
 
-    
     case "LOAD_MORE":
       return {
         ...state,
@@ -88,8 +104,6 @@ const reducer = (state, action) => {
             ? [...state.categoryCollection, ...action.payload.data]
             : [...state.categoryCollection, ...action.payload.rows.hits],
       };
-
-   
 
     // case "GET_HINTS":
     //   return {
@@ -101,31 +115,32 @@ const reducer = (state, action) => {
     //     errorMessage: state.hints.length === 0 ? true : false,
     //   };
 
-    case "SEARCH_QUERY":
-      return {
-        ...state,
-        searchKey: action.payload,
-        loading: false,
-      };
+    // case "SEARCH_QUERY":
+    //   return {
+    //     ...state,
+    //     searchKey: action.payload,
+    //     loading: false,
+    //   };
 
-    case "SEARCH_DATA":
-      return {
-        ...state,
-        categoryCollection:
-          state.currentTab === "all" || state.currentTab === ""
-            ? action.payload.data
-            : action.payload.rows.hits,
-        totalItems:
-          state.currentTab === "all" || state.currentTab === ""
-            ? action.payload.data.totalCount
-            : action.payload.rows.total.value,
-        pageNo: 0,
-      };
+    // case "SEARCH_DATA":
+    //   return {
+    //     ...state,
+    //     categoryCollection:
+    //       state.currentTab === "all" || state.currentTab === ""
+    //         ? action.payload.data
+    //         : action.payload.rows.hits,
+    //     totalItems:
+    //       state.currentTab === "all" || state.currentTab === ""
+    //         ? action.payload.data.totalCount
+    //         : action.payload.rows.total.value,
+    //     pageNo: 0,
+    //   };
 
     case "STYLE_COLLECTION":
       return {
         ...state,
         styleCollection: action.payload,
+        isLoad: false,
       };
 
     default:
@@ -141,20 +156,32 @@ export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
 
+  const   getStyleCount = async (payload) => {
+    try {
+      dispatch({ type: "GET_IDS", payload: payload });
+    } catch (error) {}
+  };
+
+
+
+  const getAddress = async (payload) => {
+    try {
+      dispatch({ type: "GET_ADDRESS", payload: payload });
+    } catch (error) {}
+  };
+
+
   const getLocale = async (payload) => {
     try {
       dispatch({ type: "GET_LOCALE", payload: payload });
     } catch (error) {}
   };
 
-
-
   const fetchServerlData = async (payload) => {
     try {
       dispatch({ type: "INITIAL_SERVER_DATA", payload: payload });
     } catch (error) {}
   };
-
 
   const loadMore = async () => {
     const updatedPageNo = state.pageNo + 1;
@@ -166,11 +193,8 @@ export const GlobalStateProvider = ({ children }) => {
         page_no: updatedPageNo,
         style: state.selectedStyle,
         search_key: state.searchKey,
-        latitude:state.latitude,
-        longitude:state.longitude
-
-
-
+        latitude: state.latitude,
+        longitude: state.longitude,
       };
       let responseData;
       if (state.currentTab === "all") {
@@ -199,38 +223,32 @@ export const GlobalStateProvider = ({ children }) => {
   //   } catch (error) {}
   // };
 
+  // const searchData = async (payload, router, load) => {
+  //   dispatch({ type: "IS_LOADING", payload: load });
 
+  //   let url = `/search?term=${payload}&category=${state.currentTab}`;
+  //   if (state.selectedStyle !== "") {
+  //     url += `&style=${state.selectedStyle}`;
+  //   }
+  //   router.push(url);
 
-  const searchData = async (payload, router, load) => {
-    dispatch({ type: "IS_LOADING", payload: load });
+  //   dispatch({ type: "SEARCH_QUERY", payload });
+  //   try {
+  //     const requestData = {
+  //       ...Parameters,
+  //       category: state.currentTab,
+  //       search_key: payload,
+  //     };
 
-    let url = `/search?term=${payload}&category=${state.currentTab}`;
-    if (state.selectedStyle !== "") {
-      url += `&style=${state.selectedStyle}`;
-    }
-    router.push(url);
-
-    dispatch({ type: "SEARCH_QUERY", payload });
-    try {
-      const requestData = {
-        ...Parameters,
-        category: state.currentTab,
-        search_key: payload,
-      };
-
-      let responseData;
-      if (state.currentTab === "all" || state.currentTab == "") {
-        responseData = await fetchMultiData(requestData);
-      } else {
-        responseData = await fetchCategoryData(requestData);
-      }
-      dispatch({ type: "SEARCH_DATA", payload: responseData });
-    } catch (error) {}
-  };
-
-
-
-
+  //     let responseData;
+  //     if (state.currentTab === "all" || state.currentTab == "") {
+  //       responseData = await fetchMultiData(requestData);
+  //     } else {
+  //       responseData = await fetchCategoryData(requestData);
+  //     }
+  //     dispatch({ type: "SEARCH_DATA", payload: responseData });
+  //   } catch (error) {}
+  // };
 
   const styleCollection = async () => {
     try {
@@ -244,15 +262,13 @@ export const GlobalStateProvider = ({ children }) => {
       value={{
         state,
         fetchServerlData,
-      
         loadMore,
-  
-        searchData,
         getLocale,
-        styleCollection,
+        styleCollection,getAddress, getStyleCount
       }}
     >
       {children}
     </GlobalStateContext.Provider>
   );
 };
+

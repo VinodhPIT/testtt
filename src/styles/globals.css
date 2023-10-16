@@ -88,6 +88,7 @@ body.theme-dark {
   background-color: var(--black-150);
 }
 
+
 .container {
   max-width: 100%;
   padding-right: 15px;
@@ -95,6 +96,23 @@ body.theme-dark {
   margin-right: auto;
   margin-left: auto;
 }
+button {
+  border: 0;
+  background: transparent;
+}
+.onActive {
+  border: 1px solid #000 !important;
+}
+button:disabled {
+  opacity: 0.5; /* Adjust the opacity value as needed */
+}
+#__react-alert__{
+  font-size: 14px!important;
+}
+#__react-alert__ span{
+  text-transform: none!important;
+}
+
 
 .textBlock{
   display: block;
@@ -3338,6 +3356,9 @@ li {
 
 /* responsive */
 @media screen and (max-width: 767.98px) {
+  .toggleModel{overflow:hidden;}
+
+    
 
   .block_bg_pink_mob
   {
