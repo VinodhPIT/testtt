@@ -25,7 +25,6 @@
 .menuList li a {
     font-size: 40px;
     line-height: 40px;
-    letter-spacing: -1.6px;
     color: #000;
     font-weight: 600;
 }
@@ -55,7 +54,6 @@
     .menuList li a {
         font-size: 24px;
         line-height: 24px;
-        letter-spacing: -0.96px;
     }    
    
 
