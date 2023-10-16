@@ -9,6 +9,7 @@ import LocationSearch from "@/components/filterByLocation/location";
 import { useGlobalState } from "@/context/Context";
 import { formatText } from '@/utils/textUtils';
 import { useRouter } from 'next/router';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 export default function SelectDropdown({
   searchKey,
@@ -88,13 +89,19 @@ const routers = useRouter()
 
                 
               </button>
-
-              {toggleLocation && <LocationSearch 
+            
+              {toggleLocation && 
+                <OutsideClickHandler  onOutsideClick={onToggleLoc}>
+              <LocationSearch 
                  searchKey={searchKey}
                  currentTab={currentTab}
                  selectedStyle={selectedStyle}
                  router={router}
-                 onToggle={onToggleLoc}/>}
+                 onToggle={onToggleLoc}/>
+                 </OutsideClickHandler>
+                }
+                 
+                 
             </div>
           )}
 
@@ -111,7 +118,12 @@ const routers = useRouter()
               <span>Styles</span>
             </button>
 
+
+
+
+
             {toggle && !isMobileView && (
+              <OutsideClickHandler  onOutsideClick={onToggle}>
               <StyleDropdown
                 searchKey={searchKey}
                 currentTab={currentTab}
@@ -121,20 +133,28 @@ const routers = useRouter()
                 isDetail={false}
                 onToggle={onToggle}
               />
+
+</OutsideClickHandler>
+
             )}
+           
           </div>
         </div>
       )}
 
       {toggleLocation && isMobileView && (
+       
         <div> 
+          
         <LocationSearch 
         searchKey={searchKey}
         currentTab={currentTab}
         selectedStyle={selectedStyle}
         router={router}
         onToggle={onToggleLoc} />
+        
         </div>
+       
       )}
 
 
