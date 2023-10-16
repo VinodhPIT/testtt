@@ -88,7 +88,7 @@ export default function Footer() {
     {
       id: 3,
       title: t("common:menus.privacypolicy"),
-      url: "/privacy-policy",
+      url: "#",
     },
   ];
 
@@ -182,16 +182,20 @@ export default function Footer() {
           <section class="footer_secondary">
             <div class="foot_links">
               <ul class="links">
-                {links.map((e) => {
-                  return (
-                    <li key={e.id}>
-                      {" "}
-                      <Link href={e.url} key={e.id}>
-                        {e.title}
-                      </Link>
-                    </li>
-                  );
-                })}
+              {links.map((e) => {
+  if (e.title === "Privacy Policy") {
+    return <> <p class="footUnlink">{e.title}</p></>;
+  }
+  return (
+    <li key={e.id}>
+      {" "} 
+      <Link href={e.url} key={e.id} >
+        {e.title}
+      </Link>
+    </li>
+  );
+})}
+
               </ul>
             </div>
             <div class="social_icons">
