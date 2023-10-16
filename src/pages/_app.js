@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
 
       case "/search":
       case "/flash/[detail]":
-      case "/artist/[detail]":
+      case "/artists/[detail]":
       case "/tattoo/[detail]":
       case "/flash/[detail]":
       case "/404":
