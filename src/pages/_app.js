@@ -1,6 +1,4 @@
 import { useRouter } from "next/router";
-import { positions, Provider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
 import Header from "@/components/header/header";
 import CustomHeader from "@/components/customHeader2/header"
 import Footer from "@/components/footer/footer";
@@ -17,11 +15,7 @@ const figtree = Figtree({
   subsets: ["latin"],
 });
 
-const options = {
-  timeout: 3000,
-  position: positions.TOP_CENTER
-  
-};
+
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -86,7 +80,7 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <Provider template={AlertTemplate} {...options}>
+   
     <GlobalStateProvider>
       <div className={figtree.className}>
         {getHeaderComponent(router.pathname)}
@@ -98,7 +92,7 @@ function MyApp({ Component, pageProps }) {
         <Footer />
       </div>
     </GlobalStateProvider>
-    </Provider>
+
   );
 }
 

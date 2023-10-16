@@ -6,7 +6,9 @@ import useWindowResize from "@/hooks/useWindowSize";
 import styles from "../styleDropdown/dropdown.module.css";
 import Image from 'next/image'
 import { useGlobalState } from "@/context/Context";
-import { useAlert } from "react-alert";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function LocationSearch({
   searchKey,
@@ -15,7 +17,15 @@ export default function LocationSearch({
   router,
   onToggle,
 }) {
-  const alert = useAlert();
+
+  const notify = () => {
+    toast("Choose the location from the dropdown", {
+      position: "top-center", // Set the position of the toast
+      autoClose: 3000,      // Auto-close the toast after 3000ms (3 seconds)
+      type:"error"
+
+    });
+  }
 
   const [address, setAddress] = useState("");
   const [coordinates, setCoordinates] = useState({
@@ -50,7 +60,7 @@ const searchLocation =()=>{
 
 if(coordinates.lat===null){
 
-alert.show("Choose the location from the dropdown" );
+  notify()
 
 }
 
@@ -148,6 +158,9 @@ else {
         </button>  
         </div>
       </div>
+
+      <ToastContainer/>
     </div>
+
   );
 }
