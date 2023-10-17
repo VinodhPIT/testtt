@@ -74,36 +74,36 @@ try {
 
 
 
-  const artistsFetch = await fetch(`${process.env.apiDomain}/artist/search`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(searchParam(param))
-  });
+  // const artistsFetch = await fetch(`${process.env.apiDomain}/artist/search`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify(searchParam(param))
+  // });
 
   const [tattooRes, flashRes, artistsRes] = await Promise.all([
     tattooFetch,
     flashFetch,
-    artistsFetch,
+    // artistsFetch,
   ]);
 
-  const [tattoosResult, flashesResult, artistsResult] = await Promise.all([
+  const [tattoosResult, flashesResult] = await Promise.all([
     tattooRes.json(),
     flashRes.json(),
-    artistsRes.json(),
+    // artistsRes.json(),
   ]);
 
   const shuffledResults = [
     ...tattoosResult.rows.hits,
     ...flashesResult.rows.hits,
-    ...artistsResult.rows.hits,
+    // ...artistsResult.rows.hits,
   ];
  
            const resultsCount =
             tattoosResult.rows.total.value +
-            flashesResult.rows.total.value +
-            artistsResult.rows.total.value
+            flashesResult.rows.total.value 
+            // artistsResult.rows.total.value
 
 
   return {
