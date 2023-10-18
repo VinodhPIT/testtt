@@ -92,10 +92,10 @@
 .wrapper_filter .filter_icon {
     position: absolute;
     top: 10px;
-    left: 17px;
+    left: 10px;
 }
 .wrapper_filter .filter_block {
-    padding: 7px 10px 6px 35px;
+    padding: 7px 10px 6px 10px;
     border-radius: 31px;
     border: 1px solid #E1E4E8;
     height: 40px;
@@ -103,7 +103,9 @@
     width: 100%;
     outline: none;
     cursor: pointer;    
-    background: transparent;    min-width: 126px;
+    background: transparent;
+    min-width: 126px;
+    position: relative;
 }
 
 .wrapper_filter .filter_block span {
@@ -201,7 +203,24 @@
     border: 0;
     padding: 10px 4px;
 }
-
+.wrapper_filter .filter_block .notification_count {
+    display: flex;
+    width: 20px;
+    height: 18px;
+    padding: 0px 4px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 10px;
+    background: #212121;
+    color: #fff!important;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
 @media screen and (max-width: 640px) {
     /*.filter_container {
         display: flex;

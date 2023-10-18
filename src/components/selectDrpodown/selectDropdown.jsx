@@ -125,7 +125,7 @@ useEffect(() => {
                 className={style.filter_icon}
                 priority
               />
-              <span>Styles</span> <span>0</span>
+              <span>Styles</span><span className={style.notification_count}>0</span>
             </button>
 
 
