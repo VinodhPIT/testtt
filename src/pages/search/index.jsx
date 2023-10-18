@@ -29,7 +29,7 @@ const Search = ({
   loading,
   locale,seed
 }) => {
-  const { state, fetchServerlData, changeTab, loadMore, styleCollection } =
+  const { state, fetchServerlData, changeTab, loadMore, styleCollection ,   getAddress } =
     useGlobalState();
 
   const { t } = useTranslation();
@@ -89,6 +89,7 @@ const Search = ({
 
    await getUrl(searchKey, tab, selectedStyle, lat, lon, router);
 
+   getAddress('Location')
 
 
   };
@@ -167,7 +168,7 @@ const Search = ({
               collectionLength.length !== state.totalItems && (
                 <div className={style.grid_more_view}>
                   <p>
-                    See out of {state.categoryCollection.length}/
+                    See out of {collectionLength.length}/
                     {state.totalItems}
                   </p>
                   <div className={style.btn_wrapper}>
