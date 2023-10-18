@@ -79,6 +79,17 @@ const Search = ({
     } catch (error) {}
   }, [data]);
 
+useEffect(()=>{
+  if(lat ===''){
+    getAddress('Location')
+  }
+
+},[lat])
+
+
+
+
+
   const collectionLength = state.categoryCollection.filter(
     (e) => e._index !== "ad"
   );
@@ -89,7 +100,7 @@ const Search = ({
 
    await getUrl(searchKey, tab, selectedStyle, lat, lon, router);
 
-   getAddress('Location')
+
 
 
   };

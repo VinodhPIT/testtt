@@ -61,7 +61,7 @@ export default function LocationSearch({
         coordinates.lng,
         router
       );
-      await getAddress("Location");
+      // await getAddress("Location");
       onToggle();
     }
   };

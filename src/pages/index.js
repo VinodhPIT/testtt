@@ -18,7 +18,7 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function Home({ locale }) {
   const { t } = useTranslation();
-  const { styleCollection, getLocale } = useGlobalState();
+  const { styleCollection, getLocale  ,getAddress} = useGlobalState();
   const { isMobileView } = useWindowResize();
 
   const imagePaths = [
@@ -36,6 +36,7 @@ export default function Home({ locale }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    getAddress('Location')
     styleCollection();
     const timer = setInterval(changeImage, 2000);
     return () => clearInterval(timer);
