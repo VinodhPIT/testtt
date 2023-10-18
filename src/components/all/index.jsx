@@ -45,7 +45,7 @@ export default function All({ data }) {
                     ? `/tattoo/${item._source.tattoo_uid}`
                     : item._source.tattoo_type === "flash"
                     ? `/flash/${item._source.tattoo_uid}`
-                    : `/artist/${item._source.slug}`
+                    : `/artists/${item._source.slug}`
                 }
               >
                 <Image
