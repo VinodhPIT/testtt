@@ -27,7 +27,7 @@ const Search = ({
   lat,
   lon,
   loading,
-  locale,
+  locale,seed
 }) => {
   const { state, fetchServerlData, changeTab, loadMore, styleCollection } =
     useGlobalState();
@@ -74,7 +74,7 @@ const Search = ({
         selectedStyle,
         lat,
         lon,
-        locale,
+        locale,seed
       });
     } catch (error) {}
   }, [data]);
@@ -85,8 +85,12 @@ const Search = ({
 
   const router = useRouter();
 
-  const updateTab = (tab) => {
-    getUrl(searchKey, tab, selectedStyle, lat, lon, router);
+  const updateTab = async (tab) => {
+
+   await getUrl(searchKey, tab, selectedStyle, lat, lon, router);
+
+
+
   };
 
   return (
@@ -111,7 +115,13 @@ const Search = ({
               <div className={style.tattoo_search_wrap}>
                 <div className={style.search_form}>
                   <div className="search_form_wrap">
-                    <SearchField currentTab={currentTab} />
+
+
+
+                    <SearchField  searchKey={searchKey} currentTab={currentTab} selectedStyle={selectedStyle} lat={lat} lon={lon} router={router} isDetail={false}/>
+
+
+
                   </div>
                 </div>
               </div>
@@ -130,17 +140,17 @@ const Search = ({
                           ? style.activeTab
                           : style.inActivetab
                       }
-                      onClick={() => updateTab(tab.id)}
+                     
                     >
-                      <div className={style.tabBox}>
+                      <button className={style.tabBox}  onClick={() => updateTab(tab.id)}>
                         <img
                           src={
                             currentTab === tab.id ? tab.activeImage : tab.image
                           }
                         />
 
-                        <p style={{ margin: "0" }}>{tab.label}</p>
-                      </div>
+                       {tab.label}
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -188,10 +198,14 @@ export default Search;
 
 export async function getServerSideProps(context) {
   const userAgent = context.req.headers["user-agent"];
-
   const md = new MobileDetect(userAgent);
-
   const isMobile = md.mobile();
+
+  const min = 3;
+  const max = 3409357923759259;
+ let seed = Math.floor(Math.random() * (max - min + 1)) + min;
+
+
 
   try {
     if (context.query.category === "all") {
@@ -202,6 +216,7 @@ export async function getServerSideProps(context) {
         style: context.query.style ?? "",
         latitude: context.query.lat ?? "",
         longitude: context.query.lon ?? "",
+        seed
       });
 
       let addData = await addAdsToResults(results.data, isMobile);
@@ -217,6 +232,7 @@ export async function getServerSideProps(context) {
           lat: context.query.lat ?? "",
           lon: context.query.lon ?? "",
           locale: context.locale,
+          seed
         },
       };
     } else {
@@ -227,9 +243,14 @@ export async function getServerSideProps(context) {
         search_key: context.query.term,
         latitude: context.query.lat ?? "",
         longitude: context.query.lon ?? "",
+        seed
+        
       });
 
       let addData = await addAdsToResults(data.rows.hits, isMobile);
+
+
+
 
       return {
         props: {
@@ -242,6 +263,8 @@ export async function getServerSideProps(context) {
           lat: context.query.lat ?? "",
           lon: context.query.lon ?? "",
           locale: context.locale,
+          seed
+          
         },
       };
     }

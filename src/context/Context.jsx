@@ -22,7 +22,8 @@ const initialState = {
   toggle: false,
   locale: "EN",
   isLoad: false,
-  styleCount:"0"
+  styleCount:"0",
+  seed:""
 };
 
 const reducer = (state, action) => {
@@ -34,7 +35,7 @@ const reducer = (state, action) => {
     pageNo,
     lat,
     lon,
-    locale;
+    locale,seed
 
   switch (action.type) {
 
@@ -75,21 +76,27 @@ const reducer = (state, action) => {
         selectedStyle,
         lat,
         lon,
-        locale,
+        locale,seed
       } = action.payload);
+
+
+    
+
+
 
       return {
         ...state,
         categoryCollection: data,
         currentTab,
         totalItems,
-        searchKey,
+        searchKey,    
         pageNo: 0,
         serverLoad: false,
         selectedStyle,
         latitude: lat,
         longitude: lon,
         locale,
+        seed
       };
 
     case "COUNT":
@@ -195,6 +202,7 @@ export const GlobalStateProvider = ({ children }) => {
         search_key: state.searchKey,
         latitude: state.latitude,
         longitude: state.longitude,
+        seed:state.seed
       };
       let responseData;
       if (state.currentTab === "all") {
@@ -202,6 +210,8 @@ export const GlobalStateProvider = ({ children }) => {
       } else {
         responseData = await fetchCategoryData(requestData);
       }
+     
+
       dispatch({ type: "LOAD_MORE", payload: responseData });
     } catch (error) {}
   };

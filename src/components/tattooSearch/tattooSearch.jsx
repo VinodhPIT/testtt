@@ -1,15 +1,21 @@
 ///
-import React, { useState, useEffect, useRef} from "react";
-import { debounce } from "lodash";
+import React, { useState, useEffect, useRef } from "react";
 import style from "./tattoosearch.module.css";
-import { useRouter } from "next/router";
+import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
 import { v4 as uuidv4 } from "uuid";
 
-function SearchBar({ isPage  ,currentTab}) {
 
-
-  
+function SearchBar({
+  isPage,
+  searchKey,
+  currentTab,
+  selectedStyle,
+  lat,
+  lon,
+  router,
+  isDetail,
+}) {
   const { state, searchData } = useGlobalState();
   const [searchState, setSearchState] = useState({
     query: "",
@@ -18,32 +24,66 @@ function SearchBar({ isPage  ,currentTab}) {
   });
 
   const inputRef = useRef(null);
-  const router = useRouter();
+  // const router = useRouter();
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleOutsideClick);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleOutsideClick);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    const storedHistory = localStorage.getItem("searchHistory");
-    if (storedHistory) {
+  // useEffect(() => {
+  //   const storedHistory = localStorage.getItem("searchHistory");
+  //   if (storedHistory) {
+  //     setSearchState((prevSearchState) => ({
+  //       ...prevSearchState,
+  //       searchHistory: JSON.parse(storedHistory),
+  //     }));
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem(
+  //     "searchHistory",
+  //     JSON.stringify(searchState.searchHistory)
+  //   );
+  // }, [searchState.searchHistory]);
+
+
+
+useEffect(() => {
+    const searchQuery = localStorage.getItem("searchQuery");
+    if (searchQuery) {
       setSearchState((prevSearchState) => ({
         ...prevSearchState,
-        searchHistory: JSON.parse(storedHistory),
+        query: JSON.parse(searchQuery),
       }));
     }
   }, []);
 
   useEffect(() => {
-    // Saving search history to local storage whenever it changes
     localStorage.setItem(
-      "searchHistory",
-      JSON.stringify(searchState.searchHistory)
+      "searchQuery",
+      JSON.stringify(searchState.query)
     );
-  }, [searchState.searchHistory]);
+  }, [searchState.query]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const hintsToDisplay = [];
 
@@ -76,7 +116,7 @@ function SearchBar({ isPage  ,currentTab}) {
     });
   }
 
-  const handleChange =(e) => {
+  const handleChange = (e) => {
     setSearchState((prevSearchState) => ({
       ...prevSearchState,
       query: e,
@@ -84,67 +124,102 @@ function SearchBar({ isPage  ,currentTab}) {
     //getHintsBySearch(e, router);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    router.push(`/search?term=${searchState.query}&category=${currentTab}`)
-
-    
-
-    
-    addToSearchHistory(searchState.query);
-  };
-
-  const handleOutsideClick = (e) => {
-    if (inputRef.current && !inputRef.current.contains(e.target)) {
-      setSearchState((prevSearchState) => ({
-        ...prevSearchState,
-        showDropdown: false,
-      }));
-    }
-  };
-
-  const handleItemClick = (item, e) => {
-    e.preventDefault();
-
-    setSearchState((prevSearchState) => ({
-      ...prevSearchState,
-      query: item,
-      showDropdown: false,
-    }));
-    if (isPage) {
-      router.push(`/search?term=${item}&category=${"all"}`);
+    if (isDetail === true) {
+      router.push(`/search?term=${searchState.query}&category=${currentTab}`);
     } else {
-      searchData(item, router);
+      
+      await getUrl(
+        searchState.query,
+        currentTab,
+        selectedStyle,
+        lat,
+        lon,
+        router
+      );
     }
-    addToSearchHistory(item);
+
+
+
+  
+    // addToSearchHistory(searchState.query);
   };
 
+  // const handleOutsideClick = (e) => {
+  //   if (inputRef.current && !inputRef.current.contains(e.target)) {
+  //     setSearchState((prevSearchState) => ({
+  //       ...prevSearchState,
+  //       showDropdown: false,
+  //     }));
+  //   }
+  // };
+
+  // const handleItemClick = (item, e) => {
+  //   e.preventDefault();
+
+  //   setSearchState((prevSearchState) => ({
+  //     ...prevSearchState,
+  //     query: item,
+  //     showDropdown: false,
+  //   }));
+  //   if (isPage) {
+  //     router.push(`/search?term=${item}&category=${"all"}`);
+  //   } else {
+  //     searchData(item, router);
+  //   }
+  //   addToSearchHistory(item);
+  // };
 
 
 
-  const addToSearchHistory = (name) => {
-    const newItem = { id: uuidv4(), name };
-    setSearchState((prevSearchState) => ({
-      ...prevSearchState,
-      searchHistory: [newItem, ...prevSearchState.searchHistory],
-    }));
-  };
 
-  const clear = (el) => {
-    const updatedHistory = searchState.searchHistory.filter(
-      (item) => item.id !== el.id
-    );
-    setSearchState((prevSearchState) => ({
-      ...prevSearchState,
-      searchHistory: updatedHistory,
-    }));
-    localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
+  // const addToSearchHistory = (name) => {
+  //   const newItem = { id: uuidv4(), name };
+  //   setSearchState((prevSearchState) => ({
+  //     ...prevSearchState,
+  //     searchHistory: [newItem, ...prevSearchState.searchHistory],
+  //   }));
+  // };
+
+
+
+
+
+
+
+  // const clear = (el) => {
+  //   const updatedHistory = searchState.searchHistory.filter(
+  //     (item) => item.id !== el.id
+  //   );
+  //   setSearchState((prevSearchState) => ({
+  //     ...prevSearchState,
+  //     searchHistory: updatedHistory,
+  //   }));
+  //   localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
+  // };
+
+  const clearText = async () => {
+    if (searchKey === "") {
+      setSearchState({ query: "" });
+    } else {
+      if (isDetail === true) {
+
+        setSearchState({ query: "" });
+
+      } else {
+        await getUrl("", currentTab, selectedStyle, lat, lon, router);
+      }
+
+      setSearchState({ query: "" });
+    }
+localStorage.clear('searchQuery')
+
   };
 
   return (
-    <div className={style.search_bar}>
-      <form className="position_relative" onSubmit={handleSubmit}>
+    <div className={style.search_bar} style={{ position: "relative" }}>
+      <form onSubmit={handleSubmit}>
         <div className="input_group position_relative" ref={inputRef}>
           <input
             placeholder="Search"
@@ -159,23 +234,15 @@ function SearchBar({ isPage  ,currentTab}) {
               }))
             }
             value={searchState.query}
-            
           />
-          <button
-            type="submit"
-            tabindex="-1"
-            className={style.btn_search}
-          >
+          <button type="submit" tabindex="-1" className={style.btn_search}>
             <img src="/tattoo-magnifer.svg" alt="search" />
           </button>
 
           {searchState.showDropdown && (
             <div className={style.dropdown}>
               {hintsToDisplay.map((result, index) => (
-                <li
-                  onClick={(e) => handleItemClick(result, e)}                  
-                  key={index}
-                >
+                <li onClick={(e) => handleItemClick(result, e)} key={index}>
                   {result}
                 </li>
               ))}
@@ -183,9 +250,10 @@ function SearchBar({ isPage  ,currentTab}) {
               {state.errorMessage && (
                 <div>
                   <h4 className={style.search_title}>Results</h4>
-                  <p>We couldn&apos;t find any results for &lt;&lt;&lt; {searchState.query} &gt;&gt;&gt;</p>
-
-
+                  <p>
+                    We couldn&apos;t find any results for &lt;&lt;&lt;{" "}
+                    {searchState.query} &gt;&gt;&gt;
+                  </p>
                 </div>
               )}
               {searchState.searchHistory.length > 0 && (
@@ -198,11 +266,11 @@ function SearchBar({ isPage  ,currentTab}) {
                         onClick={() => clear(el)}
                         className={style.searched_items}
                       >
-                            <div className={style.search_abel} >
-                            <p  className={style.trim}>{el.name}</p>
-                            </div>
+                        <div className={style.search_abel}>
+                          <p className={style.trim}>{el.name}</p>
+                        </div>
 
-                        <div className={style.clearhistory} >x </div>
+                        <div className={style.clearhistory}>x </div>
                       </div>
                     ))}
                   </div>
@@ -211,10 +279,16 @@ function SearchBar({ isPage  ,currentTab}) {
             </div>
           )}
         </div>
-        {/* {searchState.query &&  <button className={style.close_search}>
-          <img src="/search-close.svg" alt="search close" className={style.close_search_icon}/> 
-        </button> } */}
       </form>
+      {searchState.query && (
+        <button className={style.close_search} onClick={() => clearText()}>
+          <img
+            src="/search-close.svg"
+            alt="search close"
+            className={style.close_search_icon}
+          />
+        </button>
+      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React ,{useRef ,useEffect} from "react";
+import React ,{useRef ,useEffect, useState} from "react";
 import Image from "next/image";
 import StyleDropdown from "@/components/styleDropdown/styleDropdown";
 import useWindowResize from "@/hooks/useWindowSize";
@@ -25,9 +25,19 @@ export default function SelectDropdown({
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
 
-const routers = useRouter()
+const[states ,setStates]=useState({
+styleIds:[]
+})
 
-
+useEffect(() => {
+  const styleIds = localStorage.getItem("selectedStyleIds");
+  if (styleIds) {
+    setStates((prevSearchState) => ({
+      ...prevSearchState,
+      styleIds: JSON.parse(styleIds),
+    }));
+  }
+}, []);
 
 
 
@@ -85,7 +95,7 @@ const routers = useRouter()
                   priority
                 />
 
-                <span>{formatText(state.address)}</span>
+                <span>{formatText(state.address)}</span>    
 
                 
               </button>
@@ -115,7 +125,7 @@ const routers = useRouter()
                 className={style.filter_icon}
                 priority
               />
-              <span>Styles</span>
+              <span>Styles</span> <span>0</span>
             </button>
 
 

@@ -4,11 +4,10 @@ import PlacesAutocomplete from "react-places-autocomplete";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import useWindowResize from "@/hooks/useWindowSize";
 import styles from "../styleDropdown/dropdown.module.css";
-import Image from 'next/image'
+import Image from "next/image";
 import { useGlobalState } from "@/context/Context";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function LocationSearch({
   searchKey,
@@ -17,15 +16,13 @@ export default function LocationSearch({
   router,
   onToggle,
 }) {
-
   const notify = () => {
     toast("Choose the location from the dropdown", {
       position: "top-center", // Set the position of the toast
-      autoClose: 3000,      // Auto-close the toast after 3000ms (3 seconds)
-      type:"error"
-
+      autoClose: 3000, // Auto-close the toast after 3000ms (3 seconds)
+      type: "error",
     });
-  }
+  };
 
   const [address, setAddress] = useState("");
   const [coordinates, setCoordinates] = useState({
@@ -33,46 +30,41 @@ export default function LocationSearch({
     lng: null,
   });
   const { isMobileView } = useWindowResize();
-  const { getAddress} = useGlobalState();
+  const { getAddress } = useGlobalState();
 
   const handleSelect = async (value) => {
-
-    getAddress(value)
+    getAddress(value);
     const result = await geocodeByAddress(value);
     const ll = await getLatLng(result[0]);
     setAddress(value);
     setCoordinates(ll);
-
-   
-
-
   };
 
-  const clear = () => {
+  const clear = async () => {
     setAddress("");
+    await getUrl(searchKey, currentTab, selectedStyle, "", "", router);
   };
 
   const onError = (status, clearSuggestions) => {
     clearSuggestions();
   };
 
-const searchLocation =()=>{
-
-if(coordinates.lat===null){
-
-  notify()
-
-}
-
-else {
-  getUrl(searchKey, currentTab, selectedStyle, coordinates.lat, coordinates.lng, router);
-}
-
-
-}
-
-
-
+  const searchLocation = async () => {
+    if (coordinates.lat === null) {
+      notify();
+    } else {
+      await getUrl(
+        searchKey,
+        currentTab,
+        selectedStyle,
+        coordinates.lat,
+        coordinates.lng,
+        router
+      );
+      await getAddress("Location");
+      onToggle();
+    }
+  };
 
   return (
     <div
@@ -84,8 +76,16 @@ else {
         <div className={styles.custom_toggle_title}>
           <h4>Search by Location</h4>
           {isMobileView && (
-            <div onClick={() => onToggle()} className={styles.custom_toggle_close}>
-              <Image src="/icon-close-drop.svg" width={24} height={24} alt="close"/>
+            <div
+              onClick={() => onToggle()}
+              className={styles.custom_toggle_close}
+            >
+              <Image
+                src="/icon-close-drop.svg"
+                width={24}
+                height={24}
+                alt="close"
+              />
             </div>
           )}
         </div>
@@ -106,8 +106,9 @@ else {
               <div className={styles.custom_toggle_col}>
                 <input
                   {...getInputProps({
-                    placeholder: "Search Location",                    
-                  })} className={styles.location_search_input}
+                    placeholder: "Search Location",
+                  })}
+                  className={styles.location_search_input}
                 />
                 <div className={styles.autocomplete_dropdown_container}>
                   {loading && <div>Loading...</div>}
@@ -146,21 +147,26 @@ else {
           </PlacesAutocomplete>
         </div>
 
-       
         <div className={styles.custom_dropdown_btn}>
-          <button onClick={() => clear()} disabled={address === ""}   className="btn_outline_secondary w_100pc">
+          <button
+            onClick={() => clear()}
+            disabled={address === ""}
+            className="btn_outline_secondary w_100pc"
+          >
             Clear All
-          </button>         
-     
+          </button>
 
-        <button onClick={() => searchLocation()} disabled={address === ''} className="btn_secondary w_100pc">
-          Show Results
-        </button>  
+          <button
+            onClick={() => searchLocation()}
+            disabled={address === ""}
+            className="btn_secondary w_100pc"
+          >
+            Show Results
+          </button>
         </div>
       </div>
 
-      <ToastContainer/>
+      <ToastContainer />
     </div>
-
   );
 }

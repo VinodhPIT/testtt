@@ -52,6 +52,7 @@ export default function Tattoo({ data }) {
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                 />
+               
               </Link>
             );
           })}

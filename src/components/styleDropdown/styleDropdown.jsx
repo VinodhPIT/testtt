@@ -45,19 +45,21 @@ export default function StyleDropdown({
 
   };
 
-  const clearAll = () => {
+  const clearAll = async () => {
     setSelectedIds([]);
     localStorage.clear('selectedStyleIds')
+  await  getUrl(searchKey, currentTab, '', lat, lon, router);
+
   };
 
-  const onSearch = () => {
+  const onSearch = async () => {
     if (isDetail === true) {
-      getUrl(searchKey, currentTab, selectedIds, lat, lon, router);
+     await getUrl(searchKey, currentTab, selectedIds, lat, lon, router);
     } else {
-      getUrl(searchKey, currentTab, selectedIds, lat, lon, router);
+     await getUrl(searchKey, currentTab, selectedIds, lat, lon, router);
     }
-
     onToggle();
+   
   };
 
   return (
@@ -99,7 +101,7 @@ export default function StyleDropdown({
         </button>
         <button
           disabled={selectedIds.length === 0}
-          onClick={onSearch}
+          onClick={()=>onSearch()}
           className="btn_secondary w_100pc"
         >
           Show Results

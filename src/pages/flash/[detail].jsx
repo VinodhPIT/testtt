@@ -90,7 +90,7 @@ export default function Detail({ data, status, locale }) {
               <div className={style.tattoo_search_wrap}>
                 <div className={style.search_form}>
                   <div className="search_form_wrap">
-                    <SearchField currentTab={"flash"} />
+                  <SearchField currentTab={"flash"}  router={router} isDetail={true} />
                   </div>
                 </div>
               </div>
