@@ -15,11 +15,12 @@ import Search from "@/components/tattooSearch/tattooSearch";
 import style from "@/pages/search/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import { getLocaleProps } from '@/utils/getlocale';
-
+import { useRouter } from "next/router";
 
 
 export default function FAQ({locale}) {
 
+const router = useRouter()
 
   const {getLocale } = useGlobalState();
 
@@ -181,7 +182,9 @@ export default function FAQ({locale}) {
       <main>
         <div className="faq_search_wrap">
           <div className="container">
-            <Search currentTab={"all"} />
+
+            <Search  currentTab={"all"}  router={router} isDetail={true} />
+
           </div>
         </div>
 
