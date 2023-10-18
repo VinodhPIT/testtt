@@ -123,9 +123,10 @@ useEffect(() => {
                 height={21}
                 alt="style"
                 className={style.filter_icon}
+                style={!isDetail ? {"left":"20px"}:null}
                 priority
               />
-              <span>Styles</span><span className={style.notification_count}>0</span>
+              <span style={!isDetail ? {"marginLeft":"28px"}:null}>Styles</span> {isDetail && <span className={style.notification_count}>{states.styleIds.length}</span>}
             </button>
 
 

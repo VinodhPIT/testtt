@@ -26,7 +26,7 @@ export const getStyles = async () => {
       prepareRequest({
         sort: "alphabetical",
         page_no: 0,
-        paginator_count: 20,
+        paginator_count: 25,
         search_key: "",
       })
     );
@@ -99,7 +99,7 @@ export async function fetchMultiData(param) {
       totalCount: resultsCount,
     };
   } catch (error) {}
-=======
+
 try {
   const tattooFetch = await fetch(`${process.env.apiDomain}/tattoo/search`, {
     method: 'POST',
