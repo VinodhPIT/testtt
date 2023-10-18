@@ -20,6 +20,7 @@ const createRequestObject = (parameters, paginatorCount) => {
     sort: parameters.category === "artist" ? "newest" : "random",
     page_no: parameters.page_no,
     paginator_count: paginatorCount,
+    paginator_count: parameters.category === "all" ? 12 : 24,
     search_key: parameters.search_key,
     seed: parameters.seed,
   };
