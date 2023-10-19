@@ -276,7 +276,6 @@ export const GlobalStateProvider = ({ children }) => {
         getLocale,
         styleCollection,
         getAddress,
-    
         selectedIds,
         setSelectedIds,
       }}

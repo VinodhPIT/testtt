@@ -26,19 +26,6 @@ export default function SelectDropdown({
 
   const { t } = useTranslation();
 
-const[states ,setStates]=useState({
-styleIds:[]
-})
-
-
-
-
-
-
-
-
-
-
   return (
     <div>
       {isMobileView === true ? (

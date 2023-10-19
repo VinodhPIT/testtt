@@ -16,18 +16,13 @@ export default function StyleDropdown({
 }) {
   const { state, styleCollection  ,selectedIds ,setSelectedIds} = useGlobalState();
 
-
-
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
       setSelectedIds(selectedIds.filter((id) => id !== elId));
-
       
     } else {
       setSelectedIds([...selectedIds, elId]);
-    
     }
-
   };
 
   const clearAll = async () => {
