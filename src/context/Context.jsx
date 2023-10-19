@@ -1,9 +1,14 @@
-
-import React, { createContext, useReducer, useContext } from "react";
+import React, {
+  createContext,
+  useReducer,
+  useContext,
+  useState,
+  useEffect,
+} from "react";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { Parameters } from "@/components/parameters/params";
 const initialState = {
-  address:"Location",
+  address: "Location",
   categoryCollection: [],
   currentTab: "",
   isTriggered: false,
@@ -22,8 +27,8 @@ const initialState = {
   toggle: false,
   locale: "EN",
   isLoad: false,
-  styleCount:"0",
-  seed:""
+
+  seed: "",
 };
 
 const reducer = (state, action) => {
@@ -35,24 +40,17 @@ const reducer = (state, action) => {
     pageNo,
     lat,
     lon,
-    locale,seed
+    locale,
+    seed;
 
   switch (action.type) {
+ 
 
-
-    case "GET_IDS":
-      return {
-        ...state,
-        styleCount: action.payload,
-      };
-  
     case "GET_ADDRESS":
       return {
         ...state,
         address: action.payload,
       };
-
-
 
     case "GET_LOCALE":
       return {
@@ -76,27 +74,23 @@ const reducer = (state, action) => {
         selectedStyle,
         lat,
         lon,
-        locale,seed
+        locale,
+        seed,
       } = action.payload);
-
-
-    
-
-
 
       return {
         ...state,
         categoryCollection: data,
         currentTab,
         totalItems,
-        searchKey,    
+        searchKey,
         pageNo: 0,
         serverLoad: false,
         selectedStyle,
         latitude: lat,
         longitude: lon,
         locale,
-        seed
+        seed,
       };
 
     case "COUNT":
@@ -162,21 +156,28 @@ export const useGlobalState = () => useContext(GlobalStateContext);
 export const GlobalStateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const [selectedIds, setSelectedIds] = useState([]);
 
-  const   getStyleCount = async (payload) => {
-    try {
-      dispatch({ type: "GET_IDS", payload: payload });
-    } catch (error) {}
-  };
+  useEffect(() => {
+    const styleIds = JSON.parse(localStorage.getItem("selectedStyleIds"));
+    if (styleIds) {
+      setSelectedIds(styleIds);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("selectedStyleIds", JSON.stringify(selectedIds));
+  }, [selectedIds]);
 
 
+  
+ 
 
   const getAddress = async (payload) => {
     try {
       dispatch({ type: "GET_ADDRESS", payload: payload });
     } catch (error) {}
   };
-
 
   const getLocale = async (payload) => {
     try {
@@ -202,7 +203,7 @@ export const GlobalStateProvider = ({ children }) => {
         search_key: state.searchKey,
         latitude: state.latitude,
         longitude: state.longitude,
-        seed:state.seed
+        seed: state.seed,
       };
       let responseData;
       if (state.currentTab === "all") {
@@ -210,7 +211,6 @@ export const GlobalStateProvider = ({ children }) => {
       } else {
         responseData = await fetchCategoryData(requestData);
       }
-     
 
       dispatch({ type: "LOAD_MORE", payload: responseData });
     } catch (error) {}
@@ -274,11 +274,14 @@ export const GlobalStateProvider = ({ children }) => {
         fetchServerlData,
         loadMore,
         getLocale,
-        styleCollection,getAddress, getStyleCount
+        styleCollection,
+        getAddress,
+    
+        selectedIds,
+        setSelectedIds,
       }}
     >
       {children}
     </GlobalStateContext.Provider>
   );
 };
-

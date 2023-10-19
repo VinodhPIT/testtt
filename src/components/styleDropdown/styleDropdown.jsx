@@ -14,30 +14,15 @@ export default function StyleDropdown({
   isDetail,
   onToggle,
 }) {
-  const { state, styleCollection ,getStyleCount} = useGlobalState();
+  const { state, styleCollection  ,selectedIds ,setSelectedIds} = useGlobalState();
 
-  const [selectedIds, setSelectedIds] = useState([]);
 
-  useEffect(() => {
-    styleCollection();
-    // Load selected IDs from localStorage when the component loads
-    const savedIds = localStorage.getItem("selectedStyleIds");
-    if (savedIds) {
-      setSelectedIds(JSON.parse(savedIds));
-    }
-  }, []);
-
-  useEffect(() => {
-    // Save selected IDs to localStorage whenever the selectedIds state changes
-    localStorage.setItem("selectedStyleIds", JSON.stringify(selectedIds));
-    getStyleCount(selectedIds.length)
-  }, [selectedIds]);
 
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
       setSelectedIds(selectedIds.filter((id) => id !== elId));
 
-       getStyleCount(selectedIds.length)
+      
     } else {
       setSelectedIds([...selectedIds, elId]);
     

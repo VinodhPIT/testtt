@@ -21,23 +21,14 @@ export default function SelectDropdown({
   isDetail,
 }) {
   const [toggle, onToggle, onToggleLoc, toggleLocation] = useToggle(false);
-  const { state} = useGlobalState();
+  const { state ,selectedIds} = useGlobalState();
   const { isMobileView } = useWindowResize();
+
   const { t } = useTranslation();
 
 const[states ,setStates]=useState({
 styleIds:[]
 })
-
-useEffect(() => {
-  const styleIds = localStorage.getItem("selectedStyleIds");
-  if (styleIds) {
-    setStates((prevSearchState) => ({
-      ...prevSearchState,
-      styleIds: JSON.parse(styleIds),
-    }));
-  }
-}, []);
 
 
 
@@ -123,10 +114,10 @@ useEffect(() => {
                 height={21}
                 alt="style"
                 className={style.filter_icon}
-                style={!isDetail ? {"left":"20px"}:null}
+              
                 priority
               />
-              <span style={!isDetail ? {"marginLeft":"28px"}:null}>Styles</span> {isDetail && <span className={style.notification_count}>{states.styleIds.length}</span>}
+              <span>Styles</span>{selectedIds.length!==0 && <span className={style.notification_count}>{selectedIds.length}</span>}
             </button>
 
 
@@ -135,6 +126,8 @@ useEffect(() => {
 
             {toggle && !isMobileView && (
               <OutsideClickHandler  onOutsideClick={onToggle}>
+
+                
               <StyleDropdown
                 searchKey={searchKey}
                 currentTab={currentTab}
@@ -144,8 +137,7 @@ useEffect(() => {
                 isDetail={false}
                 onToggle={onToggle}
               />
-
-</OutsideClickHandler>
+              </OutsideClickHandler>
 
             )}
            
