@@ -84,6 +84,7 @@ export default function Footer() {
       title: t("common:menus.faq"),
       url: "/faq",
     },
+
   ];
 
 
@@ -176,16 +177,17 @@ export default function Footer() {
           <section class="footer_secondary">
             <div class="foot_links">
               <ul class="links">
-                {links.map((e) => {
-                  return (
-                    <li key={e.id}>
-                      {" "}
-                      <Link href={e.url} key={e.id}>
-                        {e.title}
-                      </Link>
-                    </li>
-                  );
-                })}
+              {links.map((e) => {
+  return (
+    <li key={e.id}>
+      {" "} 
+      <Link href={e.url} key={e.id} >
+        {e.title}
+      </Link>
+    </li>
+  );
+})}
+
               </ul>
             </div>
             <div class="social_icons">
