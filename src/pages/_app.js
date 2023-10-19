@@ -15,6 +15,8 @@ const figtree = Figtree({
   subsets: ["latin"],
 });
 
+
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
@@ -47,6 +49,7 @@ function MyApp({ Component, pageProps }) {
   
 
       case "/faq":
+        case "/privacy-policy":
         return (
           <Header
             logo={"/Inckd-logo-footer-black.svg"}
@@ -78,6 +81,7 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
+   
     <GlobalStateProvider>
       <div className={figtree.className}>
         {getHeaderComponent(router.pathname)}
@@ -89,6 +93,7 @@ function MyApp({ Component, pageProps }) {
         <Footer />
       </div>
     </GlobalStateProvider>
+
   );
 }
 

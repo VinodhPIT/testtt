@@ -1,13 +1,24 @@
+
+
 export const getUrl = (term, catgy, style, lat, lon, router) => {
-  let url = `/search?term=${term}&category=${catgy}`;
+  return new Promise((resolve, reject) => {
+    let url = `/search?term=${term}&category=${catgy}`;
 
-  if (style !== "") {
-    url += `&style=${style}`;
-  }
+    if (style !== "") {
+      url += `&style=${style}`;
+    }
 
-  if (catgy == "artist" && lat !== "") {
-    url += `&lon=${lon}&lat=${lat}`;
-  }
+    if (catgy === "artist" && lat !== "") {
+      url += `&lon=${lon}&lat=${lat}`;
+    }
 
-  return router.push(url);
+    router.push(url)
+      .then(() => {
+        resolve('Navigation succeeded');
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
 };
+

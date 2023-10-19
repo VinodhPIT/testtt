@@ -9,7 +9,7 @@ function SearchBar({ }) {
   return (
     <div className="search-bar">
       <div className="input_group position_relative">
-        <Link href={`/search?term=${""}&category=${"tattoo"}`}>
+        <Link href={`/search?term=${""}&category=${"all"}`}>
      
         <div className="form_control">
           <p style={{ margin: "0" }}>Search</p>
