@@ -12,7 +12,7 @@
 To get started with this project, follow these steps:
 
 1. Clone the repository:
- -  git clone https://git.pitsolutions.com/odoo/INCK_WEB
+ -  git clone https://github.com/inckd-com/INCKD_WEB_2023
  -   npm install
  -   npm run dev
 
@@ -55,7 +55,7 @@ Feel free to explore the landing page, search for content, and dive into the det
 - Test your changes.
 - Commit your changes: git commit -m "Add feature-name"
 - Push your changes to your fork
-- Create a Pull Request and merge to the Inckd_Develop repository.
+- Create a Pull Request and merge to the Develop repository.
 - The final version of the code will merge to the main  or master repository
 
 
