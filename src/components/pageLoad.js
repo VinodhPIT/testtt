@@ -1,11 +1,19 @@
 import React from 'react'
 import style from  './loading/loading.module.css'
 
+
+
+
 export default function PageLoad() {
   return (
-    <div>
+    <div className={style.loaderBg}>
+      <div  style={{"position": "absolute",
+    "top": "50%",
+    "left": "50%",
+    "transform": "translate(-50% ,-50%)"}}>
 <div className={style.loader}></div>
-<p style={{"marginTop":"10px","color":"#101010"}}>Loading...</p>
+<p className={style.loadText}>Loading...</p>
+</div>
     </div>
 
     

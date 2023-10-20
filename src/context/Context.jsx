@@ -91,6 +91,7 @@ const reducer = (state, action) => {
         longitude: lon,
         locale,
         seed,
+        loading:false
       };
 
     case "COUNT":
@@ -171,7 +172,8 @@ export const GlobalStateProvider = ({ children }) => {
 
 
   
- 
+
+
 
   const getAddress = async (payload) => {
     try {
@@ -182,6 +184,18 @@ export const GlobalStateProvider = ({ children }) => {
   const getLocale = async (payload) => {
     try {
       dispatch({ type: "GET_LOCALE", payload: payload });
+    } catch (error) {}
+  };
+
+  const getLoad = async () => {
+    try {
+
+
+      dispatch({ type: "IS_LOADING", payload: true });
+
+
+
+      
     } catch (error) {}
   };
 
@@ -278,6 +292,7 @@ export const GlobalStateProvider = ({ children }) => {
         getAddress,
         selectedIds,
         setSelectedIds,
+        getLoad
       }}
     >
       {children}

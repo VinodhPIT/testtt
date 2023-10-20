@@ -13,13 +13,10 @@ import Offer from "../adds/offer";
 export default function All({ data }) {
   const { state } = useGlobalState();
 
+
   return (
     <div className={styles.pageContainer}>
-      {state.loading ? (
-        <div className={styles.blockCenter}>
-          <PageLoad />
-        </div>
-      ) : data.length === 0 ? (
+   { data.length === 0 ? (
         <div className={styles.blockCenter}>
           <NoData category={"all"} />
         </div>

@@ -72,11 +72,11 @@ export default function Home({ locale }) {
 
       <main>
         <div className="page_wrapper tete">
-          <div className={styles.home_banner_block}>
-            <div className={styles.home_banner_wrap}>
-              <div className={styles.home_banner_item}>
-                <div className={styles.home_banner}>
-                  <div className={styles.home_banner_inner}>
+          <div className={styles.banner_block}>
+            <div className={styles.banner_wrap}>
+              <div className={styles.banner_item}>
+                <div className={styles.banner}>
+                  <div className={styles.banner_inner}>
                     <video loop autoPlay muted className="mob_hidden">
                       <source
                         src="/iStock-1370740824-home.mp4"
@@ -91,9 +91,9 @@ export default function Home({ locale }) {
                     </video>
                   </div>
                 </div>
-                <div className={styles.home_banner_content}>
-                  <div className={styles.home_banner_content_wrap}>
-                    <div className={styles.home_banner_caption}>
+                <div className={styles.banner_content}>
+                  <div className={styles.banner_content_wrap}>
+                    <div className={styles.banner_caption}>
                       <h1 class="color_aero_blue">
                         <span>
                           {t("common:homePage.bookYourDream")}{" "}

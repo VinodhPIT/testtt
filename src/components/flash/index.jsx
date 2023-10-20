@@ -15,11 +15,7 @@ export default function Flash({ data }) {
 
   return (
     <div className={styles.pageContainer}>
-      {state.loading ? (
-        <div className={styles.blockCenter}>
-          <PageLoad />
-        </div>
-      ) : data.length === 0 ? (
+    {data.length === 0 ? (
         <div className={styles.blockCenter}>
           <NoData category={"flash"} />
         </div>

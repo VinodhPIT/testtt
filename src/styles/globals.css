@@ -98,7 +98,7 @@ body.theme-dark {
 }
 button {
   border: 0;
-  background: transparent;
+  background: transparent; outline: none;
 }
 .onActive {
   border: 1px solid #000 !important;
@@ -112,6 +112,7 @@ button:disabled {
 #__react-alert__ span{
   text-transform: none!important;
 }
+.loaderModel{overflow: hidden;}
 
 
 .textBlock{

@@ -11,16 +11,11 @@ import KlarnaAdd from "../adds/klarnaAdd";
 import Offer from "../adds/offer";
 
 export default function Tattoo({ data }) {
-  const { state } = useGlobalState();
+
 
   return (
     <div className={styles.pageContainer}>
-      {state.loading ? (
-        <div className={styles.blockCenter}>
-          {" "}
-          <PageLoad />{" "}
-        </div>
-      ) : data.length === 0 ? (
+      {data.length === 0 ? (
         <div className={styles.blockCenter}>
           {" "}
           <NoData category={"tattoo"} />{" "}
