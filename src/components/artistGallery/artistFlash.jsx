@@ -21,12 +21,14 @@ const Flash = ({ data }) => {
             >
               <Image
                 alt={item.tattoo_type}
-                priority
+                 loading="lazy"
                 src={item.image}
-                fill
+                layout="fill"
                 objectFit="cover"
                 placeholder="blur"
                 blurDataURL={blurDataURL}
+                quality={62}
+                
               />
 
 {item.min_price !== null && item.max_price !== null ? (

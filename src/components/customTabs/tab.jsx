@@ -32,10 +32,10 @@ export   function renderCategoryComponent(tab, categoryCollection) {
 
 
 
-  export   function renderArtistGallery(tab,getAll ,tattooList,flashList ,artistProfile) {
+  export   function renderArtistGallery(tab,getAll ,tattooList,flashList ,artistProfile ,loading) {
   switch (tab) {
     case "all":
-      return <ArtistAll  data={getAll}  />;
+      return <ArtistAll  data={getAll} loading={loading} />;
     case "tattoo":
       return <ArtistTattoo data={tattooList}  />;
     case "Information":

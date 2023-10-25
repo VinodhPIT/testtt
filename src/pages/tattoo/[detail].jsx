@@ -265,15 +265,17 @@ export default function Detail({ data, status, locale }) {
                     href={`/tattoo/${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
+                    prefetch
                   >
                     <Image
                       alt={item.style_name}
-                      priority
+                      loading="lazy"
                       src={item.image_medium}
                       fill
                       objectFit="cover"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
+                      quality={62}
                     />
                   </Link>
                 ))}

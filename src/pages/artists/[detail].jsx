@@ -32,6 +32,7 @@ export default function Detail({ data, locale }) {
   const [tattooList, setTattooList] = useState([]);
   const [flashList, setFlashList] = useState([]);
   const [artistProfile, setProfile] = useState();
+  const [loading, setLoading] = useState(false);
 
   const commonTabData = [
     {
@@ -79,14 +80,18 @@ export default function Detail({ data, locale }) {
     if (!data) {
       return null;
     } else {
+       setLoading(true)
       const fetchData = async () => {
         setProfile(data);
         try {
           const res = await artistGallery(data.profile_uid);
-
+          setLoading(false)
           setAll(res.data);
           setTattooList(res.data.filter((e) => e.tattoo_type === "normal"));
           setFlashList(res.data.filter((e) => e.tattoo_type === "flash"));
+
+
+
         } catch (error) {}
       };
       fetchData();
@@ -228,7 +233,7 @@ export default function Detail({ data, locale }) {
               getAll,
               tattooList,
               flashList,
-              artistProfile
+              artistProfile,loading
             )}
           </div>
 

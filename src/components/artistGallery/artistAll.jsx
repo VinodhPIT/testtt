@@ -3,15 +3,15 @@ import styles from "@/pages/tattoo/tattoodetail.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import NoData from './noData'
+import Load from '@/components/pageLoad'
 import style from "@/components/styles/listing.module.css";
 
-const All = ({ data }) => {
+const All = ({ data ,loading}) => {
 
   return (
     <div className={styles.galleryWrapper} >
-      {data.length == 0 ? <div className={style.blockCenter}>   <NoData/>  </div>:
-   
+      
+      {loading ? <div className={style.blockCenter}>   <Load/>  </div>:
         <div className={styles.grid_wrapper_tattoo}>
           {data.map((item) => (
             <Link
@@ -28,14 +28,13 @@ const All = ({ data }) => {
             >
               <Image
                 alt={item.tattoo_type}
-                priority
                 src={item.image}
-              
-            fill
-               
-            objectFit="cover"
+               layout="fill"
+               loading="lazy"
+                objectFit="cover"
                 placeholder="blur"
                 blurDataURL={blurDataURL}
+                quality={62}
               />
 {item.tattoo_type !== "normal" && (
   item.min_price !== null && item.max_price !== null ? (

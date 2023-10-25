@@ -20,6 +20,8 @@ import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 
 
+
+
 export default function Detail({ data, status, locale }) {
   const router = useRouter();
   const { state, getLocale ,styleCollection } = useGlobalState();
@@ -66,6 +68,8 @@ export default function Detail({ data, status, locale }) {
   if (!data) {
     return null;
   }
+
+ 
 
  
   return (
@@ -123,7 +127,7 @@ export default function Detail({ data, status, locale }) {
               <div className={styles.product_media}>
                 <Image
                   alt={data.style.name}
-                  priority
+                  loading="lazy"
                   src={data.tattoo.image}
                   height={200}
                   width={200}
@@ -134,7 +138,11 @@ export default function Detail({ data, status, locale }) {
                   }}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  quality={60}
+                  // loader={customLoader}
+                
                 />
+               
               </div>
 
               <div className={styles.product_info_col}>
@@ -298,15 +306,19 @@ export default function Detail({ data, status, locale }) {
                     href={`/flash/${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
+                    prefetch
+                    
                   >
                     <Image
                       alt={item.style_name}
-                      priority
+                     
                       src={item.image_medium}
-                      fill
+                      layout="fill"
                       objectFit="cover"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
+                      loading="lazy"
+                      quality={62}
                     />
                   </Link>
                 ))}
