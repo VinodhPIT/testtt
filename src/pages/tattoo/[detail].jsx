@@ -144,7 +144,7 @@ export default function Detail({ data, status, locale }) {
                 <div className={styles.search_profile_block}>
                   <div className={styles.search_profile_pic}>
                     <Image
-                      alt={"data.tattoo.image"}
+                      alt={data.artist.artist_name}
                       priority
                       src={data.artist.profile_image}
                       width={100}

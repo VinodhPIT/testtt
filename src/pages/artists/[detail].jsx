@@ -155,7 +155,8 @@ export default function Detail({ data, locale }) {
               </div>
               <div className={styles.search_profile_pic}>
                 <Image
-                  alt={data.slug}
+                alt= {data.first_name + ' ' + data.last_name}
+
                   priority
                   src={data.image}
                   width={100}
