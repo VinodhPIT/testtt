@@ -10,10 +10,8 @@ import { addAdsToResults } from "@/helpers/helper";
 import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
-import useWindowResize from "@/hooks/useWindowSize";
-import { useToggle } from "@/hooks/useToggle";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
-
+import PageLoad from "@/components/pageLoad";
 
 
 const MobileDetect = require("mobile-detect");
@@ -27,10 +25,17 @@ const Search = ({
   lat,
   lon,
   loading,
-  locale,seed
+  locale,
+  seed,
 }) => {
-  const { state, fetchServerlData, changeTab, loadMore, styleCollection ,   getAddress } =
-    useGlobalState();
+  const {
+    state,
+    fetchServerlData,
+    changeTab,
+    loadMore,
+    styleCollection,
+    getAddress,getLoad
+  } = useGlobalState();
 
   const { t } = useTranslation();
 
@@ -74,21 +79,17 @@ const Search = ({
         selectedStyle,
         lat,
         lon,
-        locale,seed
+        locale,
+        seed,
       });
     } catch (error) {}
   }, [data]);
 
-useEffect(()=>{
-  if(lat ===''){
-    getAddress('Location')
-  }
-
-},[lat])
-
-
-
-
+  useEffect(() => {
+    if (lat === "") {
+      getAddress("Location");
+    }
+  }, [lat]);
 
   const collectionLength = state.categoryCollection.filter(
     (e) => e._index !== "ad"
@@ -97,11 +98,9 @@ useEffect(()=>{
   const router = useRouter();
 
   const updateTab = async (tab) => {
-
-   await getUrl(searchKey, tab, selectedStyle, lat, lon, router);
-
-
-
+   
+      getLoad()
+    await getUrl(searchKey, tab, selectedStyle, lat, lon, router)
 
   };
 
@@ -127,18 +126,28 @@ useEffect(()=>{
               <div className={style.tattoo_search_wrap}>
                 <div className={style.search_form}>
                   <div className="search_form_wrap">
-
-
-
-                    <SearchField  searchKey={searchKey} currentTab={currentTab} selectedStyle={selectedStyle} lat={lat} lon={lon} router={router} isDetail={false}/>
-
-
-
+                    <SearchField
+                      searchKey={searchKey}
+                      currentTab={currentTab}
+                      selectedStyle={selectedStyle}
+                      lat={lat}
+                      lon={lon}
+                      router={router}
+                      isDetail={false}
+                    />
                   </div>
                 </div>
               </div>
 
-              <SelectDropdown   searchKey={searchKey} currentTab={currentTab} selectedStyle={selectedStyle} lat={lat} lon={lon} router={router} isDetail={false}       />
+              <SelectDropdown
+                searchKey={searchKey}
+                currentTab={currentTab}
+                selectedStyle={selectedStyle}
+                lat={lat}
+                lon={lon}
+                router={router}
+                isDetail={false}
+              />
             </div>
 
             <div className={style.tab_container}>
@@ -152,16 +161,18 @@ useEffect(()=>{
                           ? style.activeTab
                           : style.inActivetab
                       }
-                     
                     >
-                      <button className={style.tabBox}  onClick={() => updateTab(tab.id)}>
+                      <button
+                        className={style.tabBox}
+                        onClick={() => updateTab(tab.id)}
+                      >
                         <img
                           src={
                             currentTab === tab.id ? tab.activeImage : tab.image
                           }
                         />
 
-                       {tab.label}
+                        {tab.label}
                       </button>
                     </li>
                   ))}
@@ -179,8 +190,7 @@ useEffect(()=>{
               collectionLength.length !== state.totalItems && (
                 <div className={style.grid_more_view}>
                   <p>
-                    See out of {collectionLength.length}/
-                    {state.totalItems}
+                    See out of {collectionLength.length}/{state.totalItems}
                   </p>
                   <div className={style.btn_wrapper}>
                     <button
@@ -196,11 +206,8 @@ useEffect(()=>{
               )}
           </div>
         </div>
-
-
-
-
-
+        
+       
       </main>
     </>
   );
@@ -215,9 +222,7 @@ export async function getServerSideProps(context) {
 
   const min = 3;
   const max = 3409357923759259;
- let seed = Math.floor(Math.random() * (max - min + 1)) + min;
-
-
+  let seed = Math.floor(Math.random() * (max - min + 1)) + min;
 
   try {
     if (context.query.category === "all") {
@@ -228,7 +233,7 @@ export async function getServerSideProps(context) {
         style: context.query.style ?? "",
         latitude: context.query.lat ?? "",
         longitude: context.query.lon ?? "",
-        seed
+        seed,
       });
 
       let addData = await addAdsToResults(results.data, isMobile);
@@ -244,7 +249,7 @@ export async function getServerSideProps(context) {
           lat: context.query.lat ?? "",
           lon: context.query.lon ?? "",
           locale: context.locale,
-          seed
+          seed,
         },
       };
     } else {
@@ -255,14 +260,10 @@ export async function getServerSideProps(context) {
         search_key: context.query.term,
         latitude: context.query.lat ?? "",
         longitude: context.query.lon ?? "",
-        seed
-        
+        seed,
       });
 
       let addData = await addAdsToResults(data.rows.hits, isMobile);
-
-
-
 
       return {
         props: {
@@ -275,8 +276,7 @@ export async function getServerSideProps(context) {
           lat: context.query.lat ?? "",
           lon: context.query.lon ?? "",
           locale: context.locale,
-          seed
-          
+          seed,
         },
       };
     }

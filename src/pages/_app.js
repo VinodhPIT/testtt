@@ -1,3 +1,6 @@
+
+
+import {useEffect} from 'react'
 import { useRouter } from "next/router";
 import Header from "@/components/header/header";
 import CustomHeader from "@/components/customHeader2/header"
@@ -8,6 +11,9 @@ import UseLayout from "@/hooks/useLayout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "@/styles/customStyles.css";
+import loadGoogleMapsAPI from '@/components/google-maps'; 
+import NProgress from  "nprogress"
+NProgress.configure({ showSpinner: false });
 
 const figtree = Figtree({
   style: ["normal"],
@@ -19,6 +25,39 @@ const figtree = Figtree({
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  useEffect(() => {
+    loadGoogleMapsAPI();
+  }, []);
+  
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", (url) => {
+
+      NProgress.start();
+
+    });
+
+    router.events.on("routeChangeComplete", (url) => {
+  
+      NProgress.done();
+
+    });
+    return () => {
+      router.events.off("routeChangeStart", (url) => {
+      
+      });
+
+      router.events.off("routeChangeComplete", (url) => {
+       
+      });
+    };
+  }, []);
+
+
+
+
+
+
 
   function getHeaderComponent(pathname) {
     switch (pathname) {
@@ -81,7 +120,8 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-   
+   <>
+
     <GlobalStateProvider>
       <div className={figtree.className}>
         {getHeaderComponent(router.pathname)}
@@ -93,6 +133,8 @@ function MyApp({ Component, pageProps }) {
         <Footer />
       </div>
     </GlobalStateProvider>
+
+    </>
 
   );
 }

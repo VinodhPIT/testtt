@@ -13,7 +13,7 @@ export default function Artist({ data }) {
   return (
     <div className={styles.pageContainer}>
 
-{state.loading ? <div className={styles.blockCenter}>  <PageLoad /> </div>  : data.length === 0 ?   <div className={styles.blockCenter}> <NoData  category={'artist'} /> </div>  :
+{data.length === 0 ?   <div className={styles.blockCenter}> <NoData  category={'artist'} /> </div>  :
 
       <div className={styles.grid_wrapper}>
         
@@ -29,13 +29,16 @@ export default function Artist({ data }) {
                         <div className={styles.grid_img_bg}>
                           <div className={styles.grid_img_col}>
                             <Image
-                              priority={true}
+                             
                               src={item._source.tattoos[0].image}
                               layout="fill"
                               alt={item._source.slug}
                               objectFit="cover"
                               placeholder="blur"
                               blurDataURL={blurDataURL}
+                              loading="lazy"
+                              quality={62}
+                            
                             />
                             </div>
                           </div>
@@ -43,13 +46,15 @@ export default function Artist({ data }) {
                         <div className={styles.grid_content_wrap}>
                           <div className={styles.grid_img_profile}>
                           <Image
-                              priority={true}
+                             
                               src={item._source.image_url}
                               width={30}
                               height={30}              
                               alt={item._source.first_name}                             
                               placeholder="blur"
                               blurDataURL={blurDataURL}
+                              loading="lazy"
+                              quality={62}
                             />
                           </div>
                           <div className={styles.grid_profile_details}>

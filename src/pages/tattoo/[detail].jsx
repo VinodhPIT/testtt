@@ -126,7 +126,7 @@ export default function Detail({ data, status, locale }) {
               <div className={styles.product_media}>
                 <Image
                   alt={data.style.name}
-                  priority
+                  loading="lazy"
                   src={data.tattoo.image}
                   height={200}
                   width={200}
@@ -137,6 +137,7 @@ export default function Detail({ data, status, locale }) {
                   }}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  quality={50}
                 />
               </div>
 
@@ -144,7 +145,7 @@ export default function Detail({ data, status, locale }) {
                 <div className={styles.search_profile_block}>
                   <div className={styles.search_profile_pic}>
                     <Image
-                      alt={"data.tattoo.image"}
+                      alt={data.artist.artist_name}
                       priority
                       src={data.artist.profile_image}
                       width={100}
@@ -265,15 +266,17 @@ export default function Detail({ data, status, locale }) {
                     href={`/tattoo/${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
+                    prefetch
                   >
                     <Image
                       alt={item.style_name}
-                      priority
+                      loading="lazy"
                       src={item.image_medium}
                       fill
                       objectFit="cover"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
+                      quality={62}
                     />
                   </Link>
                 ))}

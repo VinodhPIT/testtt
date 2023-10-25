@@ -11,16 +11,11 @@ import KlarnaAdd from "../adds/klarnaAdd";
 import Offer from "../adds/offer";
 
 export default function Tattoo({ data }) {
-  const { state } = useGlobalState();
+
 
   return (
     <div className={styles.pageContainer}>
-      {state.loading ? (
-        <div className={styles.blockCenter}>
-          {" "}
-          <PageLoad />{" "}
-        </div>
-      ) : data.length === 0 ? (
+      {data.length === 0 ? (
         <div className={styles.blockCenter}>
           {" "}
           <NoData category={"tattoo"} />{" "}
@@ -44,13 +39,16 @@ export default function Tattoo({ data }) {
                 key={key}
               >
                 <Image
-                  priority={true}
+                 
                   src={item._source.image}
-                  fill
+                  layout="fill"
+                  
                   objectFit="cover"
                   alt={item._source.style._source.name}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  loading="lazy"
+                  quality={62}
                 />
                
               </Link>

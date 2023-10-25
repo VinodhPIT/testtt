@@ -13,13 +13,10 @@ import Offer from "../adds/offer";
 export default function All({ data }) {
   const { state } = useGlobalState();
 
+
   return (
     <div className={styles.pageContainer}>
-      {state.loading ? (
-        <div className={styles.blockCenter}>
-          <PageLoad />
-        </div>
-      ) : data.length === 0 ? (
+   { data.length === 0 ? (
         <div className={styles.blockCenter}>
           <NoData category={"all"} />
         </div>
@@ -49,13 +46,15 @@ export default function All({ data }) {
                 }
               >
                 <Image
-                  priority={true}
+                
                   src={
                     item._index === "tattoo"
                       ? item._source.image
                       : item._source.image_url
                   }
-                  fill
+                  layout="fill"
+                  loading="lazy"
+                  
                 
                   alt={
                     item._index === "tattoo"
@@ -65,6 +64,7 @@ export default function All({ data }) {
                   objectFit="cover"
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  quality={62}
                 />
               </Link>
             );
