@@ -11,7 +11,7 @@ const All = ({ data ,loading}) => {
   return (
     <div className={styles.galleryWrapper} >
       
-      {loading ? <div className={style.blockCenter}>   <Load/>  </div>:
+     
         <div className={styles.grid_wrapper_tattoo}>
           {data.map((item) => (
             <Link
@@ -57,7 +57,7 @@ const All = ({ data ,loading}) => {
             </Link>
           ))}
         </div>
-}
+
     </div>
   );
 };
