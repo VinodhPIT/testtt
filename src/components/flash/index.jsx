@@ -38,13 +38,16 @@ export default function Flash({ data }) {
                 key={key}
               >
                 <Image
-                  priority={true}
+                 
                   src={item._source.image}
-                  fill
+                  layout="fill"
                   objectFit="cover"
                   alt={item._source.style._source.name}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  loading="lazy"
+                  quality={62}
+                
                 />
 
                 {item._source.min_price && (

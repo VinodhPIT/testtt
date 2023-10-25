@@ -39,13 +39,16 @@ export default function Tattoo({ data }) {
                 key={key}
               >
                 <Image
-                  priority={true}
+                 
                   src={item._source.image}
-                  fill
+                  layout="fill"
+                  
                   objectFit="cover"
                   alt={item._source.style._source.name}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  loading="lazy"
+                  quality={62}
                 />
                
               </Link>

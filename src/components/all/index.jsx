@@ -46,13 +46,15 @@ export default function All({ data }) {
                 }
               >
                 <Image
-                  priority={true}
+                
                   src={
                     item._index === "tattoo"
                       ? item._source.image
                       : item._source.image_url
                   }
-                  fill
+                  layout="fill"
+                  loading="lazy"
+                  
                 
                   alt={
                     item._index === "tattoo"
@@ -62,6 +64,7 @@ export default function All({ data }) {
                   objectFit="cover"
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  quality={62}
                 />
               </Link>
             );
