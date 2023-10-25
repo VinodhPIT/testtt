@@ -207,7 +207,7 @@ const Search = ({
           </div>
         </div>
         
-       {state.loading &&  <PageLoad/>}
+       
       </main>
     </>
   );

@@ -157,7 +157,7 @@ export default function Detail({ data, status, locale }) {
                   }}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
-                  quality={60}
+                  quality={50}
                 
                 
                 />

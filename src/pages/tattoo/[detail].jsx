@@ -126,7 +126,7 @@ export default function Detail({ data, status, locale }) {
               <div className={styles.product_media}>
                 <Image
                   alt={data.style.name}
-                  priority
+                  loading="lazy"
                   src={data.tattoo.image}
                   height={200}
                   width={200}
@@ -137,6 +137,7 @@ export default function Detail({ data, status, locale }) {
                   }}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  quality={50}
                 />
               </div>
 
