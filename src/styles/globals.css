@@ -98,7 +98,7 @@ body.theme-dark {
 }
 button {
   border: 0;
-  background: transparent;
+  background: transparent; outline: none;
 }
 .onActive {
   border: 1px solid #000 !important;
@@ -112,6 +112,17 @@ button:disabled {
 #__react-alert__ span{
   text-transform: none!important;
 }
+.loaderModel{overflow: hidden;}
+
+
+
+#nprogress{pointer-events:none}
+#nprogress .bar{  background: #e6561a;
+ height: 4px;position:fixed;z-index:1031;top:0;left:0;width:100%}
+#nprogress .peg{display:block;position:absolute;right:0;width:100px;height:100%;opacity:1;-webkit-transform:rotate(3deg) translate(0,-4px);-ms-transform:rotate(3deg) translate(0,-4px);transform:rotate(3deg) translate(0,-4px)}
+
+
+
 
 
 .textBlock{

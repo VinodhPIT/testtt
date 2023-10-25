@@ -21,13 +21,13 @@ const Tattoo = ({ data }) => {
             >
               <Image
                 alt={item.tattoo_type}
-                priority
+               loading="lazy"
                 src={item.image}
-                fill
+                layout="fill"
                
                 objectFit="cover"
 
-               
+               quality={62}
                 placeholder="blur"
                 blurDataURL={blurDataURL}
               />

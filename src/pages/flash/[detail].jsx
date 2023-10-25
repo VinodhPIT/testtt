@@ -20,7 +20,12 @@ import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 
 
+
+
 export default function Detail({ data, status, locale }) {
+
+
+ 
   const router = useRouter();
   const { state, getLocale ,styleCollection } = useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
@@ -30,6 +35,9 @@ export default function Detail({ data, status, locale }) {
   const [tattoo, setTattoo] = useState([]);
   const [getStyle, setStyle] = useState([]);
   const [location, setLocation] = useState([]);
+
+
+
 
   useEffect(() => {
     styleCollection()
@@ -49,6 +57,10 @@ export default function Detail({ data, status, locale }) {
     if (!data) {
       return null;
     } else {
+  
+
+
+
       const fetchData = async () => {
         setLoading(true);
         try {
@@ -60,6 +72,11 @@ export default function Detail({ data, status, locale }) {
         setLoading(false);
       };
       fetchData();
+
+  
+
+
+
     }
   }, []);
 
@@ -67,10 +84,15 @@ export default function Detail({ data, status, locale }) {
     return null;
   }
 
+
  
   return (
     <>
      <Head>
+
+     
+ 
+
         <title>
         Browse unique tattoo designs by talented tattoo artists
         </title>
@@ -121,9 +143,10 @@ export default function Detail({ data, status, locale }) {
               </div>
 
               <div className={styles.product_media}>
+                
                 <Image
                   alt={data.style.name}
-                  priority
+                  loading="lazy"
                   src={data.tattoo.image}
                   height={200}
                   width={200}
@@ -134,14 +157,18 @@ export default function Detail({ data, status, locale }) {
                   }}
                   placeholder="blur"
                   blurDataURL={blurDataURL}
+                  quality={60}
+                
+                
                 />
+               
               </div>
 
               <div className={styles.product_info_col}>
                 <div className={styles.search_profile_block}>
                   <div className={styles.search_profile_pic}>
                     <Image
-                      alt={"data.tattoo.image"}
+                      alt={data.artist.artist_name}
                       priority
                       src={data.artist.profile_image}
                       width={100}
@@ -298,15 +325,19 @@ export default function Detail({ data, status, locale }) {
                     href={`/flash/${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
+                    prefetch
+                    
                   >
                     <Image
                       alt={item.style_name}
-                      priority
+                     
                       src={item.image_medium}
-                      fill
+                      layout="fill"
                       objectFit="cover"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
+                      loading="lazy"
+                      quality={62}
                     />
                   </Link>
                 ))}

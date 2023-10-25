@@ -8,10 +8,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-1QTM31PVEF"></script>
-          <script
-       async  src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo&libraries=places`}
-        type="text/javascript"
-      ></script>
+       
           <script
             dangerouslySetInnerHTML={{
               __html: `
