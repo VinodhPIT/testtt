@@ -201,8 +201,8 @@ export default function Detail({ data, status, locale }) {
                             {" "}
                             <Link
                               href={`/search?term=${
-                                e.name
-                              }&category=${"tattoo"}`}
+                               ""
+                              }&category=${"tattoo"}&style=${e.id}`}
                             >
                               {" "}
                               {e.name}{" "}

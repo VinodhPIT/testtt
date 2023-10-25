@@ -22,8 +22,8 @@ const ArtistInfo = ({data}) => {
                     return (
                       <li key={e.id}>
                         <Link  href={`/search?term=${
-                                e.name
-                              }&category=${"all"}`} >
+                               ""
+                              }&category=${"all"}&style=${e.id}`} >
                           {e.name}
                           <img
                             src="/arrow-right-gray.svg"
