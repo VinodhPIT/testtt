@@ -1,11 +1,9 @@
-[
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.inckd.tattoo",
-      "sha256_cert_fingerprints":
-        ["0A:D2:B9:EC:A5:3F:96:1F:52:7A:28:76:50:0C:2E:87:D8:FB:09:99:D7:3A:28:86:70:93:A4:D7:7C:3E:6E:2D"]
-    }
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.inckd.tattoo",
+    "sha256_cert_fingerprints":
+    ["FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"]
   }
-]
+}]
