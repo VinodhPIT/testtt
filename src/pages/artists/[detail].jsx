@@ -18,6 +18,7 @@ import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 
 
 export default function Detail({ data, locale }) {
+
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { t } = useTranslation();
 
@@ -169,7 +170,9 @@ export default function Detail({ data, locale }) {
               <div className={styles.search_profile}>
                 <div className={styles.search_profile_content}>
                   <div className={styles.search_profile_name}>
-                    {data.first_name} {data.last_name}
+              
+                  {data.artist_name ?? `${data.first_name} ${data.last_name}`}
+
                   </div>
                   <div className={styles.search_profile_details}>
                     {data.studio[0].city}, {data.studio[0].country}
@@ -218,7 +221,7 @@ export default function Detail({ data, locale }) {
                         <img
                           src={
                             currenState === tab.id ? tab.activeImage : tab.image
-                          }
+                          }alt={tab.id}
                         />
 
                         <p style={{ margin: "0" }}>{tab.label}</p>

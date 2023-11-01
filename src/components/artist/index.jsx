@@ -58,7 +58,9 @@ export default function Artist({ data }) {
                             />
                           </div>
                           <div className={styles.grid_profile_details}>
-                            <h6 className={styles.grid_profile_title}>{item._source.first_name} {item._source.last_name}  </h6>
+                            <h6 className={styles.grid_profile_title}>
+{item._source.artist_name ?? `${item._source.first_name} ${item._source.last_name}`}
+                               </h6>
                             <span className={styles.grid_profile_address}>{item._source.locations[0].city}, {item._source.locations[0].country} </span>
                             {/* <div className={styles.grid_profile_link}>
                             <Link href={`/artist/${item._source.slug}`} >
