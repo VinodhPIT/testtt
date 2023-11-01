@@ -204,7 +204,7 @@ const router = useRouter()
                     >
                       <div className={style.tabBox}>
                         <img
-                          src={state === tab.id ? tab.activeImage : tab.image}
+                          src={state === tab.id ? tab.activeImage : tab.image} alt={tab.id}
                         />
                         <p style={{ margin: "0" }}>{tab.label}</p>
                       </div>
