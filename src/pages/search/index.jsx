@@ -170,6 +170,7 @@ const Search = ({
                           src={
                             currentTab === tab.id ? tab.activeImage : tab.image
                           }
+                          alt={tab.id}
                         />
 
                         {tab.label}
@@ -264,6 +265,8 @@ export async function getServerSideProps(context) {
       });
 
       let addData = await addAdsToResults(data.rows.hits, isMobile);
+
+    
 
       return {
         props: {

@@ -22,10 +22,10 @@ export default function Offer() {
         
         <p>{t("common:nextTattoo")}</p>
         <span className={styles.adv_btn_wrap}>
-          <a   onClick={openPopup}
-                    target="_blank"   className={styles.btn_secondary}>
+          <button   onClick={openPopup}
+                       className={styles.btn_secondary}>
            {t("common:refer")}
-          </a>
+          </button>
         </span>
         <img
           src="/shutterstock_2068639577-1.png"
