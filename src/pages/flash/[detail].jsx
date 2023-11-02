@@ -18,16 +18,14 @@ import TattooSearchModalPopup from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
-
+import myPromise from "@/components/myPromise";
+import Loader from "@/components/loader";
 
 
 
 export default function Detail({ data, status, locale }) {
-
-
- 
   const router = useRouter();
-  const { state, getLocale ,styleCollection } = useGlobalState();
+  const { state, getLocale, styleCollection } = useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const { t } = useTranslation();
@@ -35,13 +33,12 @@ export default function Detail({ data, status, locale }) {
   const [tattoo, setTattoo] = useState([]);
   const [getStyle, setStyle] = useState([]);
   const [location, setLocation] = useState([]);
-
-
+  const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
 
   useEffect(() => {
-    styleCollection()
-    
+    styleCollection();
+
     try {
       getLocale({
         locale,
@@ -57,26 +54,19 @@ export default function Detail({ data, status, locale }) {
     if (!data) {
       return null;
     } else {
-  
-
-
-
       const fetchData = async () => {
         setLoading(true);
         try {
           const res = await fetchArtistDetail(data.artist.slug);
+
           setTattoo(res.data.tattoo);
+
           setStyle(res.data.style);
           setLocation(res.data.studio);
         } catch (error) {}
         setLoading(false);
       };
       fetchData();
-
-  
-
-
-
     }
   }, []);
 
@@ -84,19 +74,24 @@ export default function Detail({ data, status, locale }) {
     return null;
   }
 
+  const handleThumbnailClick = async (newItemImage) => {
+    setLoading(true);
+    setCurrentBigImage("");
+    let image = await myPromise(newItemImage);
+    setLoading(false);
+    setCurrentBigImage(image);
+  };
 
- 
+
+
+
+
+  
   return (
     <>
-     <Head>
-
-     
- 
-
-        <title>
-        Browse unique tattoo designs by talented tattoo artists
-        </title>
-         <meta
+      <Head>
+        <title>Browse unique tattoo designs by talented tattoo artists</title>
+        <meta
           name="description"
           content="Explore a diverse range of one-of-a-kind tattoo designs created by exceptionally talented artists. Find your perfect tattoo inspiration in our extensive collection"
         />
@@ -104,7 +99,7 @@ export default function Detail({ data, status, locale }) {
           name="keywords"
           content="Tattoo artist designs, Tattoo Designs, Flash Tattoos, Custom Tattoo designs, Find tattoo designs, Tattoo inspiration gallery, Tattoartist, Tattoo"
         />
-      </Head> 
+      </Head>
       <main>
         <div className="page_wrapper">
           <div className="container">
@@ -112,7 +107,11 @@ export default function Detail({ data, status, locale }) {
               <div className={style.tattoo_search_wrap}>
                 <div className={style.search_form}>
                   <div className="search_form_wrap">
-                  <SearchField currentTab={"flash"}  router={router} isDetail={true} />
+                    <SearchField
+                      currentTab={"flash"}
+                      router={router}
+                      isDetail={true}
+                    />
                   </div>
                 </div>
               </div>
@@ -126,11 +125,10 @@ export default function Detail({ data, status, locale }) {
                 router={router}
                 isDetail={true}
               />
-
             </div>
 
             <div className={styles.product_detail_wrap}>
-              <div className={styles.back_arrow}>
+              <div className={styles.back_arrow} >
                 <Image
                   src={"/back-arrow.svg"}
                   alt="backArrow"
@@ -142,26 +140,30 @@ export default function Detail({ data, status, locale }) {
                 />
               </div>
 
-              <div className={styles.product_media}>
-                
-                <Image
-                  alt={data.style.name}
-                  loading="lazy"
-                  src={data.tattoo.image}
-                  height={200}
-                  width={200}
-                  sizes="100vw"
-                  style={{
-                    height: "auto",
-                    width: "100%",
-                  }}
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
-                  quality={50}
-                
-                
-                />
-               
+              <div className={styles.product_media} >
+                {loading ? (
+                  <Loader/>
+                ) : (
+                  <Image
+                    alt={data.style.name}
+                   priority="high"
+                    src={currentBigImage}
+                    height={200}
+                    width={200}
+                   
+                    style={{
+                      height: "auto",
+                      width: "100%",
+                    }}
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
+                    quality={50}
+                   
+                    
+                    
+
+                  />
+                )}
               </div>
 
               <div className={styles.product_info_col}>
@@ -220,9 +222,9 @@ export default function Detail({ data, status, locale }) {
                           <li key={e.id}>
                             {" "}
                             <Link
-                              href={`/search?term=${
-                                ""
-                              }&category=${"flash"}&style=${e.id}`}
+                              href={`/search?term=${""}&category=${"flash"}&style=${
+                                e.id
+                              }`}
                             >
                               {" "}
                               {e.name}{" "}
@@ -326,11 +328,10 @@ export default function Detail({ data, status, locale }) {
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
                     prefetch
-                    
+                    onClick={() => handleThumbnailClick(item.tattoo_image)}
                   >
                     <Image
                       alt={item.style_name}
-                     
                       src={item.image_medium}
                       layout="fill"
                       objectFit="cover"
@@ -338,6 +339,7 @@ export default function Detail({ data, status, locale }) {
                       blurDataURL={blurDataURL}
                       loading="lazy"
                       quality={62}
+                     
                     />
                   </Link>
                 ))}

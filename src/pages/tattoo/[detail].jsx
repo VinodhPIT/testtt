@@ -18,14 +18,13 @@ import TattooSearchModalPopup from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
-
-
-
+import myPromise from "@/components/myPromise";
+import Loader from "@/components/loader";
 
 export default function Detail({ data, status, locale }) {
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
-  const { state, getLocale ,styleCollection } = useGlobalState();
+  const { getLocale, styleCollection } = useGlobalState();
 
   const { t } = useTranslation();
 
@@ -33,9 +32,10 @@ export default function Detail({ data, status, locale }) {
   const [tattoo, setTattoo] = useState([]);
   const [getStyle, setStyle] = useState([]);
   const [location, setLocation] = useState([]);
+  const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
   useEffect(() => {
-    styleCollection()
+    styleCollection();
     try {
       getLocale({
         locale,
@@ -70,23 +70,29 @@ export default function Detail({ data, status, locale }) {
     return null;
   }
 
+  const handleThumbnailClick = async (newItemImage) => {
+    setCurrentBigImage("");
+    setLoading(true);
+    let image = await myPromise(newItemImage);
+    setCurrentBigImage(image);
+    setLoading(false);
+  };
 
-  
   return (
     <>
-     <Head>
+      <Head>
         <title>
           Explore Tattoo images, designs, and find tattoo artists with ease
         </title>
         <meta
           name="description"
           content="Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience."
-         />
-         <meta
-         name="keywords"
-        content="Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
-  />
-      </Head> 
+        />
+        <meta
+          name="keywords"
+          content="Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
+        />
+      </Head>
 
       <main>
         <div className="page_wrapper">
@@ -95,7 +101,11 @@ export default function Detail({ data, status, locale }) {
               <div className={style.tattoo_search_wrap}>
                 <div className={style.search_form}>
                   <div className="search_form_wrap">
-                    <SearchField currentTab={"tattoo"}  router={router} isDetail={true} />
+                    <SearchField
+                      currentTab={"tattoo"}
+                      router={router}
+                      isDetail={true}
+                    />
                   </div>
                 </div>
               </div>
@@ -124,21 +134,28 @@ export default function Detail({ data, status, locale }) {
                 />
               </div>
               <div className={styles.product_media}>
-                <Image
-                  alt={data.style.name}
-                  loading="lazy"
-                  src={data.tattoo.image}
-                  height={200}
-                  width={200}
-                  sizes="100vw"
-                  style={{
-                    height: "auto",
-                    width: "100%",
-                  }}
-                  placeholder="blur"
-                  blurDataURL={blurDataURL}
-                  quality={50}
-                />
+                {loading ? (
+                 <Loader/>
+                ) : (
+                  <Image
+                    alt={data.style.name}
+                    loading="lazy"
+                    src={currentBigImage}
+                    height={200}
+                    width={200}
+                    sizes="100vw"
+                    style={{
+                      height: "auto",
+                      width: "100%",
+                    }}
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
+                    quality={50}
+                   
+                    
+
+                  />
+                )}
               </div>
 
               <div className={styles.product_info_col}>
@@ -200,9 +217,9 @@ export default function Detail({ data, status, locale }) {
                           <li key={e.id}>
                             {" "}
                             <Link
-                              href={`/search?term=${
-                               ""
-                              }&category=${"tattoo"}&style=${e.id}`}
+                              href={`/search?term=${""}&category=${"tattoo"}&style=${
+                                e.id
+                              }`}
                             >
                               {" "}
                               {e.name}{" "}
@@ -267,6 +284,7 @@ export default function Detail({ data, status, locale }) {
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
                     prefetch
+                    onClick={() => handleThumbnailClick(item.tattoo_image)}
                   >
                     <Image
                       alt={item.style_name}

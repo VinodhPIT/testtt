@@ -28,7 +28,7 @@ const All = ({ data ,loading}) => {
             >
               <Image
                 alt={item.tattoo_type}
-                src={item.image}
+                src={item.image_medium}
                layout="fill"
                loading="lazy"
                 objectFit="cover"
