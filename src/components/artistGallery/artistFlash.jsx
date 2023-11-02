@@ -22,7 +22,7 @@ const Flash = ({ data }) => {
               <Image
                 alt={item.tattoo_type}
                  loading="lazy"
-                src={item.image}
+                 src={item.image_medium}
                 layout="fill"
                 objectFit="cover"
                 placeholder="blur"
