@@ -75,15 +75,11 @@ export default function Detail({ data, status, locale }) {
   }
 
   const handleThumbnailClick = async (newItemImage) => {
-   
     setLoading(true);
     setCurrentBigImage("");
     let image = await myPromise(newItemImage);
     setLoading(false);
     setCurrentBigImage(image);
-    
-
-
   };
 
 
