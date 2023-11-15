@@ -223,7 +223,6 @@ const Search = ({
 export default Search;
 
 export async function getServerSideProps(context) {
-  console.log(context,"kc[k")
   const userAgent = context.req.headers["user-agent"];
   const md = new MobileDetect(userAgent);
   const isMobile = md.mobile();
