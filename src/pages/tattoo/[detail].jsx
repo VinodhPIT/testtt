@@ -22,6 +22,7 @@ import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
 
 export default function Detail({ data, status, locale }) {
+  
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();
   const { getLocale, styleCollection } = useGlobalState();
@@ -71,6 +72,8 @@ export default function Detail({ data, status, locale }) {
   }
 
   const handleThumbnailClick = async (newItemImage) => {
+    
+   
     setCurrentBigImage("");
     setLoading(true);
     let image = await myPromise(newItemImage);
@@ -141,19 +144,17 @@ export default function Detail({ data, status, locale }) {
                     alt={data.style.name}
                     loading="lazy"
                     src={currentBigImage}
-                    height={200}
-                    width={200}
-                    sizes="100vw"
+                    height={500}
+                    width={500}
+                
                     style={{
                       height: "auto",
                       width: "100%",
                     }}
                     placeholder="blur"
                     blurDataURL={blurDataURL}
-                    quality={50}
-                   
-                    
-
+                    quality={75}
+                  
                   />
                 )}
               </div>

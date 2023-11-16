@@ -146,22 +146,17 @@ export default function Detail({ data, status, locale }) {
                 ) : (
                   <Image
                     alt={data.style.name}
-                   priority="high"
+                    priority="high"
                     src={currentBigImage}
-                    height={200}
-                    width={200}
-                   
+                    height={500}
+                    width={500}
                     style={{
                       height: "auto",
                       width: "100%",
                     }}
                     placeholder="blur"
                     blurDataURL={blurDataURL}
-                    quality={50}
-                   
-                    
-                    
-
+                    quality={75}
                   />
                 )}
               </div>
