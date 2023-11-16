@@ -217,6 +217,22 @@ localStorage.clear('searchQuery')
 
   };
 
+
+
+  useEffect(() => {
+    const handleBackButton = () => {
+      clearText();
+    };
+    window.addEventListener('popstate', handleBackButton);
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, []);
+
+
+
+
+
   return (
     <div className={style.search_bar} style={{ position: "relative" }}>
       <form onSubmit={handleSubmit}>
