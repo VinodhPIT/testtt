@@ -189,10 +189,16 @@ const Search = ({
             {!state.loading &&
               collectionLength.length !== 0 &&
               collectionLength.length !== state.totalItems && (
+
                 <div className={style.grid_more_view}>
+
+            {state.currentTab!=="artist" &&
                   <p>
                     See out of {collectionLength.length}/{state.totalItems}
                   </p>
+}
+
+
                   <div className={style.btn_wrapper}>
                     <button
                       onClick={() => {
