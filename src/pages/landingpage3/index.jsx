@@ -25,6 +25,10 @@ export default function Landing3() {
     
 objectPosition='bottom'
 
+layout="responsive"
+
+
+
     /> */}
 
       
