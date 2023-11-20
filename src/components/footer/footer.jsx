@@ -26,18 +26,18 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url: `/search?term=${""}&category=${"tattoo"}`,
+      url:"/explore/tattoos"
     },
 
     {
       id: 2,
       title: t("common:menus.artistSearch"),
-      url: `/search?term=${""}&category=${"artist"}`,
+      url:"/explore/tattoo-artists"
     },
     {
       id: 3,
       title: t("common:menus.flashSearch"),
-      url: `/search?term=${""}&category=${"flash"}`,
+      url:"/explore/flash-tattoos"
     },
   ];
 

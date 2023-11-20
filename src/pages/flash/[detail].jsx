@@ -10,7 +10,7 @@ import {
 } from "@/constants/constants";
 import { fetchArtistDetail } from "@/action/action";
 import Link from "next/link";
-import style from "@/pages/search/search.module.css";
+import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/tattooSearch/tattooSearch";
 import { useRouter } from "next/router";

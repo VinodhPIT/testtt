@@ -25,20 +25,20 @@ export default function LocationSearch({
   };
 
   const [address, setAddress] = useState("");
-  const [coordinates, setCoordinates] = useState({
-    lat: null,
-    lng: null,
-  });
+
   const { isMobileView } = useWindowResize();
   const { getAddress } = useGlobalState();
 
   const handleSelect = async (value) => {
-    getAddress(value);
-    const result = await geocodeByAddress(value);
-    const ll = await getLatLng(result[0]);
-    setAddress(value);
-    setCoordinates(ll);
+    const textBeforeComma = value.split(',')[0].trim();
+    getAddress(textBeforeComma);
+    setAddress(textBeforeComma);
+  
   };
+
+
+
+
 
   const clear = async () => {
     setAddress("");
@@ -50,15 +50,14 @@ export default function LocationSearch({
   };
 
   const searchLocation = async () => {
-    if (coordinates.lat === null) {
+    if (address === null) {
       notify();
     } else {
       await getUrl(
-        searchKey,
         currentTab,
+        searchKey,
         selectedStyle,
-        coordinates.lat,
-        coordinates.lng,
+        address,
         router
       );
       // await getAddress("Location");

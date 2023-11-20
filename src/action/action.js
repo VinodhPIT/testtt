@@ -7,6 +7,7 @@ import {
 import { postApiCall, getApiCall } from "@/utils/apiUtils";
 
 export const fetchCategoryData = async (params) => {
+
   try {
     const responseCategory = await postApiCall(
       `/${params.category}/search`,
@@ -21,14 +22,8 @@ export const fetchCategoryData = async (params) => {
 
 export const getStyles = async () => {
   try {
-    const reponseStyles = await postApiCall(
-      `/style/search`,
-      prepareRequest({
-        sort: "alphabetical",
-        page_no: 0,
-        paginator_count: 25,
-        search_key: "",
-      })
+    const reponseStyles = await getApiCall(
+      `/style/all`
     );
 
     return reponseStyles;

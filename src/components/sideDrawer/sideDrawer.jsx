@@ -20,7 +20,7 @@ export default function SideDrawer({onCloseToggle}) {
     {
       id: 2,
       title:t("common:menus.search"),
-      url: `/search?term=${""}&category=${"tattoo"}`,
+      url:"/explore/tattoos"
     },
 
 

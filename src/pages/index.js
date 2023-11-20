@@ -115,7 +115,8 @@ export default function Home({ locale }) {
                           <ul className="trend_list">
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"tattoo"}`}
+                                    href="/explore/[[...slug]]"
+                                    as="/explore/tattoos"
                               >
                                 <img src="/Flame.svg" alt="Tattoos" />
                                 {t("common:homePage.tattoos")}
@@ -123,7 +124,8 @@ export default function Home({ locale }) {
                             </li>
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"flash"}`}
+                                   href="/explore/[[...slug]]"
+                                   as="/explore/flash-tattoos"
                               >
                                 <img src="/Bolt.svg" alt="Flash" />
                                 {t("common:homePage.flash")}
@@ -131,7 +133,8 @@ export default function Home({ locale }) {
                             </li>
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"artist"}`}
+                                href="/explore/[[...slug]]"
+                                as={`/explore/tattoo-artists`} 
                               >
                                 <img src="/colour-palette.svg" alt="Artists" />
 

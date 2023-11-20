@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import { fetchCategoryData, fetchMultiData } from "@/action/action";
+import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { Parameters } from "@/components/parameters/params";
 import { renderCategoryComponent } from "@/components/customTabs/tab";
-import style from "@/pages/search/search.module.css";
+import style from "@/pages/explore/search.module.css";
 import { useRouter } from "next/router";
 import SearchField from "@/components/tattooSearch/tattooSearch";
 import { addAdsToResults } from "@/helpers/helper";
@@ -11,7 +11,7 @@ import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
-import PageLoad from "@/components/pageLoad";
+import { getPlaceDetails } from "@/utils/placesApi";
 
 
 const MobileDetect = require("mobile-detect");
@@ -26,7 +26,7 @@ const Search = ({
   lon,
   loading,
   locale,
-  seed,
+  seed,slugIds
 }) => {
   const {
     state,
@@ -34,7 +34,8 @@ const Search = ({
     changeTab,
     loadMore,
     styleCollection,
-    getAddress,getLoad
+    getAddress,
+
   } = useGlobalState();
 
   const { t } = useTranslation();
@@ -80,7 +81,7 @@ const Search = ({
         lat,
         lon,
         locale,
-        seed,
+        seed,slugIds
       });
     } catch (error) {}
   }, [data]);
@@ -98,10 +99,7 @@ const Search = ({
   const router = useRouter();
 
   const updateTab = async (tab) => {
-   
-      getLoad()
-    await getUrl(searchKey, tab, selectedStyle, lat, lon, router)
-
+    await getUrl(tab, searchKey, selectedStyle, state.location, router);
   };
 
   return (
@@ -189,16 +187,10 @@ const Search = ({
             {!state.loading &&
               collectionLength.length !== 0 &&
               collectionLength.length !== state.totalItems && (
-
                 <div className={style.grid_more_view}>
-
-            {state.currentTab!=="artist" &&
                   <p>
                     See out of {collectionLength.length}/{state.totalItems}
                   </p>
-}
-
-
                   <div className={style.btn_wrapper}>
                     <button
                       onClick={() => {
@@ -213,8 +205,6 @@ const Search = ({
               )}
           </div>
         </div>
-        
-       
       </main>
     </>
   );
@@ -223,24 +213,87 @@ const Search = ({
 export default Search;
 
 export async function getServerSideProps(context) {
-  const userAgent = context.req.headers["user-agent"];
+
+
+  const { query, req, locale } = context;
+  const { slug } = query;
+  const userAgent = req.headers["user-agent"];
   const md = new MobileDetect(userAgent);
   const isMobile = md.mobile();
-
   const min = 3;
   const max = 3409357923759259;
-  let seed = Math.floor(Math.random() * (max - min + 1)) + min;
+  const seed = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  const categoryMapping = {
+    tattoos: "tattoo",
+    'flash-tattoos': "flash",
+    'tattoo-artists': "artist",
+    "all":"all"
+  };
+
+  const category = categoryMapping[slug[0]] || null;
+
+
+  let style = "";
+  let search_key = "";
+  let location = "";
+  let styleId = "";
+
+
+  for (let i = 0; i < slug.length; i++) {
+    switch (slug[i]) {
+      case "keyword":
+        if (i + 1 < slug.length) {
+          search_key = slug[i + 1];
+        }
+        break;
+
+      case "location":
+        if (i + 1 < slug.length) {
+          location = slug[i + 1];
+        }
+        break;
+
+      case "style":
+        if (i + 1 < slug.length) {
+          style = slug[i + 1];
+        }
+        break;
+
+      default:
+    }
+    if (search_key && location !== "" && style) {
+      break;
+    }
+  }
+
+  const placeDetails = await getPlaceDetails(location);
+
+
+
+  if (style !== "") {
+    const slugsToCheck = style.split(",");
+    const stylesArray = await getStyles();
+    const matchingStyles = slugsToCheck.map((style) => {
+      const matchingStyle = stylesArray.data.find(
+        (styleObj) => styleObj.slug === style
+      );
+      return matchingStyle ? matchingStyle.id : null;
+    });
+    styleId = matchingStyles.filter((id) => id !== null);
+  }
 
   try {
-    if (context.query.category === "all") {
+    if (category=== "all") {
       const results = await fetchMultiData({
         ...Parameters,
-        category: context.query.category,
-        search_key: context.query.term,
-        style: context.query.style ?? "",
-        latitude: context.query.lat ?? "",
-        longitude: context.query.lon ?? "",
+        category,
+        search_key,
+        style: styleId, //StyleId
+        latitude: placeDetails.latitude,
+        longitude: placeDetails.longitude,
         seed,
+        
       });
 
       let addData = await addAdsToResults(results.data, isMobile);
@@ -248,50 +301,48 @@ export async function getServerSideProps(context) {
       return {
         props: {
           data: addData,
-          currentTab: context.query.category,
+          currentTab:category,
           pageNo: 0,
           totalItems: results.totalCount,
-          searchKey: context.query.term,
-          selectedStyle: context.query.style ?? "",
-          lat: context.query.lat ?? "",
-          lon: context.query.lon ?? "",
+          searchKey: search_key,
+          selectedStyle: style,//StyleId
+          lat: placeDetails.latitude,
+          lon: placeDetails.longitude,
           locale: context.locale,
           seed,
+          slugIds:styleId
         },
       };
     } else {
       const data = await fetchCategoryData({
         ...Parameters,
-        category: context.query.category,
-        style: context.query.style ?? "",
-        search_key: context.query.term,
-        latitude: context.query.lat ?? "",
-        longitude: context.query.lon ?? "",
+        category,
+        style: styleId,//StyleId
+        search_key,
+        latitude: placeDetails.latitude,
+        longitude: placeDetails.longitude,
         seed,
       });
 
       let addData = await addAdsToResults(data.rows.hits, isMobile);
-
-    
-
       return {
         props: {
           data: addData,
-          currentTab: context.query.category,
+          currentTab: category,
           pageNo: 0,
           totalItems: data.rows.total.value,
-          searchKey: context.query.term,
-          selectedStyle: context.query.style ?? "",
-          lat: context.query.lat ?? "",
-          lon: context.query.lon ?? "",
-          locale: context.locale,
+          searchKey: search_key,
+          selectedStyle: style,
+          lat: placeDetails.latitude,
+          lon: placeDetails.longitude,
+          locale:locale,
           seed,
+          slugIds:styleId,
+          
         },
       };
     }
   } catch (error) {
-    //console.log(error);
-
     return {
       props: {
         data: null,

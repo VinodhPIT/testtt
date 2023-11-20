@@ -46,7 +46,7 @@ export default function Header({ logo, theme, isPosition }) {
     {
       id: 1,
       title:t("common:menus.tattooSearch"),
-      url: `/search?term=${""}&category=${"tattoo"}`,
+      url:"/explore/tattoos"
     },
     {
       id: 2,

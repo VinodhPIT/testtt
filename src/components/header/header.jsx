@@ -36,7 +36,8 @@ export default function Header({ logo, theme, isPosition }) {
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url: `/search?term=${""}&category=${"tattoo"}`,
+      url:"/explore/tattoos"
+      
     },
     {
       id: 2,
@@ -105,6 +106,7 @@ export default function Header({ logo, theme, isPosition }) {
                     <li key={link.id} className="nav_item">
                       <Link
                         href={link.url}
+
                         className={
                           theme === "black"
                             ? "textWhite"

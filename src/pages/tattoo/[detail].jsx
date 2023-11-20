@@ -13,7 +13,7 @@ import Link from "next/link";
 import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/tattooSearch/tattooSearch";
 import { useRouter } from "next/router";
-import style from "@/pages/search/search.module.css";
+import style from "@/pages/explore/search.module.css";
 import TattooSearchModalPopup from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";

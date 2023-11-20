@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
       case "/klarna":
         return <Header logo={'/inckd-logo.svg'} theme={"normal"} isPosition={true} />;
 
-      case "/search":
+     case "/explore/[[...slug]]":
       case "/flash/[detail]":
       case "/artists/[detail]":
       case "/tattoo/[detail]":

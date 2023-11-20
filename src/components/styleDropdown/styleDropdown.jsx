@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useGlobalState } from "@/context/Context";
 import styles from "./dropdown.module.css";
@@ -8,18 +7,16 @@ import { useToggle } from "@/hooks/useToggle";
 export default function StyleDropdown({
   searchKey,
   currentTab,
-  lat,
-  lon,
   router,
   isDetail,
   onToggle,
 }) {
-  const { state, styleCollection  ,selectedIds ,setSelectedIds} = useGlobalState();
+  const { state, styleCollection, selectedIds, setSelectedIds } =
+    useGlobalState();
 
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
       setSelectedIds(selectedIds.filter((id) => id !== elId));
-      
     } else {
       setSelectedIds([...selectedIds, elId]);
     }
@@ -27,49 +24,45 @@ export default function StyleDropdown({
 
   const clearAll = async () => {
     setSelectedIds([]);
-    localStorage.clear('selectedStyleIds')
-  await  getUrl(searchKey, currentTab, '', lat, lon, router);
-
+    localStorage.clear("selectedStyleIds");
+    await getUrl(currentTab, searchKey, "", state.location, router);
   };
 
   const onSearch = async () => {
-    if (isDetail === true) {
-     await getUrl(searchKey, currentTab, selectedIds, lat, lon, router);
-    } else {
-     await getUrl(searchKey, currentTab, selectedIds, lat, lon, router);
-    }
-    onToggle();
-   
+    await getUrl(currentTab, searchKey, selectedIds, state.location, router);
   };
 
   return (
     <div className={styles.custom_dropdown}>
       <h4>Style</h4>
       <div className={styles.custom_dropdown_close} onClick={() => onToggle()}>
-        <Image src="/icon-close-drop.svg" width={24} height={24} alt="close" priority />
+        <Image
+          src="/icon-close-drop.svg"
+          width={24}
+          height={24}
+          alt="close"
+          priority
+        />
       </div>
       <div className={styles.custom_dropdown_content}>
-
-
-
-{state.styleCollection.map((el) => {
+        {state.styleCollection.map((el) => {
           return (
-            <div key={el._id} className={styles.custom_dropdown_col}>
-              <label className={styles.custom_dropdown_label}   >
-                <p>{el.sort[0]}</p>
+            <div key={el.slug} className={styles.custom_dropdown_col}>
+              <label className={styles.custom_dropdown_label}>
+                <p>{el.name}</p>
                 <div className={styles.custom_checkbox}>
                   <input
                     type="checkbox"
-                    id={`checkbox_${el._id}`}
-                    onChange={() => handleCheckboxChange(el._id)}
-                    checked={selectedIds.includes(el._id)}
-                     />
+                    id={`checkbox_${el.slug}`}
+                    onChange={() => handleCheckboxChange(el.slug)}
+                    checked={selectedIds.includes(el.slug)}
+                  />
                 </div>
               </label>
             </div>
           );
-        })}. 
-
+        })}
+        .
       </div>
       <div className={styles.custom_dropdown_btn}>
         <button
@@ -81,7 +74,7 @@ export default function StyleDropdown({
         </button>
         <button
           disabled={selectedIds.length === 0}
-          onClick={()=>onSearch()}
+          onClick={() => onSearch()}
           className="btn_secondary w_100pc"
         >
           Show Results

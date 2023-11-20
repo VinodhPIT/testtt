@@ -7,7 +7,7 @@ import { fetchArtistDetail, artistGallery } from "@/action/action";
 import { blurDataURL } from "@/constants/constants";
 import SearchField from "@/components/tattooSearch/tattooSearch";
  
-import style from "@/pages/search/search.module.css";
+import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import { renderArtistGallery } from "@/components/customTabs/tab";
 import TattooSearchModalPopup from "@/utils/modalUtils";
