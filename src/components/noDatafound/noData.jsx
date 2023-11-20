@@ -12,7 +12,7 @@ export default function NoData({ category }) {
 
   const test = () => {
     localStorage.clear();
-    router.push(`/search?term=${""}&category=${category}`);
+    router.push(`/explore/${category}`);
   };
 
   return (

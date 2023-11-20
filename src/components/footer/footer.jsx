@@ -48,13 +48,13 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.styleGuide"),
-      url: "/styleguide",
+      url: "/tattoo-styleguide",
     },
 
     {
       id: 2,
       title: t("common:menus.dictionary"),
-      url: "/dictionary",
+      url: "/tattoo-dictionary",
     },
     {
       id: 3,
@@ -69,7 +69,7 @@ export default function Footer() {
     {
       id: 2,
       title: t("common:menus.forTattooArtists"),
-      url: "/fortattooartists",
+      url: "/for-tattoo-artists",
     },
   ];
 
@@ -77,7 +77,7 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.contactUs"),
-      url: "/contactus",
+      url: "/contact",
     },
     {
       id: 2,

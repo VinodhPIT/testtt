@@ -51,12 +51,12 @@ export default function Header({ logo, theme, isPosition }) {
     {
       id: 2,
       title:t("common:menus.styleGuide"),
-      url: "/styleguide",
+      url: "/tattoo-styleguide",
     },
     {
       id: 3,
       title:t("common:menus.dictionary"),
-      url: "/dictionary",
+      url: "/tattoo-dictionary",
     },
 
     {

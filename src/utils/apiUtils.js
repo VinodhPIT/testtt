@@ -22,7 +22,7 @@ export async function postApiCall(endpoint, requestData) {
     return jsonResponse;
 
   } catch (error) {
-    console.log(error,"whart rrror")
+
     throw error;
   }
 }

@@ -42,12 +42,12 @@ export default function Header({ logo, theme, isPosition }) {
     {
       id: 2,
       title: t("common:menus.styleGuide"),
-      url: "/styleguide",
+      url: "/tattoo-styleguide",
     },
     {
       id: 3,
       title: t("common:menus.dictionary"),
-      url: "/dictionary",
+      url: "/tattoo-dictionary",
     },
 
     {
@@ -125,7 +125,7 @@ export default function Header({ logo, theme, isPosition }) {
               <div className="header_right">
                 <button
                   type="button"
-                  onClick={() => router.push("/fortattooartists")}
+                  onClick={() => router.push("/for-tattoo-artists")}
                   className={`btn btn_tattoo_art ${
                     theme === "black" ? "bgWhite" : "bgBlack"
                   }`}

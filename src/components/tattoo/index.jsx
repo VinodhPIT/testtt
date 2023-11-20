@@ -34,7 +34,7 @@ export default function Tattoo({ data }) {
               )
             ) : (
               <Link
-                href={`/tattoo/${item._source.tattoo_uid}`}
+                href={`tattoos/${item._source.tattoo_uid}`}
                 className={styles.listing_gridItem}
                 key={key}
               >

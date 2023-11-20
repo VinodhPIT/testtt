@@ -19,7 +19,8 @@ export default function ArtistAdd() {
          
         </h6>
         <span className={styles.adv_btn_wrap}>
-          <Link  href={`/search?term=${""}&category=${"artist"}`} className={styles.btn_secondary}>
+          <Link   href="/explore/[[...slug]]"
+                                as={`/explore/tattoo-artists`}  className={styles.btn_secondary}>
           {t("common:viewArtist")}
           </Link>
         </span>

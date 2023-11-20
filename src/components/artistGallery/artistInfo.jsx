@@ -5,6 +5,8 @@ import Link from "next/link";
 
 
 const ArtistInfo = ({data}) => {
+  
+
 
 
   const { t } = useTranslation();
@@ -21,9 +23,7 @@ const ArtistInfo = ({data}) => {
                   data.style.map((e) => {
                     return (
                       <li key={e.id}>
-                        <Link  href={`/search?term=${
-                               ""
-                              }&category=${"all"}&style=${e.id}`} >
+                        <Link  href={`/explore/all/style/${e.id}`} >
                           {e.name}
                           <img
                             src="/arrow-right-gray.svg"

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/pages/tattoo/tattoodetail.module.css";
+import styles from "@/pages/explore/tattoodetail.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
@@ -15,7 +15,7 @@ const Tattoo = ({ data }) => {
         <div className={styles.grid_wrapper_tattoo}>
           {data.map((item) => (
             <Link
-              href={`/tattoo/${item.tattoo_uid}`}
+              href={`/explore/tattoos/${item.tattoo_uid}`}
               className={styles.listing_gridItem}
               key={item.tattoo_uid}
             >

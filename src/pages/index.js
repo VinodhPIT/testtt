@@ -185,7 +185,8 @@ export default function Home({ locale }) {
                         </h2>
                         <p>{t("common:homePage.content1")}</p>
                         <Link
-                          href={`/search?term=${""}&category=${"artist"}`}
+                           href="/explore/[[...slug]]"
+                           as="/explore/tattoo-artists"
                           class="btn_secondary btn_cutom_new btn_img"
                         >
                           {t("common:findArtist's")}
@@ -312,7 +313,7 @@ export default function Home({ locale }) {
                           </h2>
                           <p>{t("common:homePage.content4")}</p>
                           <Link
-                            href="/dictionary"
+                            href="/tattoo-dictionary"
                             className="btn_default btn_cutom_new btn_img"
                           >
                             {t("common:visitTattoo")}
@@ -392,7 +393,7 @@ export default function Home({ locale }) {
                           </span>
                         </h2>
                         <Link
-                          href="/styleguide"
+                          href="/tattoo-styleguide"
                           class="btn_primary btn_cutom_new btn_img mt_65 m_mt_35"
                         >
                           Check the Styleguide
@@ -419,7 +420,7 @@ export default function Home({ locale }) {
                         </h2>
                         <p>{t("common:homePage.content5")}</p>
                         <Link
-                          href="/fortattooartists"
+                          href="/for-tattoo-artists"
                           class="btn_default btn_cutom_new btn_img"
                         >
                           {t("common:learnmore")}
