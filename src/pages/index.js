@@ -164,6 +164,18 @@ export default function Home({ locale }) {
             </div>
           </div>
 
+<section style={{"height":"100px","display":"flex","justifyContent":"space-between","alignItems":"center","padding":"33px"}}>
+<Link href={'/landingpage1'}>Landingpage1</Link>
+<Link href={'/landingpage2'}>Landingpage2</Link>
+<Link href={'/landingpage3'}>Landingpage3</Link>
+
+</section>
+
+
+
+
+          
+
           <section className="img_text_banner_box">
             <div className="col_full">
               <div className="img_text_box_wrapper">
