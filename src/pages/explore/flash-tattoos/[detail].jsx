@@ -25,6 +25,8 @@ import Loader from "@/components/loader";
 
 export default function Detail({ data, status, locale }) {
 
+
+
   const router = useRouter();
   const { state, getLocale, styleCollection } = useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
@@ -36,6 +38,8 @@ export default function Detail({ data, status, locale }) {
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
+
+  
 
   useEffect(() => {
     styleCollection();
@@ -62,6 +66,7 @@ export default function Detail({ data, status, locale }) {
 
           setTattoo(res.data.tattoo);
           setStyle(res.data.style);
+
           setLocation(res.data.studio);
         } catch (error) {}
         setLoading(false);
@@ -218,7 +223,7 @@ export default function Detail({ data, status, locale }) {
                             {" "}
                             <Link
                               href={`/explore/flash-tattoos/style/${
-                                e.id
+                                e.slug
                               }`}
                             >
                               {" "}

@@ -215,8 +215,14 @@ export default Search;
 export async function getServerSideProps(context) {
 
 
+
+
   const { query, req, locale } = context;
   const { slug } = query;
+  
+  console.log(slug,"dcjodjopcdc")
+
+
   const userAgent = req.headers["user-agent"];
   const md = new MobileDetect(userAgent);
   const isMobile = md.mobile();

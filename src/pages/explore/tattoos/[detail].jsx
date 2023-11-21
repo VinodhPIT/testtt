@@ -219,7 +219,7 @@ export default function Detail({ data, status, locale }) {
                             {" "}
                             <Link
                               href={`/explore/tattoos/style/${
-                                e.id
+                                e.slug
                               }`}
                             >
                               {" "}

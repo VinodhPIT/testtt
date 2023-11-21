@@ -23,7 +23,7 @@ const ArtistInfo = ({data}) => {
                   data.style.map((e) => {
                     return (
                       <li key={e.id}>
-                        <Link  href={`/explore/all/style/${e.id}`} >
+                        <Link  href={`/explore/all/style/${e.slug}`} >
                           {e.name}
                           <img
                             src="/arrow-right-gray.svg"

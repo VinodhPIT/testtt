@@ -16,6 +16,8 @@ import {
 import useWindowResize from "@/hooks/useWindowSize";
 import useTranslation from "next-translate/useTranslation";
 
+
+
 export default function Home({ locale }) {
   const { t } = useTranslation();
   const { styleCollection, getLocale  ,getAddress} = useGlobalState();
@@ -36,7 +38,22 @@ export default function Home({ locale }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+   
+
+
+      localStorage.clear("selectedStyleIds");
+
+    
+
+     
+  }, []);
+
+
+  useEffect(() => {
     getAddress('Location')
+
+    // localStorage.clear("selectedStyleIds");
+
     styleCollection();
     const timer = setInterval(changeImage, 2000);
     return () => clearInterval(timer);
