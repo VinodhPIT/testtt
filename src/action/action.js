@@ -28,6 +28,7 @@ export const getStyles = async () => {
 
     return reponseStyles;
   } catch (error) {
+
     // Handle error if needed
     return [];
   }

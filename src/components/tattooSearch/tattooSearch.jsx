@@ -1,26 +1,15 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import style from "./tattoosearch.module.css";
 import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
 
-
-
-function SearchBar({
-  searchKey,
-  currentTab,
-  selectedStyle,
-  router,
-  isDetail
-}) {
+function SearchBar({ searchKey, currentTab, selectedStyle, router, isDetail }) {
   const { state, searchData } = useGlobalState();
   const [searchState, setSearchState] = useState({
     query: "",
     showDropdown: false,
     searchHistory: [],
   });
-
-
 
   const inputRef = useRef(null);
   // const router = useRouter();
@@ -49,9 +38,7 @@ function SearchBar({
   //   );
   // }, [searchState.searchHistory]);
 
-
-
-useEffect(() => {
+  useEffect(() => {
     const searchQuery = localStorage.getItem("searchQuery");
     if (searchQuery) {
       setSearchState((prevSearchState) => ({
@@ -62,26 +49,8 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(
-      "searchQuery",
-      JSON.stringify(searchState.query)
-    );
+    localStorage.setItem("searchQuery", JSON.stringify(searchState.query));
   }, [searchState.query]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   const hintsToDisplay = [];
@@ -124,28 +93,16 @@ useEffect(() => {
   };
 
   const handleSubmit = async (e) => {
-
-
     e.preventDefault();
-    if (isDetail === true) {
-      const categoryMapping = {
-        tattoo: "tattoos",
-        flash: "flash-tattoos",
-        artist: "tattoo-artists",
-        all: "all",
-      };
-      const category = categoryMapping[currentTab] || null;
-
-      router.push(`/explore/${category}/keyword/${searchState.query}`);
-    } else {
+    
       await getUrl(
         currentTab,
         searchState.query,
         selectedStyle,
         state.location,
-        router,
+        router
       );
-    }
+    
     // addToSearchHistory(searchState.query);
   };
 
@@ -174,9 +131,6 @@ useEffect(() => {
   //   addToSearchHistory(item);
   // };
 
-
-
-
   // const addToSearchHistory = (name) => {
   //   const newItem = { id: uuidv4(), name };
   //   setSearchState((prevSearchState) => ({
@@ -184,12 +138,6 @@ useEffect(() => {
   //     searchHistory: [newItem, ...prevSearchState.searchHistory],
   //   }));
   // };
-
-
-
-
-
-
 
   // const clear = (el) => {
   //   const updatedHistory = searchState.searchHistory.filter(
@@ -207,18 +155,28 @@ useEffect(() => {
       setSearchState({ query: "" });
     } else {
       if (isDetail === true) {
-
         setSearchState({ query: "" });
-
       } else {
-        await getUrl(currentTab ,"",  selectedStyle, state.location, router);
+        await getUrl(currentTab, "", selectedStyle, state.location, router);
       }
 
       setSearchState({ query: "" });
     }
-localStorage.clear('searchQuery')
-
+    localStorage.clear("searchQuery");
   };
+
+  useEffect(() => {
+    const handleBackButton = () => {
+      clearText();
+    };
+    window.addEventListener('popstate', handleBackButton);
+    return () => {
+      window.removeEventListener('popstate', handleBackButton);
+    };
+  }, []);
+
+
+
 
   return (
     <div className={style.search_bar} style={{ position: "relative" }}>

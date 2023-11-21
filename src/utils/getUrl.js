@@ -2,6 +2,7 @@ export const getUrl = (catgy, term, style, address, router) => {
 
 
 
+
   return new Promise((resolve, reject) => {
     const categoryMapping = {
       tattoo: "tattoos",
@@ -11,22 +12,31 @@ export const getUrl = (catgy, term, style, address, router) => {
     };
     const category = categoryMapping[catgy] || null;
 
- 
-
     let url = `/explore/${category}/`;
 
-    if (term !== "") {
-      url += `keyword/${term}/`;
+    const queryParams = {};
+
+    if (term) {
+      queryParams.keyword = term;
     }
 
-    if (style !== "") {
-
-      url += `style/${style}`;
+    if (style) {
+      queryParams.style = style;
     }
+
     if (category === "tattoo-artists" && address !== "") {
-      url += `/location/${address}`;
+      queryParams.location = address;
     }
+    const queryString = Object.keys(queryParams)
+      .map((key) => `${key}=${encodeURIComponent(queryParams[key])}`)
+      .join("&");
 
+
+    
+
+    if (queryString) {
+      url += `?${queryString}`;
+    }
 
     router
       .push(url)
@@ -38,6 +48,3 @@ export const getUrl = (catgy, term, style, address, router) => {
       });
   });
 };
-
-
-
