@@ -1,20 +1,17 @@
-///
+
 import React, { useState, useEffect, useRef } from "react";
 import style from "./tattoosearch.module.css";
 import { getUrl } from "@/utils/getUrl";
 import { useGlobalState } from "@/context/Context";
-import { v4 as uuidv4 } from "uuid";
+
 
 
 function SearchBar({
-  isPage,
   searchKey,
   currentTab,
   selectedStyle,
-  lat,
-  lon,
   router,
-  isDetail,
+  isDetail
 }) {
   const { state, searchData } = useGlobalState();
   const [searchState, setSearchState] = useState({
@@ -22,6 +19,8 @@ function SearchBar({
     showDropdown: false,
     searchHistory: [],
   });
+
+
 
   const inputRef = useRef(null);
   // const router = useRouter();
@@ -125,24 +124,28 @@ useEffect(() => {
   };
 
   const handleSubmit = async (e) => {
+
+
     e.preventDefault();
     if (isDetail === true) {
-      router.push(`/search?term=${searchState.query}&category=${currentTab}`);
+      const categoryMapping = {
+        tattoo: "tattoos",
+        flash: "flash-tattoos",
+        artist: "tattoo-artists",
+        all: "all",
+      };
+      const category = categoryMapping[currentTab] || null;
+
+      router.push(`/explore/${category}/keyword/${searchState.query}`);
     } else {
-      
       await getUrl(
-        searchState.query,
         currentTab,
+        searchState.query,
         selectedStyle,
-        lat,
-        lon,
-        router
+        state.location,
+        router,
       );
     }
-
-
-
-  
     // addToSearchHistory(searchState.query);
   };
 
@@ -208,7 +211,7 @@ useEffect(() => {
         setSearchState({ query: "" });
 
       } else {
-        await getUrl("", currentTab, selectedStyle, lat, lon, router);
+        await getUrl(currentTab ,"",  selectedStyle, state.location, router);
       }
 
       setSearchState({ query: "" });
@@ -216,22 +219,6 @@ useEffect(() => {
 localStorage.clear('searchQuery')
 
   };
-
-
-
-  useEffect(() => {
-    const handleBackButton = () => {
-      clearText();
-    };
-    window.addEventListener('popstate', handleBackButton);
-    return () => {
-      window.removeEventListener('popstate', handleBackButton);
-    };
-  }, []);
-
-
-
-
 
   return (
     <div className={style.search_bar} style={{ position: "relative" }}>

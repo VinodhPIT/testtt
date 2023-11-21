@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./tattoodetail.module.css";
+import styles from "../tattoodetail.module.css";
 import { fetchTattooDetail } from "@/action/action";
 import {
   APP_LINK_APPLE,
@@ -10,10 +10,10 @@ import {
 } from "@/constants/constants";
 import { fetchArtistDetail } from "@/action/action";
 import Link from "next/link";
+import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import SearchField from "@/components/tattooSearch/tattooSearch";
 import { useRouter } from "next/router";
-import style from "@/pages/search/search.module.css";
 import TattooSearchModalPopup from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
@@ -21,22 +21,29 @@ import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
 
+
+
 export default function Detail({ data, status, locale }) {
-  
-  const { isPopupOpen, openPopup, closePopup } = useModal();
+
+
+
   const router = useRouter();
-  const { getLocale, styleCollection } = useGlobalState();
+  const { state, getLocale, styleCollection } = useGlobalState();
+  const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const { t } = useTranslation();
-
   const [loading, setLoading] = useState(false);
   const [tattoo, setTattoo] = useState([]);
   const [getStyle, setStyle] = useState([]);
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
+
+  
+
   useEffect(() => {
     styleCollection();
+
     try {
       getLocale({
         locale,
@@ -59,6 +66,7 @@ export default function Detail({ data, status, locale }) {
 
           setTattoo(res.data.tattoo);
           setStyle(res.data.style);
+
           setLocation(res.data.studio);
         } catch (error) {}
         setLoading(false);
@@ -72,31 +80,31 @@ export default function Detail({ data, status, locale }) {
   }
 
   const handleThumbnailClick = async (newItemImage) => {
-    
-   
-    setCurrentBigImage("");
     setLoading(true);
+    setCurrentBigImage("");
     let image = await myPromise(newItemImage);
-    setCurrentBigImage(image);
     setLoading(false);
+    setCurrentBigImage(image);
   };
 
+
+
+
+
+  
   return (
     <>
       <Head>
-        <title>
-          Explore Tattoo images, designs, and find tattoo artists with ease
-        </title>
+        <title>Browse unique tattoo designs by talented tattoo artists</title>
         <meta
           name="description"
-          content="Book tattoo artists, explore tattoo designs, images, and pay in installments. Your one-stop platform for all things tattoo, at your convenience."
+          content="Explore a diverse range of one-of-a-kind tattoo designs created by exceptionally talented artists. Find your perfect tattoo inspiration in our extensive collection"
         />
         <meta
           name="keywords"
-          content="Tattoo, Tattoo artist, Tattoo artists,  Tattoo booking,  Tattoo images,  Tattoo styles,  Tattoo Business, Tattoo Designs, Tattooing, Tattoo Flash, Tattoo Shop, Tattoo Installments, Tattooers, Tattoo app, Tattoo lovers, "
+          content="Tattoo artist designs, Tattoo Designs, Flash Tattoos, Custom Tattoo designs, Find tattoo designs, Tattoo inspiration gallery, Tattoartist, Tattoo"
         />
       </Head>
-
       <main>
         <div className="page_wrapper">
           <div className="container">
@@ -105,7 +113,7 @@ export default function Detail({ data, status, locale }) {
                 <div className={style.search_form}>
                   <div className="search_form_wrap">
                     <SearchField
-                      currentTab={"tattoo"}
+                      currentTab={"flash"}
                       router={router}
                       isDetail={true}
                     />
@@ -115,7 +123,7 @@ export default function Detail({ data, status, locale }) {
 
               <SelectDropdown
                 searchKey={""}
-                currentTab={"tattoo"}
+                currentTab={"flash"}
                 selectedStyle={""}
                 lat={""}
                 lon={""}
@@ -125,7 +133,7 @@ export default function Detail({ data, status, locale }) {
             </div>
 
             <div className={styles.product_detail_wrap}>
-              <div className={styles.back_arrow}>
+              <div className={styles.back_arrow} >
                 <Image
                   src={"/back-arrow.svg"}
                   alt="backArrow"
@@ -136,17 +144,17 @@ export default function Detail({ data, status, locale }) {
                   onClick={goBack}
                 />
               </div>
-              <div className={styles.product_media}>
+
+              <div className={styles.product_media} >
                 {loading ? (
-                 <Loader/>
+                  <Loader/>
                 ) : (
                   <Image
                     alt={data.style.name}
-                    loading="lazy"
+                    priority="high"
                     src={currentBigImage}
                     height={500}
                     width={500}
-                
                     style={{
                       height: "auto",
                       width: "100%",
@@ -154,7 +162,6 @@ export default function Detail({ data, status, locale }) {
                     placeholder="blur"
                     blurDataURL={blurDataURL}
                     quality={75}
-                  
                   />
                 )}
               </div>
@@ -176,9 +183,6 @@ export default function Detail({ data, status, locale }) {
                     <div className={styles.search_profile_content}>
                       <div className={styles.search_profile_name}>
                         {data.artist.artist_name}
-                      </div>
-                      <div className={styles.search_profile_details}>
-                        Switzerland, Germany
                       </div>
                     </div>
                     <div className={styles.search_profile_link}>
@@ -218,13 +222,13 @@ export default function Detail({ data, status, locale }) {
                           <li key={e.id}>
                             {" "}
                             <Link
-                              href={`/search?term=${""}&category=${"tattoo"}&style=${
-                                e.id
+                              href={`/explore/flash-tattoos/style/${
+                                e.slug
                               }`}
                             >
                               {" "}
                               {e.name}{" "}
-                            </Link>{" "}
+                            </Link>
                           </li>
                         );
                       })}
@@ -255,6 +259,45 @@ export default function Detail({ data, status, locale }) {
                   </div>
                 </div>
 
+                <div className={styles.product_price_block}>
+                  <div className={styles.product_price_wrap}>
+                    {data.tattoo.max_price !== null ||
+                    data.tattoo.min_price !== null ? (
+                      <div>
+                        {data.tattoo.min_price !== null && (
+                          <span>
+                            <span className={styles.product_price_label}>
+                              {data.tattoo.max_price !== null
+                                ? t("common:flexible-price")
+                                : t("common:fixed-price")}
+                            </span>
+
+                            <span className={styles.product_price_value}>
+                              {data.currency.code} {data.tattoo.min_price}
+                            </span>
+                          </span>
+                        )}
+
+                        {data.tattoo.max_price !== null &&
+                          data.tattoo.min_price !== null && (
+                            <span className={styles.product_price_to}>to</span>
+                          )}
+
+                        {data.tattoo.max_price !== null && (
+                          <span className={styles.product_price_value}>
+                            {data.currency.code} {data.tattoo.max_price}
+                          </span>
+                        )}
+                      </div>
+                    ) : (
+                      <div>
+                        <span className={styles.product_price_label}>
+                          {t("common:flash-doesn't-price")}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
                 <ul className={styles.download_app}>
                   <li className={styles.download_app_title}>
                     <h6>{t("common:download-our-app")}</h6>
@@ -281,7 +324,7 @@ export default function Detail({ data, status, locale }) {
               <div className={styles.grid_wrapper_tattoo}>
                 {tattoo.map((item) => (
                   <Link
-                    href={`/tattoo/${item.tattoo_uid}`}
+                    href={`${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
                     prefetch
@@ -289,19 +332,21 @@ export default function Detail({ data, status, locale }) {
                   >
                     <Image
                       alt={item.style_name}
-                      loading="lazy"
                       src={item.image_medium}
-                      fill
+                      layout="fill"
                       objectFit="cover"
                       placeholder="blur"
                       blurDataURL={blurDataURL}
+                      loading="lazy"
                       quality={62}
+                     
                     />
                   </Link>
                 ))}
               </div>
             ) : null}
           </div>
+
           <TattooSearchModalPopup
             className="custom-modal"
             isOpen={isPopupOpen}

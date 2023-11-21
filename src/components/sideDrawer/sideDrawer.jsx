@@ -20,19 +20,19 @@ export default function SideDrawer({onCloseToggle}) {
     {
       id: 2,
       title:t("common:menus.search"),
-      url: `/search?term=${""}&category=${"tattoo"}`,
+      url:"/explore/tattoos"
     },
 
 
     {
       id: 3,
       title:t("common:menus.styleGuide"),
-      url: "/styleguide",
+      url: "/tattoo-styleguide",
     },
     {
       id: 4,
       title: t("common:menus.dictionary"),
-      url: "/dictionary",
+      url: "/tattoo-dictionary",
     },
 
     {
@@ -44,13 +44,13 @@ export default function SideDrawer({onCloseToggle}) {
     {
       id: 6,
       title:t("common:menus.forTattooArtists"),
-      url: "/fortattooartists",
+      url: "/for-tattoo-artists",
     },
 
     {
       id: 7,
       title:t("common:menus.contactUs"),
-      url: "/contactus",
+      url: "/contact",
     },
   ];
 

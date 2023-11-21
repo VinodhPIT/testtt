@@ -33,7 +33,7 @@ export default function Flash({ data }) {
               )
             ) : (
               <Link
-                href={`/flash/${item._source.tattoo_uid}`}
+                href={`flash-tattoos/${item._source.tattoo_uid}`}
                 className={styles.listing_gridItem}
                 key={key}
               >

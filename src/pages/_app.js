@@ -65,11 +65,10 @@ function MyApp({ Component, pageProps }) {
       case "/klarna":
         return <Header logo={'/inckd-logo.svg'} theme={"normal"} isPosition={true} />;
 
-      case "/search":
-      case "/flash/[detail]":
+      case "/explore/[[...slug]]":
       case "/artists/[detail]":
-      case "/tattoo/[detail]":
-      case "/flash/[detail]":
+      case "/explore/tattoos/[detail]":
+      case "/explore/flash-tattoos/[detail]":
       case "/404":
         return (
           <CustomHeader
@@ -79,9 +78,9 @@ function MyApp({ Component, pageProps }) {
           />
         );
 
-        case "/contactus":
-         case "/joinartist":
-          case "/dictionary":
+        case "/contact":
+         case "/join-tattoo-artists":
+          case "/tattoo-dictionary":
       
           return <Header logo={'/inckd-logo.svg'} theme={"black"} isPosition={true} />;
         
@@ -97,7 +96,7 @@ function MyApp({ Component, pageProps }) {
           />
         );
 
-      case "/styleguide":
+      case "/tattoo-styleguide":
         return (
           <CustomHeader
             logo={"/styleGuideLogo.svg"}
@@ -106,7 +105,7 @@ function MyApp({ Component, pageProps }) {
           />
         );
 
-      case "/fortattooartists":
+      case "/for-tattoo-artists":
         return (
           <CustomHeader
             logo={"/artistHeaderLogo.svg"}

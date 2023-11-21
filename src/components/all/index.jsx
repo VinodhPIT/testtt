@@ -39,9 +39,9 @@ export default function All({ data }) {
                 key={key}
                 href={
                   item._source.tattoo_type === "normal"
-                    ? `/tattoo/${item._source.tattoo_uid}`
+                    ? `tattoos/${item._source.tattoo_uid}`
                     : item._source.tattoo_type === "flash"
-                    ? `/flash/${item._source.tattoo_uid}`
+                    ? `flash-tattoos/${item._source.tattoo_uid}`
                     : `/artists/${item._source.slug}`
                 }
               >
@@ -66,6 +66,7 @@ export default function All({ data }) {
                   blurDataURL={blurDataURL}
                   quality={62}
                 />
+                
               </Link>
             );
           })}

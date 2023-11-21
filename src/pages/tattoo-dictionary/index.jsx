@@ -211,7 +211,11 @@ export default function Dictionary({locale}) {
                     <h2> <span>{t("common:dictionaryPage.bannerContent1")}</span>
                     <span className="textBlock">{t("common:dictionaryPage.bannerContent1-Sub")}</span> </h2>
                     <p>{t("common:dictionaryPage.bannerContent2")}</p>
-                      <Link  href={`/search?term=${""}&category=${"artist"}`} className="btn_default btn_cutom_new btn_img">
+                      <Link   href="/explore/[[...slug]]"
+                                   as="/explore/tattoo-artists"
+                                   
+                                   
+                                   className="btn_default btn_cutom_new btn_img">
                       {t("common:dictionaryPage.findArtist")}
                         <img
                           src="/alt-arrow-right-black.svg"

@@ -9,6 +9,7 @@ import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { Parameters } from "@/components/parameters/params";
 const initialState = {
   address: "Location",
+  location:"",
   categoryCollection: [],
   currentTab: "",
   isTriggered: false,
@@ -27,8 +28,8 @@ const initialState = {
   toggle: false,
   locale: "EN",
   isLoad: false,
-
   seed: "",
+  slugIds:""
 };
 
 const reducer = (state, action) => {
@@ -41,7 +42,7 @@ const reducer = (state, action) => {
     lat,
     lon,
     locale,
-    seed;
+    seed,slugIds
 
   switch (action.type) {
  
@@ -50,6 +51,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         address: action.payload,
+        location:action.payload==="Location"?"":action.payload
       };
 
     case "GET_LOCALE":
@@ -75,7 +77,7 @@ const reducer = (state, action) => {
         lat,
         lon,
         locale,
-        seed,
+        seed,slugIds
       } = action.payload);
 
       return {
@@ -91,7 +93,8 @@ const reducer = (state, action) => {
         longitude: lon,
         locale,
         seed,
-        loading:false
+        loading:false,
+        slugIds
       };
 
     case "COUNT":
@@ -213,7 +216,7 @@ export const GlobalStateProvider = ({ children }) => {
         ...Parameters,
         category: state.currentTab,
         page_no: updatedPageNo,
-        style: state.selectedStyle,
+        style: state.slugIds,
         search_key: state.searchKey,
         latitude: state.latitude,
         longitude: state.longitude,
@@ -277,7 +280,10 @@ export const GlobalStateProvider = ({ children }) => {
   const styleCollection = async () => {
     try {
       let responseData = await getStyles();
-      dispatch({ type: "STYLE_COLLECTION", payload: responseData.rows.hits });
+
+    
+
+      dispatch({ type: "STYLE_COLLECTION", payload: responseData.data});
     } catch (error) {}
   };
 

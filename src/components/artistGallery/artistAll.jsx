@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/pages/tattoo/tattoodetail.module.css";
+import styles from "@/pages/explore/tattoodetail.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
@@ -17,9 +17,9 @@ const All = ({ data ,loading}) => {
             <Link
             href={
               item.tattoo_type === "normal"
-                ? `/tattoo/${item.tattoo_uid}`
+                ? `/explore/tattoos/${item.tattoo_uid}`
                 :
-                 `/flash/${item.tattoo_uid}`
+                 `/explore/flash-tattoos/${item.tattoo_uid}`
                
             }
               

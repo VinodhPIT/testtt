@@ -16,6 +16,8 @@ import {
 import useWindowResize from "@/hooks/useWindowSize";
 import useTranslation from "next-translate/useTranslation";
 
+
+
 export default function Home({ locale }) {
   const { t } = useTranslation();
   const { styleCollection, getLocale  ,getAddress} = useGlobalState();
@@ -36,7 +38,22 @@ export default function Home({ locale }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+   
+
+
+      localStorage.clear("selectedStyleIds");
+
+    
+
+     
+  }, []);
+
+
+  useEffect(() => {
     getAddress('Location')
+
+    // localStorage.clear("selectedStyleIds");
+
     styleCollection();
     const timer = setInterval(changeImage, 2000);
     return () => clearInterval(timer);
@@ -115,7 +132,8 @@ export default function Home({ locale }) {
                           <ul className="trend_list">
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"tattoo"}`}
+                                    href="/explore/[[...slug]]"
+                                    as="/explore/tattoos"
                               >
                                 <img src="/Flame.svg" alt="Tattoos" />
                                 {t("common:homePage.tattoos")}
@@ -123,7 +141,8 @@ export default function Home({ locale }) {
                             </li>
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"flash"}`}
+                                   href="/explore/[[...slug]]"
+                                   as="/explore/flash-tattoos"
                               >
                                 <img src="/Bolt.svg" alt="Flash" />
                                 {t("common:homePage.flash")}
@@ -131,7 +150,8 @@ export default function Home({ locale }) {
                             </li>
                             <li className="list_inline_item">
                               <Link
-                                href={`/search?term=${""}&category=${"artist"}`}
+                                href="/explore/[[...slug]]"
+                                as={`/explore/tattoo-artists`} 
                               >
                                 <img src="/colour-palette.svg" alt="Artists" />
 
@@ -182,7 +202,8 @@ export default function Home({ locale }) {
                         </h2>
                         <p>{t("common:homePage.content1")}</p>
                         <Link
-                          href={`/search?term=${""}&category=${"artist"}`}
+                           href="/explore/[[...slug]]"
+                           as="/explore/tattoo-artists"
                           class="btn_secondary btn_cutom_new btn_img"
                         >
                           {t("common:findArtist's")}
@@ -309,7 +330,7 @@ export default function Home({ locale }) {
                           </h2>
                           <p>{t("common:homePage.content4")}</p>
                           <Link
-                            href="/dictionary"
+                            href="/tattoo-dictionary"
                             className="btn_default btn_cutom_new btn_img"
                           >
                             {t("common:visitTattoo")}
@@ -389,7 +410,7 @@ export default function Home({ locale }) {
                           </span>
                         </h2>
                         <Link
-                          href="/styleguide"
+                          href="/tattoo-styleguide"
                           class="btn_primary btn_cutom_new btn_img mt_65 m_mt_35"
                         >
                           Check the Styleguide
@@ -416,7 +437,7 @@ export default function Home({ locale }) {
                         </h2>
                         <p>{t("common:homePage.content5")}</p>
                         <Link
-                          href="/fortattooartists"
+                          href="/for-tattoo-artists"
                           class="btn_default btn_cutom_new btn_img"
                         >
                           {t("common:learnmore")}
