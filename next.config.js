@@ -11,9 +11,11 @@ const nextConfig = {
 
   i18n: {
     localeDetection: false,
-    defaultLocale: "en",
+   
+
   },
 };
+
 
 module.exports = nextTranslate({
   webpack: (nextConfig) => {

@@ -127,7 +127,7 @@ export default function Header({ logo, theme, isPosition }) {
               </div>
 
 
-          <button  onClick={openPopup}>Lng</button>
+          <button style={{"background":"#000","padding":"10px" ,"color":"#fff"}}  onClick={openPopup}>Choose Country</button>
 
 
 

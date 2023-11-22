@@ -3,7 +3,8 @@ import Head from "next/head";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { Parameters } from "@/components/parameters/params";
 import { renderCategoryComponent } from "@/components/customTabs/tab";
-import style from "@/pages/explore/search.module.css";
+
+import style from "@/pages/explore/search.module.css"
 import { useRouter } from "next/router";
 import SearchField from "@/components/tattooSearch/tattooSearch";
 import { addAdsToResults } from "@/helpers/helper";

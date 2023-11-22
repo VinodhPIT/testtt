@@ -1,9 +1,9 @@
 {
   "menus": {
     "home": "Home",
-    "tattooSearch": "Tattoo search",
-    "styleGuide": "Styleguide",
-    "dictionary": "Dictionary",
+    "tattooSearch": "switz -de -Tattoo search",
+    "styleGuide": "Styleguide1",
+    "dictionary": "Dictionary1",
     "forTattooArtists": "For tattoo artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
@@ -49,7 +49,7 @@
   "language": "Languages",
   "styles": "Styles",
   "nodata": "No data found",
-  "exploreAll": "Explore All",
+  "exploreAll": "Explore",
   "notFoundMessage": "Try adjusting your search/ filter to find what you are looking for",
   "followus":"Follow us on",
   "book":"Book",

@@ -1,0 +1,51 @@
+[
+    {
+      "id": 1,
+      "country": "Switzerland",
+      "language": "English",
+      "image": "/switzerland.svg",
+      "domain":"ch",
+      "lng":"en"
+    },
+    {
+      "id": 2,
+      "country": "Switzerland",
+      "language": "German",
+      "image": "/switzerland.svg",
+      "domain":"ch",
+      "lng":"de"
+    },
+    {
+      "id": 3,
+      "country": "Switzerland",
+      "language": "Italian",
+      "image": "/switzerland.svg",
+      "domain":"ch",
+      "lng":"it"
+    },
+    {
+      "id": 4,
+      "country": "Germany",
+      "language": "English",
+      "image": "/germany.svg",
+      "domain":"de",
+      "lng":"en"
+    },
+    {
+      "id": 5,
+      "country": "Germany",
+      "language": "German",
+      "image": "/germany.svg",
+      "domain":"de",
+      "lng":"de"
+    },
+    {
+      "id": 6,
+      "country": "United Kingdom",
+      "language": "English",
+      "image": "/united-kingdom.svg",
+      "domain":"uk",
+      "lng":"en"
+    }
+  ]
+  

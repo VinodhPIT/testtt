@@ -15,10 +15,15 @@ import {
 } from "@/constants/constants";
 import useWindowResize from "@/hooks/useWindowSize";
 import useTranslation from "next-translate/useTranslation";
+import { RouteMatcher } from "next/dist/server/future/route-matchers/route-matcher";
+
+import { useRouter } from 'next/router'
+import setLanguage from "next-translate/setLanguage";
 
 
 
-export default function Home({ locale }) {
+
+export default function Home({ locale ,country }) {
   const { t } = useTranslation();
   const { styleCollection, getLocale  ,getAddress ,setSelectedIds}  = useGlobalState();
   const { isMobileView } = useWindowResize();
@@ -37,9 +42,25 @@ export default function Home({ locale }) {
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const router = useRouter()
 
 
+
+
+  
   useEffect(() => {
+
+// if(country==="IN"){
+// router.push(`${locale}`)
+//  setLanguage(locale)
+
+
+// }
+   
+
+
+
+
     setSelectedIds([])
       localStorage.removeItem("selectedStyleIds");
 
@@ -562,11 +583,27 @@ export default function Home({ locale }) {
   );
 }
 
+
+
+
+
+
+
+
+
+
+
 export async function getServerSideProps(context) {
+  
   try {
+    const res = await fetch('https://ipapi.co/json')
+    const repo = await res.json()
+    console.log(repo)
+
     return {
       props: {
         locale: context.locale,
+        country:repo.country
       },
     };
   } catch (error) {
