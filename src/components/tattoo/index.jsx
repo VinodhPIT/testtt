@@ -18,7 +18,7 @@ export default function Tattoo({ data }) {
       {data.length === 0 ? (
         <div className={styles.blockCenter}>
           {" "}
-          <NoData category={"tattoo"} />{" "}
+          <NoData category={"tattoos"} />{" "}
         </div>
       ) : (
         <div className={styles.grid_wrapper_tattoo}>

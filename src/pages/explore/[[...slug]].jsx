@@ -13,7 +13,6 @@ import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 import { getPlaceDetails } from "@/utils/placesApi";
 
-
 const MobileDetect = require("mobile-detect");
 const Search = ({
   data,
@@ -26,7 +25,8 @@ const Search = ({
   lon,
   loading,
   locale,
-  seed,slugIds
+  seed,
+  slugIds,
 }) => {
   const {
     state,
@@ -35,7 +35,6 @@ const Search = ({
     loadMore,
     styleCollection,
     getAddress,
-
   } = useGlobalState();
 
   const { t } = useTranslation();
@@ -81,7 +80,8 @@ const Search = ({
         lat,
         lon,
         locale,
-        seed,slugIds
+        seed,
+        slugIds,
       });
     } catch (error) {}
   }, [data]);
@@ -213,14 +213,8 @@ const Search = ({
 export default Search;
 
 export async function getServerSideProps(context) {
-
-
-
-
   const { query, req, locale } = context;
   const { slug } = query;
-  
- 
 
   const userAgent = req.headers["user-agent"];
   const md = new MobileDetect(userAgent);
@@ -231,54 +225,22 @@ export async function getServerSideProps(context) {
 
   const categoryMapping = {
     tattoos: "tattoo",
-    'flash-tattoos': "flash",
-    'tattoo-artists': "artist",
-    "all":"all"
+    "flash-tattoos": "flash",
+    "tattoo-artists": "artist",
+    all: "all",
   };
 
   const category = categoryMapping[slug[0]] || null;
 
-
   let style = "";
-  let search_key = "";
-  let location = "";
   let styleId = "";
 
+  const placeDetails = await getPlaceDetails(query.location ?? "");
 
-  for (let i = 0; i < slug.length; i++) {
-    switch (slug[i]) {
-      case "keyword":
-        if (i + 1 < slug.length) {
-          search_key = slug[i + 1];
-        }
-        break;
-
-      case "location":
-        if (i + 1 < slug.length) {
-          location = slug[i + 1];
-        }
-        break;
-
-      case "style":
-        if (i + 1 < slug.length) {
-          style = slug[i + 1];
-        }
-        break;
-
-      default:
-    }
-    if (search_key && location !== "" && style) {
-      break;
-    }
-  }
-
-  const placeDetails = await getPlaceDetails(location);
-
-
-
-  if (style !== "") {
-    const slugsToCheck = style.split(",");
+  if (query.style !== undefined) {
+    const slugsToCheck = query.style.split(",");
     const stylesArray = await getStyles();
+
     const matchingStyles = slugsToCheck.map((style) => {
       const matchingStyle = stylesArray.data.find(
         (styleObj) => styleObj.slug === style
@@ -289,16 +251,15 @@ export async function getServerSideProps(context) {
   }
 
   try {
-    if (category=== "all") {
+    if (category === "all") {
       const results = await fetchMultiData({
         ...Parameters,
         category,
-        search_key,
-        style: styleId, //StyleId
+        search_key: query.keyword ?? "",
+        style: styleId,
         latitude: placeDetails.latitude,
         longitude: placeDetails.longitude,
         seed,
-        
       });
 
       let addData = await addAdsToResults(results.data, isMobile);
@@ -306,24 +267,24 @@ export async function getServerSideProps(context) {
       return {
         props: {
           data: addData,
-          currentTab:category,
+          currentTab: category,
           pageNo: 0,
           totalItems: results.totalCount,
-          searchKey: search_key,
-          selectedStyle: style,//StyleId
+          searchKey: query.keyword ?? "",
+          selectedStyle: style,
           lat: placeDetails.latitude,
           lon: placeDetails.longitude,
           locale: context.locale,
           seed,
-          slugIds:styleId
+          slugIds: styleId,
         },
       };
     } else {
       const data = await fetchCategoryData({
         ...Parameters,
         category,
-        style: styleId,//StyleId
-        search_key,
+        style: styleId,
+        search_key: query.keyword ?? "",
         latitude: placeDetails.latitude,
         longitude: placeDetails.longitude,
         seed,
@@ -336,14 +297,13 @@ export async function getServerSideProps(context) {
           currentTab: category,
           pageNo: 0,
           totalItems: data.rows.total.value,
-          searchKey: search_key,
-          selectedStyle: style,
+          searchKey: query.keyword ?? "",
+          selectedStyle: query.style ?? "",
           lat: placeDetails.latitude,
           lon: placeDetails.longitude,
-          locale:locale,
+          locale: locale,
           seed,
-          slugIds:styleId,
-          
+          slugIds: styleId,
         },
       };
     }

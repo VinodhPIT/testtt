@@ -17,7 +17,7 @@ export default function Flash({ data }) {
     <div className={styles.pageContainer}>
     {data.length === 0 ? (
         <div className={styles.blockCenter}>
-          <NoData category={"flash"} />
+          <NoData category={"flash-tattoos"} />
         </div>
       ) : (
         <div className={styles.grid_wrapper_tattoo}>

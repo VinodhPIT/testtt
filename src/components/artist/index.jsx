@@ -13,7 +13,7 @@ export default function Artist({ data }) {
   return (
     <div className={styles.pageContainer}>
 
-{data.length === 0 ?   <div className={styles.blockCenter}> <NoData  category={'artist'} /> </div>  :
+{data.length === 0 ?   <div className={styles.blockCenter}> <NoData  category={'tattoo-artists'} /> </div>  :
 
       <div className={styles.grid_wrapper}>
         

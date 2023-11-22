@@ -20,7 +20,7 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function Home({ locale }) {
   const { t } = useTranslation();
-  const { styleCollection, getLocale  ,getAddress} = useGlobalState();
+  const { styleCollection, getLocale  ,getAddress ,setSelectedIds}  = useGlobalState();
   const { isMobileView } = useWindowResize();
 
   const imagePaths = [
@@ -37,19 +37,12 @@ export default function Home({ locale }) {
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-   
-
-
-      localStorage.clear("selectedStyleIds");
-
-    
-
-     
-  }, []);
 
 
   useEffect(() => {
+    setSelectedIds([])
+      localStorage.removeItem("selectedStyleIds");
+
     getAddress('Location')
 
     // localStorage.clear("selectedStyleIds");

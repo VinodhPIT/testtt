@@ -9,7 +9,7 @@ import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
 import { Parameters } from "@/components/parameters/params";
 const initialState = {
   address: "Location",
-  location:"",
+  location: "",
   categoryCollection: [],
   currentTab: "",
   isTriggered: false,
@@ -21,7 +21,6 @@ const initialState = {
   value: "",
   hints: [],
   errorMessage: false,
-  loading: false,
   latitude: "",
   longitude: "",
   searchData: [],
@@ -29,7 +28,7 @@ const initialState = {
   locale: "EN",
   isLoad: false,
   seed: "",
-  slugIds:""
+  slugIds: "",
 };
 
 const reducer = (state, action) => {
@@ -42,16 +41,15 @@ const reducer = (state, action) => {
     lat,
     lon,
     locale,
-    seed,slugIds
+    seed,
+    slugIds;
 
   switch (action.type) {
- 
-
     case "GET_ADDRESS":
       return {
         ...state,
         address: action.payload,
-        location:action.payload==="Location"?"":action.payload
+        location: action.payload === "Location" ? "" : action.payload,
       };
 
     case "GET_LOCALE":
@@ -60,11 +58,7 @@ const reducer = (state, action) => {
         locale: action.payload.locale,
       };
 
-    case "IS_LOADING":
-      return {
-        ...state,
-        loading: action.payload,
-      };
+    
 
     case "INITIAL_SERVER_DATA":
       ({
@@ -77,7 +71,8 @@ const reducer = (state, action) => {
         lat,
         lon,
         locale,
-        seed,slugIds
+        seed,
+        slugIds,
       } = action.payload);
 
       return {
@@ -93,8 +88,7 @@ const reducer = (state, action) => {
         longitude: lon,
         locale,
         seed,
-        loading:false,
-        slugIds
+        slugIds,
       };
 
     case "COUNT":
@@ -174,9 +168,9 @@ export const GlobalStateProvider = ({ children }) => {
   }, [selectedIds]);
 
 
+
+
   
-
-
 
   const getAddress = async (payload) => {
     try {
@@ -190,17 +184,7 @@ export const GlobalStateProvider = ({ children }) => {
     } catch (error) {}
   };
 
-  const getLoad = async () => {
-    try {
 
-
-      dispatch({ type: "IS_LOADING", payload: true });
-
-
-
-      
-    } catch (error) {}
-  };
 
   const fetchServerlData = async (payload) => {
     try {
@@ -222,6 +206,10 @@ export const GlobalStateProvider = ({ children }) => {
         longitude: state.longitude,
         seed: state.seed,
       };
+
+
+
+
       let responseData;
       if (state.currentTab === "all") {
         responseData = await fetchMultiData(requestData);
@@ -281,9 +269,7 @@ export const GlobalStateProvider = ({ children }) => {
     try {
       let responseData = await getStyles();
 
-    
-
-      dispatch({ type: "STYLE_COLLECTION", payload: responseData.data});
+      dispatch({ type: "STYLE_COLLECTION", payload: responseData.data });
     } catch (error) {}
   };
 
@@ -298,7 +284,6 @@ export const GlobalStateProvider = ({ children }) => {
         getAddress,
         selectedIds,
         setSelectedIds,
-        getLoad
       }}
     >
       {children}

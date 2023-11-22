@@ -29,8 +29,20 @@ export default function StyleDropdown({
   };
 
   const onSearch = async () => {
+
+
     await getUrl(currentTab, searchKey, selectedIds, state.location, router);
+
+
+
+    
   };
+
+
+
+
+
+
 
   return (
     <div className={styles.custom_dropdown}>
