@@ -1,11 +1,10 @@
 import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
 import styles from './banner.module.css'
+import {INSTAGRAM_PROFILE_LINK ,LINKEDIN_PROFILE_LINK , FACEBOOK_PROFILE_LINK ,blurDataURL} from "@/constants/constants";
 
-
-export default function Banner() {
+export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
   return (
     <div className={styles.header}>
       <header>
@@ -21,9 +20,6 @@ export default function Banner() {
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}
-                  //fill //position-absolute
-                  //objectFit="cover"    
-                  //objectPosition='bottom'
                   layout="responsive"                
                 />
               </Link>
@@ -43,7 +39,7 @@ export default function Banner() {
             <div className={styles.banner}>
               <div className={styles.banner_inner}>
                 <Image
-                  src="/young-beautiful-couple-posing-old-building-1.jpg"                 
+                  src={bannerImg}                 
                   alt="banner"
                   loading="lazy"
                   placeholder="blur"
@@ -56,10 +52,10 @@ export default function Banner() {
             <div className={`${'m_justify_content_center'} ${styles.banner_content}`}>
               <div className={styles.banner_caption}>  
                 <h1>
-                  <span>Discover Unforgettable Partner Tattoos with inckd</span>                    
+                  <span>{bannerTitle}</span>                    
                 </h1>
                 <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
-                  Know more about inckd
+                  {bannerButton}
                   <Image
                     src="/arow-white-right.svg"
                     width={24}
@@ -80,7 +76,7 @@ export default function Banner() {
       <div className={styles.social_icons}>
         <ul>          
           <li>
-            <Link href="#" target="_blank">
+            <Link href={INSTAGRAM_PROFILE_LINK} target="_blank">
             <Image
                 src={"/icon-insta-header.svg"}
                 alt="Instagram"
@@ -91,7 +87,7 @@ export default function Banner() {
             </Link>
           </li>
           <li>
-            <Link href="#" target="_blank">
+            <Link href={FACEBOOK_PROFILE_LINK} target="_blank">
             <Image
                 src={"/icon-fb-header.svg"}
                 alt="Facebook"
@@ -102,7 +98,7 @@ export default function Banner() {
             </Link>
           </li>
           <li>
-            <Link href="#" target="_blank">
+            <Link href={LINKEDIN_PROFILE_LINK} target="_blank">
             <Image
                 src={"/icon-inkd-header.svg"}
                 alt="LinkedIn"
