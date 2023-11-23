@@ -2,11 +2,12 @@
 	float: left;
     width: 100%;
     margin: 10px 0 50px;
+    overflow: hidden; /* added over flow hidden */
 }
 .listing_grid_wrapper {
-	display: grid;
+	/*display: grid;
     grid-template-columns: repeat(auto-fill,minmax(25%,1fr));
-    grid-gap: 8px;
+    grid-gap: 8px;*/
 }
 .listing_gridItem {
 	position: relative;
@@ -18,10 +19,11 @@
 }
 
 .listing_grid_img_col {
-	position: relative;
+	/*position: relative;
     display: flex;
     flex-flow: wrap;
-    width: 100%;
+    width: 100%;*/
+    margin: 0px 0px 0px 10px; /* added margin */
 }
 
 .listing_grid_details {

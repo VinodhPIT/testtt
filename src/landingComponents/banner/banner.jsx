@@ -53,12 +53,12 @@ export default function Banner() {
                 />
               </div>
             </div>
-            <div className={styles.banner_content}>
+            <div className={`${'m_justify_content_center'} ${styles.banner_content}`}>
               <div className={styles.banner_caption}>  
                 <h1>
                   <span>Discover Unforgettable Partner Tattoos with inckd</span>                    
                 </h1>
-                <a class="btn_primary btn_img btn_xxl" href="#">
+                <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
                   Know more about inckd
                   <Image
                     src="/arow-white-right.svg"
