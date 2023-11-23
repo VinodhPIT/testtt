@@ -1,9 +1,9 @@
 {
-  "menus": {
+    "menus": {
     "home": "Home",
     "tattooSearch": "switz -de -Tattoo search",
-    "styleGuide": "Styleguide1",
-    "dictionary": "Dictionary1",
+    "styleGuide": "Styleguide",
+    "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
     "klarna": "Klarna",
     "contactUs": "Contact us",
