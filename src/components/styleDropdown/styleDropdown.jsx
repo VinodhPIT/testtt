@@ -29,13 +29,7 @@ export default function StyleDropdown({
   };
 
   const onSearch = async () => {
-
-
-    await getUrl(currentTab, searchKey, selectedIds, state.location, router);
-
-
-
-    
+    await getUrl(currentTab, searchKey, selectedIds.length===0 ? "":selectedIds ,state.location, router);
   };
 
 
@@ -85,7 +79,7 @@ export default function StyleDropdown({
           Clear All
         </button>
         <button
-          disabled={selectedIds.length === 0}
+        
           onClick={() => onSearch()}
           className="btn_secondary w_100pc"
         >
