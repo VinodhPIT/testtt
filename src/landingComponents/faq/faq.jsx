@@ -17,24 +17,24 @@ export default function Faq({locale}) {
 
   const FAQ_GENERAL = [
     {
-      id: 1,
+      id: "01",
       summary: 'How do I start the process?',
       details: 'Download inckd, explore artists, and initiate a conversation directly through the app to begin your partner tattoo journey.',
     },
     {
-      id: 2,
+      id: "02",
 
       summary: 'Is my personal information secure?',
       details: 'Absolutely. inckd prioritizes the security of your information, utilizing encrypted technology for all transactions.',
     },
     {
-      id: 3,
+      id: "03",
       summary: 'How do I start the process?',
       details: 'Download inckd, explore artists, and initiate a conversation directly through the app to begin your partner tattoo journey.',
 
     },
     {
-      id: 4,
+      id: "04",
 
       summary: 'Is my personal information secure?',
       details: 'Absolutely. inckd prioritizes the security of your information, utilizing encrypted technology for all transactions.',
@@ -57,7 +57,7 @@ export default function Faq({locale}) {
                     <AccordionItem    >
                       <AccordionItemHeading >
                         <AccordionItemButton>
-                         <h4><span className="faq_count"> {e.id} </span>{e.summary}</h4>
+                         <span className="faq_count"> {e.id} </span><h4>{e.summary}</h4>
                         </AccordionItemButton>
                       </AccordionItemHeading>
                       <AccordionItemPanel>
