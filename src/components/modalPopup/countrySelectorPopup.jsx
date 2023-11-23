@@ -57,12 +57,9 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   
 
   const chooseLanguage = async () => {
-
     await setLanguage(`${domain}${"-"}${lng}`)
-
     closeModal()
-    
-     
+   
   };
 
 
