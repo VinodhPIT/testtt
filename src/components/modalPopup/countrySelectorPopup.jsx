@@ -56,9 +56,12 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   }
   
 
-  const seleceme = async () => {
+  const chooseLanguage = async () => {
 
     await setLanguage(`${domain}${"-"}${lng}`)
+
+    closeModal()
+    
      
   };
 
@@ -108,7 +111,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
 
 
 
-{visible&& <button onClick={()=>seleceme()}>
+{visible&& <button onClick={()=>chooseLanguage()} style={{"background":"#000" ,"padding":"10px" ,"color":"#fff"}}>
   Select Language
 </button>}
 
