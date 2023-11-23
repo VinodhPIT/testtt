@@ -10,7 +10,7 @@ export default function Landing3() {
     <div>
 
 
-{/* 
+
     <Image
       src="/profile.png"
       width={500}
@@ -29,7 +29,7 @@ layout="responsive"
 
 
 
-    /> */}
+    />
 
       
     </div>
