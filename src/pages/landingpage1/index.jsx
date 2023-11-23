@@ -12,8 +12,6 @@ import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerT
 import Faq from "@/landingComponents/faq/faq";
 import styles from "./landingcontent.module.css";
 
-
-
 export default function Landing1() {
   return (
     <div>

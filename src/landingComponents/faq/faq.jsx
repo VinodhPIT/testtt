@@ -1,24 +1,7 @@
-// import React from 'react'
-import Image from "next/image";
-import { blurDataURL } from "@/constants/constants";
-
-// export default function Faq() {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
 
 
-
-
-
-import React, { useState ,useEffect } from "react";
-import Head from "next/head";
-
+import React, { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
-
 import {
   Accordion,
   AccordionItem,
@@ -27,73 +10,54 @@ import {
   AccordionItemPanel,
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
-import { useGlobalState } from "@/context/Context";
-import { getLocaleProps } from '@/utils/getlocale';
-import { useRouter } from "next/router";
+
 
 
 export default function Faq({locale}) {
-const router = useRouter()
-  const {getLocale } = useGlobalState();
-  const [state, setState] = useState("general");
-  const changeTab = (id) => {
-    setState(id);
-  };
-
-  const { t } = useTranslation();
-
-  useEffect(() => {
-    try {
-      getLocale({
-        locale,
-      });
-    } catch (error) {}
-  }, [locale]);  
 
   const FAQ_GENERAL = [
     {
       id: 1,
-      summary: t("common:faqScreen.title1"),
-      details: t("common:faqScreen.content1"),
+      summary: 'How do I start the process?',
+      details: 'Download inckd, explore artists, and initiate a conversation directly through the app to begin your partner tattoo journey.',
     },
     {
       id: 2,
 
-      summary: t("common:faqScreen.title2"),
-      details: t("common:faqScreen.content2"),
+      summary: 'Is my personal information secure?',
+      details: 'Absolutely. inckd prioritizes the security of your information, utilizing encrypted technology for all transactions.',
     },
     {
       id: 3,
-      summary: t("common:faqScreen.title3"),
-      details: t("common:faqScreen.content3"),
+      summary: 'How do I start the process?',
+      details: 'Download inckd, explore artists, and initiate a conversation directly through the app to begin your partner tattoo journey.',
+
     },
     {
       id: 4,
 
-      summary: t("common:faqScreen.title4"),
-      details: t("common:faqScreen.content4"),
+      summary: 'Is my personal information secure?',
+      details: 'Absolutely. inckd prioritizes the security of your information, utilizing encrypted technology for all transactions.',
+
     },
   ];
 
-
-
   return (
 
-    <div className="faq_wrap" >
+    <div className="faq_wrap landing_faq" >
       <div className="container">
-        <h2>Frequently asked questions</h2>
+        <h2 className="color_gray_550 mb_0 heading_h2 text_center">Frequently asked questions</h2>
       </div>
       <div className="faq_accordion_wrap">
-        <div className="container">
-          {state === "general" ? (
-            <Accordion>
+        <div className="container">        
+            <Accordion allowZeroExpanded={true} >
               {FAQ_GENERAL.map((e) => {
                 return (
                   <>
-                    <AccordionItem>
-                      <AccordionItemHeading>
+                    <AccordionItem    >
+                      <AccordionItemHeading >
                         <AccordionItemButton>
-                          {e.summary}
+                         <h4><span className="faq_count"> {e.id} </span>{e.summary}</h4>
                         </AccordionItemButton>
                       </AccordionItemHeading>
                       <AccordionItemPanel>
@@ -104,62 +68,13 @@ const router = useRouter()
                 );
               })}
             </Accordion>
-          ) : state == "artist" ? (
-            <Accordion>
-              {FAQ_ARTISTS.map((e) => {
-                return (
-                  <>
-                    <AccordionItem>
-                      <AccordionItemHeading>
-                        <AccordionItemButton>
-                          {e.summary}
-                        </AccordionItemButton>
-                      </AccordionItemHeading>
-                      <AccordionItemPanel>
-                        <p>{e.details}</p>
-                      </AccordionItemPanel>
-                    </AccordionItem>
-                  </>
-                );
-              })}
-            </Accordion>
-          ) : (
-            <Accordion>
-              {FAQ_CUSTOMERS.map((e) => {
-                return (
-                  <>
-                    <AccordionItem>
-                      <AccordionItemHeading>
-                        <AccordionItemButton>
-                          {e.summary}
-                        </AccordionItemButton>
-                      </AccordionItemHeading>
-                      <AccordionItemPanel>
-                        <p>{e.details}</p>
-                      </AccordionItemPanel>
-                    </AccordionItem>
-                  </>
-                );
-              })}
-            </Accordion>
-          )}
+          
+         
         </div>
       </div>
     </div>
   );
 }
-
-export async function getServerSideProps(context) {
-  const { props } = await getLocaleProps(context);
-  return {
-    props:{
-      locale:props.locale
-    }
-  };
-}
-
-
-
 
 
 

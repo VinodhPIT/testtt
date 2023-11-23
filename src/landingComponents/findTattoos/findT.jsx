@@ -10,10 +10,10 @@ export default function FindT() {
     <div className="text_box_wrap right app_download_box_wrap mb_0 block_bg_aero_blue">
         <div className="img_text_box_inner container">
           <div className="text_box_content justify_content_start pl_0">
-            <div className="text_box_content_inner w_100pc m_pr_0">
+            <div className="text_box_content_inner w_100pc m_pr_0 m_text_center">
               <div className={styles.common_full_block}>
                 <h2>Find the tattoos with the right meaning for you </h2>
-                <button type="button" className="btn_primary btn_img btn_xxl">
+                <button type="button" className="btn_primary btn_img btn_xxl m_btn_custom_48">
                   Find tattoos now
                   <Image
                     src="/arow-white-right.svg"
@@ -31,7 +31,7 @@ export default function FindT() {
           </div>
 
           <div className="img_box_wrap">
-            <ul className="app_download_img_list mt_mb_6pc after_none align_item_center mr_0 justify_content_right ">
+            <ul className="app_download_img_list mt_mb_6pc after_none align_item_center mr_0 justify_content_right m_justify_content_center">
               <li className="no_filter">
                 <Image
                   src="/img-om.png"                 
