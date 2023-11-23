@@ -4,6 +4,7 @@ import StyleDropdown from "@/components/styleDropdown/styleDropdown";
 import useWindowResize from "@/hooks/useWindowSize";
 import { useToggle } from "@/hooks/useToggle";
 import style from "@/pages/explore/search.module.css";
+
 import useTranslation from "next-translate/useTranslation";
 import LocationSearch from "@/components/filterByLocation/location";
 import { useGlobalState } from "@/context/Context";

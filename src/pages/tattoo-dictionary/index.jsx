@@ -13,7 +13,7 @@ import {
 import useWindowResize from "@/hooks/useWindowSize";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
-import TattooSearchModalPopup from "@/utils/modalUtils";
+import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import { useGlobalState } from "@/context/Context";
 import { getLocaleProps } from '@/utils/getlocale';
@@ -512,7 +512,7 @@ export default function Dictionary({locale}) {
         </div>
       </section>
     </div>
-    <TattooSearchModalPopup
+    <TattooSearchModal
           className="custom-modal"
           isOpen={isPopupOpen}
           closeModal={closePopup}

@@ -8,6 +8,10 @@ import {
   APP_LINK_APPLE,
   APP_LINK_GOOGLE,
 } from "@/constants/constants";
+import { useRouter } from 'next/router'
+ 
+
+
 
 
 import useTranslation from "next-translate/useTranslation";
@@ -19,7 +23,7 @@ import useTranslation from "next-translate/useTranslation";
 export default function Footer() {
   const { t } = useTranslation();
 
-
+  const router = useRouter()
 
 
   const bookLinks = [
@@ -91,8 +95,9 @@ export default function Footer() {
 
 
 
-
   return (
+<>
+
     <footer >
       <div className="footer">
         <div class="container">
@@ -234,6 +239,8 @@ export default function Footer() {
           </section>
         </div>
       </div>
-    </footer>
+    </footer> 
+    </>
   );
+  
 }

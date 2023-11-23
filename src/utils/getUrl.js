@@ -1,8 +1,4 @@
 export const getUrl = (catgy, term, style, address, router) => {
-
-
-
-
   return new Promise((resolve, reject) => {
     const categoryMapping = {
       tattoo: "tattoos",
@@ -30,9 +26,6 @@ export const getUrl = (catgy, term, style, address, router) => {
     const queryString = Object.keys(queryParams)
       .map((key) => `${key}=${encodeURIComponent(queryParams[key])}`)
       .join("&");
-
-
-    
 
     if (queryString) {
       url += `?${queryString}`;

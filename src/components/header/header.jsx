@@ -6,8 +6,12 @@ import LanguageSwitcher from "@/components/languageSwitcher/languageSwitcher";
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import useWindowResize from "@/hooks/useWindowSize";
+import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
+import { useModal } from "@/utils/modalUtils";
+
 
 export default function Header({ logo, theme, isPosition }) {
+  const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
 
@@ -122,6 +126,11 @@ export default function Header({ logo, theme, isPosition }) {
                 </ul>
               </div>
 
+
+          <button style={{"background":"#000","padding":"10px" ,"color":"#fff"}}  onClick={openPopup}>Choose Country</button>
+
+
+
               <div className="header_right">
                 <button
                   type="button"
@@ -154,6 +163,17 @@ export default function Header({ logo, theme, isPosition }) {
         </div>
       </header>
       {toggle === true ? <SideDrawer onCloseToggle={onCloseToggle} /> : null}
+
+
+      
+           <CountryPickerModel
+            className="custom-modal"
+            isOpen={isPopupOpen}
+            closeModal={closePopup}
+          />
+
+
+
     </>
   );
 }

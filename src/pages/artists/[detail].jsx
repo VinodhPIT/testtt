@@ -10,7 +10,7 @@ import SearchField from "@/components/tattooSearch/tattooSearch";
 import style from "@/pages/explore/search.module.css";
 import { useGlobalState } from "@/context/Context";
 import { renderArtistGallery } from "@/components/customTabs/tab";
-import TattooSearchModalPopup from "@/utils/modalUtils";
+import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import useTranslation from "next-translate/useTranslation";
 import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
@@ -243,7 +243,7 @@ export default function Detail({ data, locale }) {
             )}
           </div>
 
-          <TattooSearchModalPopup
+          <TattooSearchModal
             className="custom-modal"
             isOpen={isPopupOpen}
             closeModal={closePopup}

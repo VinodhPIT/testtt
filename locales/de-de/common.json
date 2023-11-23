@@ -1,7 +1,7 @@
 {
   "menus": {
     "home": "Home",
-    "tattooSearch": "Tattoo search",
+    "tattooSearch": "german-Tattoo search",
     "styleGuide": "Styleguide",
     "dictionary": "Dictionary",
     "forTattooArtists": "For tattoo artists",
@@ -49,7 +49,7 @@
   "language": "Languages",
   "styles": "Styles",
   "nodata": "No data found",
-  "exploreAll": "Explore",
+  "exploreAll": "Explore All",
   "notFoundMessage": "Try adjusting your search/ filter to find what you are looking for",
   "followus":"Follow us on",
   "book":"Book",
