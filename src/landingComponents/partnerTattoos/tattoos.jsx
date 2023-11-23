@@ -13,7 +13,7 @@ export default function PartnerTattoos() {
                     <div className="text_box_content_inner m_pr_0 pt_pb_40">
                         <h3 className="color_gray_550 mb_15">Partner Tattoos</h3>
                         <h5 className="color_gray_550 custom_fs_32 fw_400 mb_15">A Symbol of Everlasting Love</h5>
-                        <p className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0">Partner tattoos go beyond mere ink on skin; they are a profound expression of commitment and shared experiences. Here's why couples are choosing partner tattoos to commemorate their love</p>
+                        <p className="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0">Partner tattoos go beyond mere ink on skin; they are a profound expression of commitment and shared experiences. Here&apos;s why couples are choosing partner tattoos to commemorate their love</p>
                     </div>
                     <div className={styles.listing_pageContainer}>
                         <div className={styles.listing_grid_wrapper}>
@@ -70,7 +70,7 @@ export default function PartnerTattoos() {
                                 </div>
                                 <div className={styles.listing_grid_details}>
                                     <h3 className={styles.listing_grid_title}>Memories Etched in Ink</h3>
-                                    <p className={styles.listing_grid_desc}>Your partner tattoo becomes a timeless reminder of the precious moments you've shared.</p>
+                                    <p className={styles.listing_grid_desc}>Your partner tattoo becomes a timeless reminder of the precious moments you&apos;ve shared.</p>
                                 </div>                                
                             </div>
                         </div>
