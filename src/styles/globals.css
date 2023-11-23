@@ -3292,21 +3292,36 @@ header .navbar {
 .faq_wrap.landing_faq .faq_accordion_wrap .accordion .accordion__heading {
   padding: 0;
 }
+.faq_wrap.landing_faq .faq_accordion_wrap .accordion .accordion__heading .accordion__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.faq_wrap.landing_faq .faq_accordion_wrap .accordion .accordion__heading .accordion__button:after {
+  top: inherit;
+}
 
 .faq_wrap.landing_faq .faq_accordion_wrap .accordion .accordion__heading .accordion__button h4 {
   font-size: 32px;
   font-weight: 700;
   line-height: 38px;
+  margin-bottom: 0;
 }
 .faq_wrap.landing_faq .faq_accordion_wrap .accordion .faq_count {
   margin-right: 25px;
   display: inline-block;
-  min-width: 22px;
+  min-width: 35px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+}
+.faq_wrap.landing_faq .faq_accordion_wrap .accordion .accordion__panel {
+  padding-left: 0;
 }
 .faq_wrap.landing_faq .faq_accordion_wrap .accordion .accordion__panel p {
   font-size: 22px;
   line-height: 33px;
-  padding-left: 37px;
+  padding-left: 60px;
 }
 
 @media (max-width: 638px) {
@@ -4329,6 +4344,10 @@ li {
     margin-right: auto!important;
   }
 
+  .m_ml_0 {
+    margin-left: 0!important;
+  }
+
   .m_dis_inline {
     display: inline!important;
   }
@@ -4488,6 +4507,10 @@ li {
 
   .m_order_2 {
     order: 2!important;
+  }
+
+  .m_w_auto {
+    width: auto !important;
   }
   
   .m_btn_custom_48 {
@@ -4741,7 +4764,7 @@ li {
   ul.custom-listing.how_work_list li span {
     position: relative;
     top: 2px;
-}
+  }
   ul.custom-listing.how_work_list li:last-child {
     margin-bottom: 0;
   }
@@ -4846,10 +4869,30 @@ li {
     font-size: 24px;
     line-height: 30px;
   }
+  .faq_wrap.landing_faq .faq_accordion_wrap .accordion .faq_count {
+    font-size: 24px;
+    line-height: 30px;
+    min-width: 30px;
+    margin-right: 15px;
+  }
   .faq_wrap.landing_faq .faq_accordion_wrap .accordion .accordion__panel p {
     font-size: 16px;
     line-height: 24px;
-    padding-left: 47px;
+    padding-left: 45px;
+  }
+
+
+  .ready_embrace_download ul.ready_embrace_block {
+    bottom: 11%;
+  }    
+  .ready_embrace_download ul.app_download_img_list {
+    max-height: 350px;
+  }
+  .ready_embrace_download ul.app_download_img_list li img {
+    object-position: top!important;
+  }    
+  .text_box_wrap .img_text_box_inner .img_box_wrap.ready_embrace_download {
+    padding-bottom: 210px;
   }
     
 }
@@ -5111,6 +5154,9 @@ li {
     padding-left: 5.5vw;
     padding-right: 5.5vw;
   }
+  .ready_embrace_download ul.ready_embrace_block {
+    bottom: 30%;
+  } 
 
 }
 

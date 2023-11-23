@@ -54,7 +54,7 @@ export default function TattooExperience() {
 
                     <div className="img_text_box_inner container m_switcher">
                         <div class="img_box_wrap justify_content_right m_order_2">
-                            <ul class="app_download_img_list justify_content_start ml_10pc mt_0 h_inherit">
+                            <ul class="app_download_img_list justify_content_start ml_10pc mt_0 h_inherit m_ml_0">
                                 <li className="no_filter">
                                     <Image
                                         priority

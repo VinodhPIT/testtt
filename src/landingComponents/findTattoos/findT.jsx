@@ -31,8 +31,8 @@ export default function FindT() {
           </div>
 
           <div className="img_box_wrap">
-            <ul className="app_download_img_list mt_mb_6pc after_none align_item_center mr_0 justify_content_right m_justify_content_center">
-              <li className="no_filter">
+            <ul className="app_download_img_list mt_mb_6pc after_none align_item_center mr_0 justify_content_right m_justify_content_center m_text_center">
+              <li className="no_filter m_w_auto">
                 <Image
                   src="/img-om.png"                 
                   alt="img"
@@ -44,7 +44,7 @@ export default function FindT() {
                   layout="responsive"
                 />                 
               </li>
-              <li className="no_filter">
+              <li className="no_filter m_w_auto">
                 <Image
                   src="/img-69.png"                 
                   alt="img"
