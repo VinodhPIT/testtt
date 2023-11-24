@@ -6,6 +6,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
 export default function TrendinginckdArtist () {
     const { isMobileView } = useWindowResize();
     let sliderSettings = {};
@@ -34,7 +35,8 @@ export default function TrendinginckdArtist () {
                     <div className="text_box_content_inner max_w_100pc pt_80 pb_65 m_pt_pb_50">
                         <div className="d_flex align_item_center justify_space_between m_flex_direction_column">
                             <h3 className="color_gray_550 mb_0 m_mb_25 mr_20 m_mr_0">Trending inckd tattoo artists</h3>
-                            <button type="button" className="btn_primary btn_img btn_xxl m_btn_custom_48">
+                            <Link href="/explore/tattoo-artists"
+                                 className="btn_primary btn_img btn_xxl m_btn_custom_48">
                                 Explore more artists
                                 <Image
                                 src="/arow-white-right.svg"
@@ -46,7 +48,7 @@ export default function TrendinginckdArtist () {
                                 blurDataURL={blurDataURL}
                                 className="ml-8 mt-2"
                                 />
-                            </button>
+                            </Link>
                         </div>
                     </div>                               
                     <div className={`${'mt_0 mb_80 m_mb_30 trending_artist_slider'} ${styles.listing_pageContainer}`}>
