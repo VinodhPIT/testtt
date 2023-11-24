@@ -3,7 +3,7 @@ import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from "./trending.module.css";
 import useWindowResize from "@/hooks/useWindowSize";
-
+import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -37,7 +37,7 @@ export default function TrendingArtist() {
                   <div className="text_box_content_inner max_w_100pc pt_80 pb_65 m_pt_pb_50">
                       <div className="d_flex align_item_center justify_space_between m_flex_direction_column">
                         <h2 className="color_gray_550 mb_0 heading_h2 m_mb_25 mr_20 m_mr_0">Trending couple tattoos</h2>
-                        <button type="button" className="btn_primary btn_img btn_xxl m_btn_custom_48">
+                        <Link href="/explore/tattoos"  className="btn_primary btn_img btn_xxl m_btn_custom_48">
                           Explore more tattoos
                           <Image
                             src="/arow-white-right.svg"
@@ -49,7 +49,7 @@ export default function TrendingArtist() {
                             blurDataURL={blurDataURL}
                             className="ml-8 mt-2"
                           />
-                        </button>
+                        </Link>
                       </div>
                   </div>
                 </div>
