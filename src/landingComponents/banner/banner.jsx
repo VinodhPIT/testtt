@@ -1,11 +1,26 @@
-import React from 'react'
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import styles from './banner.module.css'
-
+import styles from "./banner.module.css";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+  
+} from "react-share";
 
 export default function Banner() {
+
+  const currentPage = typeof window !== 'undefined' ? window.location.href : '';
+
+
+const instagramShareUrl = `https://www.instagram.com/share?url=${encodeURIComponent(currentPage)}&title=${encodeURIComponent('Hi Instagram  please share')}`;
+
+
+
   return (
     <div className={styles.header}>
       <header>
@@ -22,9 +37,9 @@ export default function Banner() {
                   placeholder="blur"
                   blurDataURL={blurDataURL}
                   //fill //position-absolute
-                  //objectFit="cover"    
+                  //objectFit="cover"
                   //objectPosition='bottom'
-                  layout="responsive"                
+                  layout="responsive"
                 />
               </Link>
             </span>
@@ -33,7 +48,7 @@ export default function Banner() {
                 Signup now - its free
               </button>
             </span>
-          </div>    
+          </div>
         </div>
       </header>
 
@@ -43,7 +58,7 @@ export default function Banner() {
             <div className={styles.banner}>
               <div className={styles.banner_inner}>
                 <Image
-                  src="/young-beautiful-couple-posing-old-building-1.jpg"                 
+                  src="/young-beautiful-couple-posing-old-building-1.jpg"
                   alt="banner"
                   loading="lazy"
                   placeholder="blur"
@@ -53,10 +68,14 @@ export default function Banner() {
                 />
               </div>
             </div>
-            <div className={`${'m_justify_content_center'} ${styles.banner_content}`}>
-              <div className={styles.banner_caption}>  
+            <div
+              className={`${"m_justify_content_center"} ${
+                styles.banner_content
+              }`}
+            >
+              <div className={styles.banner_caption}>
                 <h1>
-                  <span>Discover Unforgettable Partner Tattoos with inckd</span>                    
+                  <span>Discover Unforgettable Partner Tattoos with inckd</span>
                 </h1>
                 <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
                   Know more about inckd
@@ -71,66 +90,70 @@ export default function Banner() {
                     className="ml-8 mt-2"
                   />
                 </a>
-                </div> 
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className={styles.social_icons}>
-        <ul>          
+        <ul>
+
+
+          <li> 
+          <WhatsappShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"     hashtag="#code">
+
+            <WhatsappIcon  size={32}  iconFillColor="#000" borderRadius={12}  bgStyle={{fill:"#fff"}}/>
+             
+            </WhatsappShareButton>
+          </li>
+        
           <li>
-            <Link href="#" target="_blank">
-            <Image
+            <Link href={instagramShareUrl} target="_blank" rel="noopener noreferrer" >
+              <Image
                 src={"/icon-insta-header.svg"}
                 alt="Instagram"
                 width={33}
                 height={33}
                 priority
-              />    
+              />
             </Link>
           </li>
           <li>
-            <Link href="#" target="_blank">
-            <Image
+            <FacebookShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"  hashtag="Inckd" >
+              <Image
                 src={"/icon-fb-header.svg"}
                 alt="Facebook"
                 width={33}
                 height={33}
                 priority
-              />            
-            </Link>
+              />
+            </FacebookShareButton>
           </li>
           <li>
-            <Link href="#" target="_blank">
-            <Image
+            <LinkedinShareButton url={currentPage} title="Please share to your connections and keep supporting inckd">
+              <Image
                 src={"/icon-inkd-header.svg"}
-                alt="LinkedIn"
+                alt="Facebook"
                 width={33}
                 height={33}
                 priority
               />
-            </Link>           
+            </LinkedinShareButton>
           </li>
           <li>
-            <Link href="#" target="_blank">
-              <Image
-                  src={"/icon-mail-header.svg"}
-                  alt="Mail"
-                  width={33}
-                  height={33}
-                  priority
-                />
-            </Link>
+            <EmailShareButton url={currentPage} subject="inckd"  body="Please share to your friends and keep supporting inckd">
+              <Image  
+                src={"/icon-mail-header.svg"}
+                alt="Mail"
+                width={33}
+                height={33}
+                priority
+              />
+            </EmailShareButton>
           </li>
         </ul>
       </div>
-
-
-
-
-      
-      
     </div>
-  )
+  );
 }
