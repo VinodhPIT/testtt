@@ -1,9 +1,7 @@
 .header {
     position: relative;
 }
-.header header {
-    position: absolute;
-    z-index: 1;
+.header header {    
     width: 100%;
 }
 .header_logo {
@@ -12,7 +10,7 @@
 .block_wrap {
     display: flex;
     justify-content: space-between;
-    padding: 29px 0 29px 0;
+    padding: 24px 0 24px 0;
 	align-items: center;	
 }
 .banner_block {
@@ -23,7 +21,7 @@
 	position: relative;
 	overflow: hidden;
 	list-style: none;
-	padding: 0;
+	padding: 0 25px;
 }
 .banner_wrap {
 	position: relative;
@@ -42,7 +40,7 @@
 	height: 100%;
 	position: relative;
 	transition-property: transform;
-	min-height: 80vh;
+	min-height: 65vh;
     padding:0;
 }
 
@@ -53,15 +51,18 @@
 	height: 100%;
 	width: 100%;
 	z-index: -1;
+	border-radius: 20px;
+    background-color: #fff;
+    overflow: hidden;
 }
 
 .banner:before {
-	content: "";
+	/*content: "";
 	background: linear-gradient(359deg, #222 2.88%, #222 2.89%, rgba(13, 13, 13, 0.05) 72.81%, rgba(13, 13, 13, 0.05) 133.24%);
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	z-index: 1;
+	z-index: 1;*/
 }
 
 .banner_inner {
@@ -102,7 +103,7 @@
 	font-weight: 700;
 	line-height: 100%;
 	letter-spacing: -2px;
-	margin: 0 0 15px 0;
+	margin: 0 0 10px 0;
 	padding: 0;
     color: #fff;
 	word-wrap: break-word;
@@ -111,7 +112,7 @@
 .social_icons {
 	text-align: left;
 	position: absolute;
-    right: 24px;
+    right: 63px;
     bottom: 24px;
     width: 33px;
 }

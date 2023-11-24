@@ -1,0 +1,132 @@
+import React from 'react'
+import Link from "next/link";
+import Image from "next/image";
+import styles from './banner.module.css'
+import {INSTAGRAM_PROFILE_LINK ,LINKEDIN_PROFILE_LINK , FACEBOOK_PROFILE_LINK ,blurDataURL} from "@/constants/constants";
+
+export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
+  return (
+    <div className={styles.header}>
+      <header>
+        <div className="container">
+          <div className={styles.block_wrap}>
+            <span className="logo_section">
+              <Link href={"/"} className={styles.header_logo}>
+                <Image
+                  src="/Inckd-logo-b.svg"
+                  width={105}
+                  height={31}
+                  alt="logo"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                  layout="responsive"                
+                />
+              </Link>
+            </span>
+            <span className="header_right_btn">
+              <button type="button" className="btn btn_primary btn_regist">
+                Signup now - its free
+              </button>
+            </span>
+          </div>    
+        </div>
+      </header>
+
+      <div className={styles.banner_block}>
+        <div className={styles.banner_wrap}>
+          <div className={styles.banner_item}>
+            <div className={styles.banner}>
+              <div className={styles.banner_inner}>
+                <Image
+                  src={bannerImg}                 
+                  alt="banner"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL={blurDataURL}
+                  fill
+                  objectFit="cover"
+                />
+              </div>
+            </div>
+            <div className={`${'m_justify_content_center'} ${styles.banner_content}`}>
+              <div className={styles.banner_caption}>  
+                <h1>
+                  <span>{bannerTitle}</span>                    
+                </h1>
+                <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
+                  {bannerButton}
+                  <Image
+                    src="/arow-white-right.svg"
+                    width={24}
+                    height={24}
+                    alt="logo"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={blurDataURL}
+                    className="ml-8 mt-2"
+                  />
+                </a>
+                </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.social_icons}>
+        <ul>          
+          <li>
+            <Link href={INSTAGRAM_PROFILE_LINK} target="_blank">
+            <Image
+                src={"/icon-insta-header.svg"}
+                alt="Instagram"
+                width={33}
+                height={33}
+                priority
+              />    
+            </Link>
+          </li>
+          <li>
+            <Link href={FACEBOOK_PROFILE_LINK} target="_blank">
+            <Image
+                src={"/icon-fb-header.svg"}
+                alt="Facebook"
+                width={33}
+                height={33}
+                priority
+              />            
+            </Link>
+          </li>
+          <li>
+            <Link href={LINKEDIN_PROFILE_LINK} target="_blank">
+            <Image
+                src={"/icon-inkd-header.svg"}
+                alt="LinkedIn"
+                width={33}
+                height={33}
+                priority
+              />
+            </Link>           
+          </li>
+          <li>
+            <Link href="#" target="_blank">
+              <Image
+                  src={"/icon-mail-header.svg"}
+                  alt="Mail"
+                  width={33}
+                  height={33}
+                  priority
+                />
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+
+
+
+      
+      
+    </div>
+  )
+}
