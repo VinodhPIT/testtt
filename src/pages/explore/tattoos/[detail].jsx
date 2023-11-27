@@ -35,6 +35,8 @@ export default function Detail({ data, status, locale }) {
   const [location, setLocation] = useState([]);
   const [currentBigImage, setCurrentBigImage] = useState(data.tattoo.image);
 
+
+
   useEffect(() => {
     styleCollection();
     setSelectedIds([])

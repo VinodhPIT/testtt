@@ -22,9 +22,9 @@ export default function UniquePartner({title ,content ,img ,alt}) {
                                 src={img}
                                 fill
                                 objectFit="contain"
-                                objectPosition="right"
+                                objectPosition="center"
                                 blurDataURL={blurDataURL}
-                                className="m_object_position_center"
+                                
                                 placeholder="blur"
                             />
                         </div>

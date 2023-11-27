@@ -4,13 +4,13 @@
     margin: 10px 0 50px;
 }
 .listing_grid_wrapper {
-	display: grid;
+	/* display: grid; */
     grid-template-columns: repeat(auto-fill,minmax(25%,1fr));
     grid-gap: 8px;
 }
 .listing_gridItem {
 	position: relative;
-    padding: 0;
+    padding: 6px;
     display: flex;
     flex-direction: column;
     height: 100%;
