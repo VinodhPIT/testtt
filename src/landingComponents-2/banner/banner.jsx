@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from './banner.module.css'
 import {INSTAGRAM_PROFILE_LINK ,LINKEDIN_PROFILE_LINK , FACEBOOK_PROFILE_LINK ,blurDataURL} from "@/constants/constants";
+
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -18,7 +19,6 @@ import {
 export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
 
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
-
 
 
   return (
@@ -91,7 +91,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
 
       <div className={styles.social_icons}>
         <ul>          
-        <li> 
+ <li> 
           <WhatsappShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"     hashtag="#code">
 
             <WhatsappIcon  size={32}  iconFillColor="#000" borderRadius={12}  bgStyle={{fill:"#fff"}}/>

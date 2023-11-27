@@ -1,4 +1,6 @@
 import React from 'react'
+import Image from 'next/image'
+import {blurDataURL} from '@/constants/constants'
 import Banner from "@/landingComponents-2/banner/banner";
 import UniquePartner from "@/landingComponents-2/uniquePartner/uniquePartner";
 import PartnerTattoos from "@/landingComponents-2/partnerTattoos/tattoos";
