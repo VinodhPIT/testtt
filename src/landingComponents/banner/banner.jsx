@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from './banner.module.css'
+
+
+
+import { blurDataURL } from "@/constants/constants";
+import styles from "./banner.module.css";
 
 import {
   EmailShareButton,
@@ -14,8 +18,11 @@ import {
 
 
 
+
 export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
+
+
 
 
   return (
@@ -33,7 +40,10 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}
-                  layout="responsive"                
+                  //fill //position-absolute
+                  //objectFit="cover"
+                  //objectPosition='bottom'
+                  layout="responsive"
                 />
               </Link>
             </span>
@@ -42,7 +52,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
                 Signup now - its free
               </button>
             </span>
-          </div>    
+          </div>
         </div>
       </header>
 
@@ -52,7 +62,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
             <div className={styles.banner}>
               <div className={styles.banner_inner}>
                 <Image
-                  src={bannerImg}                 
+                  src="/young-beautiful-couple-posing-old-building-1.jpg"
                   alt="banner"
                   loading="lazy"
                   placeholder="blur"
@@ -62,13 +72,17 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
                 />
               </div>
             </div>
-            <div className={`${'m_justify_content_center'} ${styles.banner_content}`}>
-              <div className={styles.banner_caption}>  
+            <div
+              className={`${"m_justify_content_center"} ${
+                styles.banner_content
+              }`}
+            >
+              <div className={styles.banner_caption}>
                 <h1>
-                  <span>{bannerTitle}</span>                    
+                  <span>Discover Unforgettable Partner Tattoos with inckd</span>
                 </h1>
                 <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
-                  {bannerButton}
+                  Know more about inckd
                   <Image
                     src="/arow-white-right.svg"
                     width={24}
@@ -80,13 +94,14 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
                     className="ml-8 mt-2"
                   />
                 </a>
-                </div> 
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div className={styles.social_icons}>
+
         <ul>          
         <li> 
           <WhatsappShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"     hashtag="#code">
@@ -132,12 +147,6 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
           </li>
         </ul>
       </div>
-
-
-
-
-      
-      
     </div>
-  )
+  );
 }
