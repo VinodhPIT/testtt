@@ -25,7 +25,7 @@ import setLanguage from "next-translate/setLanguage";
 
 export default function Home({ locale ,country }) {
   const { t } = useTranslation();
-  const { styleCollection, getLocale  ,getAddress ,setSelectedIds}  = useGlobalState();
+  const { styleCollection, getLocale  ,getAddress ,setSelectedIds ,clearStyleId}  = useGlobalState();
   const { isMobileView } = useWindowResize();
 
   const imagePaths = [
@@ -50,23 +50,17 @@ export default function Home({ locale ,country }) {
   
   useEffect(() => {
 
-// if(country==="IN"){
-// router.push(`${locale}`)
-//  setLanguage(locale)
-
-
-// }
-   
 
 
 
 
+    clearStyleId('')
     setSelectedIds([])
-      localStorage.removeItem("selectedStyleIds");
+   
 
     getAddress('Location')
 
-    // localStorage.clear("selectedStyleIds");
+
 
     styleCollection();
     const timer = setInterval(changeImage, 2000);
@@ -608,14 +602,12 @@ export default function Home({ locale ,country }) {
 export async function getServerSideProps(context) {
   
   try {
-    const res = await fetch('https://ipapi.co/json')
-    const repo = await res.json()
-    console.log(repo)
+
 
     return {
       props: {
         locale: context.locale,
-        country:repo.country
+        
       },
     };
   } catch (error) {

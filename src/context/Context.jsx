@@ -6,6 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import { fetchCategoryData, fetchMultiData, getStyles } from "@/action/action";
+import { getUrl } from "@/utils/getUrl";
 import { Parameters } from "@/components/parameters/params";
 const initialState = {
   address: "Location",
@@ -29,6 +30,7 @@ const initialState = {
   isLoad: false,
   seed: "",
   slugIds: "",
+  styleId: [],
 };
 
 const reducer = (state, action) => {
@@ -57,8 +59,6 @@ const reducer = (state, action) => {
         ...state,
         locale: action.payload.locale,
       };
-
-    
 
     case "INITIAL_SERVER_DATA":
       ({
@@ -142,6 +142,18 @@ const reducer = (state, action) => {
         isLoad: false,
       };
 
+    case "GETSTYLE_ID":
+      return {
+        ...state,
+        styleId: action.payload,
+      };
+
+    case "CLEARSTYLE_ID":
+      return {
+        ...state,
+        styleId: action.payload,
+      };
+
     default:
       return state;
   }
@@ -156,21 +168,21 @@ export const GlobalStateProvider = ({ children }) => {
 
   const [selectedIds, setSelectedIds] = useState([]);
 
-  useEffect(() => {
-    const styleIds = JSON.parse(localStorage.getItem("selectedStyleIds"));
-    if (styleIds) {
-      setSelectedIds(styleIds);
-    }
-  }, []);
+  const clearStyleId = async () => {
+    dispatch({ type: "CLEARSTYLE_ID", payload: "" });
+  };
 
-  useEffect(() => {
-    localStorage.setItem("selectedStyleIds", JSON.stringify(selectedIds));
-  }, [selectedIds]);
+  const onSearch = async (router) => {
+    await getUrl(
+      state.currentTab,
+      state.searchKey,
+      selectedIds.length === 0 ? "" : selectedIds,
+      state.location,
+      router
+    );
 
-
-
-
-  
+    dispatch({ type: "GETSTYLE_ID", payload: selectedIds });
+  };
 
   const getAddress = async (payload) => {
     try {
@@ -183,8 +195,6 @@ export const GlobalStateProvider = ({ children }) => {
       dispatch({ type: "GET_LOCALE", payload: payload });
     } catch (error) {}
   };
-
-
 
   const fetchServerlData = async (payload) => {
     try {
@@ -206,9 +216,6 @@ export const GlobalStateProvider = ({ children }) => {
         longitude: state.longitude,
         seed: state.seed,
       };
-
-
-
 
       let responseData;
       if (state.currentTab === "all") {
@@ -284,6 +291,8 @@ export const GlobalStateProvider = ({ children }) => {
         getAddress,
         selectedIds,
         setSelectedIds,
+        onSearch,
+        clearStyleId,
       }}
     >
       {children}

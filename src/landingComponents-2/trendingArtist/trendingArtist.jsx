@@ -16,8 +16,10 @@ export default function TrendingArtist() {
   sliderSettings = {    
     infinite: true,
     speed: 300,
-    slidesToShow:isMobileView ? 2 : 5,
-    slidesToScroll: 1,  
+
+    slidesToShow:isMobileView ? 1 : 5,
+    slidesToScroll: isMobileView ? 1 : 2,  
+
   };
   const [images, setImage] = useState([
     { image: "/trend-couple-1.png" },

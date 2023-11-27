@@ -1,8 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+
+
+
 import { blurDataURL } from "@/constants/constants";
 import styles from "./banner.module.css";
+
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -12,12 +16,12 @@ import {
   
 } from "react-share";
 
-export default function Banner() {
 
+
+
+export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
 
-
-const instagramShareUrl = `https://www.instagram.com/share?url=${encodeURIComponent(currentPage)}&title=${encodeURIComponent('Hi Instagram  please share')}`;
 
 
 
@@ -97,10 +101,9 @@ const instagramShareUrl = `https://www.instagram.com/share?url=${encodeURICompon
       </div>
 
       <div className={styles.social_icons}>
-        <ul>
 
-
-          <li> 
+        <ul>          
+        <li> 
           <WhatsappShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"     hashtag="#code">
 
             <WhatsappIcon  size={32}  iconFillColor="#000" borderRadius={12}  bgStyle={{fill:"#fff"}}/>
@@ -108,17 +111,7 @@ const instagramShareUrl = `https://www.instagram.com/share?url=${encodeURICompon
             </WhatsappShareButton>
           </li>
         
-          <li>
-            <Link href={instagramShareUrl} target="_blank" rel="noopener noreferrer" >
-              <Image
-                src={"/icon-insta-header.svg"}
-                alt="Instagram"
-                width={33}
-                height={33}
-                priority
-              />
-            </Link>
-          </li>
+         
           <li>
             <FacebookShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"  hashtag="Inckd" >
               <Image

@@ -28,7 +28,7 @@ export default function Detail({ data, status, locale }) {
 
 
   const router = useRouter();
-  const { state, getLocale, styleCollection } = useGlobalState();
+  const { state, getLocale, styleCollection ,setSelectedIds  , clearStyleId} = useGlobalState();
   const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const { t } = useTranslation();
@@ -43,6 +43,8 @@ export default function Detail({ data, status, locale }) {
 
   useEffect(() => {
     styleCollection();
+    setSelectedIds([])
+    clearStyleId()
 
     try {
       getLocale({

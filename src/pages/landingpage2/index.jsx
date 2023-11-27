@@ -11,6 +11,7 @@ import TattooExperience from "@/landingComponents-2/tattooExperience/tattooExper
 import WhypartnerTattoos from "@/landingComponents-2/whypartnerTattoos/whypartnerTattoos";
 import Faq from "@/landingComponents/faq/faq";
 
+
 export default function Landing2() {
   return (
     <div>
