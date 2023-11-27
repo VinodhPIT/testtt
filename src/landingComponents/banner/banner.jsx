@@ -19,7 +19,7 @@ import {
 
 
 
-export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
+export default function Banner({bannerTitle ,subTitlte ,alt ,bannerImg ,bannerButton}) {
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
 
 
@@ -62,8 +62,8 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
             <div className={styles.banner}>
               <div className={styles.banner_inner}>
                 <Image
-                  src="/young-beautiful-couple-posing-old-building-1.jpg"
-                  alt="banner"
+                  src={bannerImg}
+                  alt={alt}
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={blurDataURL}
@@ -79,10 +79,17 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
             >
               <div className={styles.banner_caption}>
                 <h1>
-                  <span>Discover Unforgettable Partner Tattoos with inckd</span>
+                  <span>{bannerTitle}</span>
                 </h1>
-                <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
-                  Know more about inckd
+
+<div className={styles.bannerSubTitle}>
+<p >{subTitlte}</p>
+</div>
+                
+
+
+                <Link class="btn_primary btn_img btn_xxl m_btn_custom_48" href="/">
+                 {bannerButton}
                   <Image
                     src="/arow-white-right.svg"
                     width={24}
@@ -93,7 +100,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
                     blurDataURL={blurDataURL}
                     className="ml-8 mt-2"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

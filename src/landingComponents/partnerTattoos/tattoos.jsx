@@ -3,8 +3,31 @@ import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from './partnertattoos.module.css'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import useWindowResize from "@/hooks/useWindowSize";
 
-export default function PartnerTattoos({mainTitle ,content1 ,content2 ,tattooTitle1 , partnerTattoo1 ,tattooContent1,tattooTitle2 , partnerTattoo2 ,tattooContent2 ,tattooTitle3 , partnerTattoo3 ,tattooContent3 }) {
+
+
+
+
+
+export default function PartnerTattoos({mainTitle ,content1 ,content2 ,data , partnerTattoo1}) {
+
+    const { isMobileView } = useWindowResize();
+    let sliderSettings = {};
+
+    sliderSettings = {
+    infinite: false,
+    speed: 300,
+    slidesToShow: isMobileView ? 1 : 3,
+    slidesToScroll: isMobileView ? 1 : 3,
+    dots: true,
+    };
+
+
+
   return (
     <section className="img_text_banner_box">
         <div className="text_box_wrap full-block-wrap">
@@ -17,29 +40,39 @@ export default function PartnerTattoos({mainTitle ,content1 ,content2 ,tattooTit
                     </div>
                     <div className={styles.listing_pageContainer}>
                         <div className={styles.listing_grid_wrapper}>
-                            <div className={styles.listing_gridItem}>                        
-                                <div className={styles.listing_grid_img_col}>                            
-                                    <Image
-                                        src={partnerTattoo1}                 
-                                        alt={tattooTitle1}
-                                        width={746}
-                                        height={776}
-                                        loading="lazy"
-                                        placeholder="blur"
-                                        blurDataURL={blurDataURL}
-                                        layout="responsive"
-                                    />
-                                </div>
-                                <div className={styles.listing_grid_details}>
-                                    <h4 className={styles.listing_grid_title}>{tattooTitle1}</h4>
-                                    <p className={styles.listing_grid_desc}>{tattooContent1}</p>
-                                </div>                                
-                            </div>
 
-                            <div className={styles.listing_gridItem}>                        
+                  <Slider {...sliderSettings}>
+                                {data.map((el, index) => (
+                                   <div className={styles.listing_gridItem}  key={el.id}>                        
+                                   <div className={styles.listing_grid_img_col}>                            
+                                       <Image
+                                           src={partnerTattoo1}                 
+                                           alt={'tattooTitle1'}
+                                           width={746}
+                                           height={776}
+                                           loading="lazy"
+                                           placeholder="blur"
+                                           blurDataURL={blurDataURL}
+                                           layout="responsive"
+                                       />
+                                   </div>
+                                   <div className={styles.listing_grid_details}>
+                                       <h4 className={styles.listing_grid_title}>{el.tattooName}</h4>
+                                       <p className={styles.listing_grid_desc}>{el.description}</p>
+                                   </div>                                
+                               </div>
+   
+                                ))}
+                            </Slider>
+
+                            
+
+
+
+                            {/* <div className={styles.listing_gridItem}>                        
                                 <div className={styles.listing_grid_img_col}>
                                     <Image
-                                        src={partnerTattoo2}                 
+                                        src={partnerTattoo1}                 
                                         alt={tattooTitle2}
                                         width={746}
                                         height={776}
@@ -53,12 +86,12 @@ export default function PartnerTattoos({mainTitle ,content1 ,content2 ,tattooTit
                                     <h4 className={styles.listing_grid_title}>{tattooTitle2}</h4>
                                     <p className={styles.listing_grid_desc}>{tattooContent2} </p>
                                 </div>                                
-                            </div>
+                            </div> */}
 
-                            <div className={styles.listing_gridItem}>                        
+                            {/* <div className={styles.listing_gridItem}>                        
                                 <div className={styles.listing_grid_img_col}>
                                     <Image
-                                        src={partnerTattoo3}                 
+                                        src={partnerTattoo1}                 
                                         alt={tattooTitle3}
                                         width={746}
                                         height={776}
@@ -72,7 +105,9 @@ export default function PartnerTattoos({mainTitle ,content1 ,content2 ,tattooTit
                                     <h4 className={styles.listing_grid_title}>{tattooTitle3}</h4>
                                     <p className={styles.listing_grid_desc}>{tattooContent3}</p>
                                 </div>                                
-                            </div>
+                            </div> */}
+
+
                         </div>
                     </div>
                 </div>

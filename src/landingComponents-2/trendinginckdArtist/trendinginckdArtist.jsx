@@ -56,6 +56,11 @@ export default function TrendinginckdArtist () {
                                 />
                             </Link>
                         </div>
+
+
+
+
+                        
                     </div>                               
                     <div className={`${'mt_0 mb_80 m_mb_30 m_mt_25 trending_artist_slider'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>                        
