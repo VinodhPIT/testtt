@@ -194,7 +194,7 @@ export default function Home({ locale ,country }) {
 
 <section style={{"height":"100px","display":"flex","justifyContent":"space-between","alignItems":"center","padding":"33px"}}>
 <Link href={'exploring-tattoo-ideas-for-men'}>Exploring Tattoo Ideas For Men</Link>
-<Link href={'/landingpage1'}>Landingpage1</Link>
+
 <Link href={'/landingpage2'}>Landingpage2</Link>
 <Link href={'/landingpage3'}>Landingpage3</Link>
 
