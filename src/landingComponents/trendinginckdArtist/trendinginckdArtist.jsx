@@ -15,7 +15,7 @@ export default function TrendinginckdArtist () {
     infinite: false,
     speed: 300,
     slidesToShow: isMobileView ? 1 : 3,
-    slidesToScroll: 1,
+    slidesToScroll: isMobileView ? 1 : 3,
     dots: true,
     };
 

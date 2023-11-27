@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useGlobalState } from "@/context/Context";
 import styles from "./dropdown.module.css";
 import { getUrl } from "@/utils/getUrl";
 import Image from "next/image";
-import { useToggle } from "@/hooks/useToggle";
 export default function StyleDropdown({
   searchKey,
   currentTab,
   router,
-  isDetail,
   onToggle,
 }) {
-  const { state, styleCollection, selectedIds, setSelectedIds } =
+  const { state, selectedIds, setSelectedIds ,onSearch , clearStyleId } =
     useGlobalState();
+
+
+
+
 
   const handleCheckboxChange = (elId) => {
     if (selectedIds.includes(elId)) {
@@ -24,13 +26,10 @@ export default function StyleDropdown({
 
   const clearAll = async () => {
     setSelectedIds([]);
-    localStorage.clear("selectedStyleIds");
+    clearStyleId()
     await getUrl(currentTab, searchKey, "", state.location, router);
   };
 
-  const onSearch = async () => {
-    await getUrl(currentTab, searchKey, selectedIds.length===0 ? "":selectedIds ,state.location, router);
-  };
 
 
 
@@ -80,7 +79,7 @@ export default function StyleDropdown({
         </button>
         <button
         
-          onClick={() => onSearch()}
+          onClick={() => onSearch(router)}
           className="btn_secondary w_100pc"
         >
           Show Results

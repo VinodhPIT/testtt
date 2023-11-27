@@ -2,9 +2,22 @@ import React from 'react'
 import Link from "next/link";
 import Image from "next/image";
 import styles from './banner.module.css'
-import {INSTAGRAM_PROFILE_LINK ,LINKEDIN_PROFILE_LINK , FACEBOOK_PROFILE_LINK ,blurDataURL} from "@/constants/constants";
+
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  LinkedinShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+  
+} from "react-share";
+
+
 
 export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
+  const currentPage = typeof window !== 'undefined' ? window.location.href : '';
+
+
   return (
     <div className={styles.header}>
       <header>
@@ -75,49 +88,47 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
 
       <div className={styles.social_icons}>
         <ul>          
-          <li>
-            <Link href={INSTAGRAM_PROFILE_LINK} target="_blank">
-            <Image
-                src={"/icon-insta-header.svg"}
-                alt="Instagram"
-                width={33}
-                height={33}
-                priority
-              />    
-            </Link>
+        <li> 
+          <WhatsappShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"     hashtag="#code">
+
+            <WhatsappIcon  size={32}  iconFillColor="#000" borderRadius={12}  bgStyle={{fill:"#fff"}}/>
+             
+            </WhatsappShareButton>
           </li>
+        
+         
           <li>
-            <Link href={FACEBOOK_PROFILE_LINK} target="_blank">
-            <Image
+            <FacebookShareButton url={currentPage} title="Please share to your friends and keep supporting inckd"  hashtag="Inckd" >
+              <Image
                 src={"/icon-fb-header.svg"}
                 alt="Facebook"
                 width={33}
                 height={33}
                 priority
-              />            
-            </Link>
+              />
+            </FacebookShareButton>
           </li>
           <li>
-            <Link href={LINKEDIN_PROFILE_LINK} target="_blank">
-            <Image
+            <LinkedinShareButton url={currentPage} title="Please share to your connections and keep supporting inckd">
+              <Image
                 src={"/icon-inkd-header.svg"}
-                alt="LinkedIn"
+                alt="Facebook"
                 width={33}
                 height={33}
                 priority
               />
-            </Link>           
+            </LinkedinShareButton>
           </li>
           <li>
-            <Link href="#" target="_blank">
-              <Image
-                  src={"/icon-mail-header.svg"}
-                  alt="Mail"
-                  width={33}
-                  height={33}
-                  priority
-                />
-            </Link>
+            <EmailShareButton url={currentPage} subject="inckd"  body="Please share to your friends and keep supporting inckd">
+              <Image  
+                src={"/icon-mail-header.svg"}
+                alt="Mail"
+                width={33}
+                height={33}
+                priority
+              />
+            </EmailShareButton>
           </li>
         </ul>
       </div>

@@ -17,7 +17,7 @@ export default function TrendingArtist() {
     infinite: true,
     speed: 300,
     slidesToShow:isMobileView ? 1.64 : 4.72,
-    slidesToScroll: 1,  
+    slidesToScroll: isMobileView ? 1.64 : 2,  
   };
   const [images, setImage] = useState([
     { image: "/trend-couple-1.png" },

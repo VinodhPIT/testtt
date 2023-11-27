@@ -1,6 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
-import {blurDataURL} from '@/constants/constants'
 import Banner from "@/landingComponents-2/banner/banner";
 import UniquePartner from "@/landingComponents-2/uniquePartner/uniquePartner";
 import PartnerTattoos from "@/landingComponents-2/partnerTattoos/tattoos";
@@ -10,6 +8,7 @@ import TrendinginckdArtist from "@/landingComponents-2/trendinginckdArtist/trend
 import TattooExperience from "@/landingComponents-2/tattooExperience/tattooExperience";
 import WhypartnerTattoos from "@/landingComponents-2/whypartnerTattoos/whypartnerTattoos";
 import Faq from "@/landingComponents/faq/faq";
+
 
 export default function Landing2() {
   return (
