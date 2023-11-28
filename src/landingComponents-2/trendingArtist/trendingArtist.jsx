@@ -55,6 +55,11 @@ export default function TrendingArtist() {
                       </div>
                   </div>
                 </div>
+
+
+
+
+                
                 <div className="justify_content_start container w_100pc">                
                     <div className={`${'mt_0 mb_80 m_mb_50'} ${styles.listing_pageContainer}`}>
                       <div className={styles.listing_grid_wrapper}>                          

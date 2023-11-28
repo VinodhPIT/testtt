@@ -73,6 +73,9 @@ export default function Landing2() {
         content4="Meet your chosen artist and witness the creation of a unique partner tattoo. Cherish the experience and the art that will forever symbolize your love."
       />
 
+
+      
+
       <WhypartnerTattoos
         mainTitle="Why inckd for partner tattoos?"
         img="/shield-check-1.svg"
@@ -85,6 +88,9 @@ export default function Landing2() {
         title3="Secure Transactions"
         content3="Rest easy knowing that your payments are secure. inckd employs encryption technology for safe and worry-free transactions."        
       />
+
+
+
       <Faq />
     </div>
   )
