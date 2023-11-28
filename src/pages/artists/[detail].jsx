@@ -20,7 +20,7 @@ import SelectDropdown from "@/components/selectDrpodown/selectDropdown";
 export default function Detail({ data, locale }) {
 
   
-
+console.log(data ,'cdckodscks')
 
 
   const { isPopupOpen, openPopup, closePopup } = useModal();

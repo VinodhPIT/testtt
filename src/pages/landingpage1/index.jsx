@@ -9,10 +9,13 @@ import TrendingArtist from "@/landingComponents/trendingArtist/trendingArtist";
 import TattooExperience from "@/landingComponents/tattooExperience/tattooExperience";
 import TrendinginckdArtist from "@/landingComponents/trendinginckdArtist/trendinginckdArtist";
 import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerTattoos";
-import Faq from "@/landingComponents/faq/faq";
+
 
 export default function TattooIdeasForMen() {
   const [data, setData] = useState([
+
+
+   
     {
       id: 1,
       tattooName: "Cross Tattoos",
@@ -74,6 +77,70 @@ export default function TattooIdeasForMen() {
         "Soar to new heights with an eagle tattoo. Symbolizing freedom, power, and vision, eagle tattoos captivate with their majestic presence. From realistic portrayals to stylized designs, an eagle tattoo is a bold choice.",
     },
   ]);
+
+
+
+
+  const [tattooStyles, setTattooStyles] = useState([
+    {
+      id: 1,
+      tattooName: "Tattoo Artist",
+      description:
+        "Behind every remarkable tattoo is a skilled tattoo artist. Work with a skilled tattoo artist who gets your ideas and can turn them into an amazing tattoo. They have the technical skills and creativity to make your tattoo special and one-of-a-kind",
+    },
+    {
+      id: 2,
+      tattooName: "Rose Tattoo",
+      description:
+        "Choose a beautiful rose tattoo to symbolize love, beauty, and passion. Customize it in various styles, from realistic to artistic designs, for a romantic touch",
+    },
+    {
+      id: 3,
+      tattooName: "Forearm tattoos",
+      description:
+        "are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you.",
+    },
+
+ 
+
+    {
+      id: 4,
+      tattooName: "Tattoo Designs for Men",
+      description:
+        "Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality."
+        
+    },
+
+    {
+      id: 5,
+      tattooName: "Lion Tattoo",
+      description:
+        "Roar with confidence with a lion tattoo. Symbolizing strength, courage, and leadership, lion tattoos command attention. Choose a regal mane or a fierce expression to capture the essence of the king of the jungle.",
+    },
+
+    {
+      id: 6,
+      tattooName: "Wolf Tattoo",
+      description:
+      " Embody the spirit of the wild with a wolf tattoo. Wolves symbolize loyalty, instinct, and freedom. A wolf tattoo has a mysterious appeal for those connected to their primal instincts."
+      
+    },
+
+    {
+      id: 7,
+      tattooName: "Religious Tattoos",
+      description:
+        "For those seeking spiritual expression, religious tattoos offer a profound way to showcase faith. From religious symbols to depictions of revered figures, religious tattoos are a timeless choice.",
+    },
+  ]);
+
+
+
+
+
+
+
+
 
   return (
     <>
@@ -147,26 +214,16 @@ export default function TattooIdeasForMen() {
           content2="Let's begin with the charm of small tattoos. These gems are perfect for those seeking subtle yet meaningful designs. From minimalist symbols to tiny icons, small tattoos can be a powerful expression of your personality.
         If you like cultural symbols, think about getting tribal tattoos. These designs have deep roots in various cultures, reflecting strength, heritage, and unity. From intricate patterns to bold lines, tribal tattoos make a bold statement.
         "
+        button={'Explore more'}
           data={data}
           partnerTattoo1={"/Symbol-Unity.png"}
 
-          // tattooTitle1={"Cross Tattoos:"}
-          // partnerTattoo1={"/Symbol-Unity.png"}
-          // tattooContent1="Symbolizing faith, cross tattoos are timeless classics. Choose a basic cross or a stylish design, these tattoos have deep meaning and are popular among men of all ages.
-          // "
-          // tattooTitle2={"Tailored to Your Story"}
+          slide1={"slide1"}
 
-          // partnerTattoo2={"/Tailored-Story.png"}
-          // tattooContent2={
-          //   "Work with our talented artists to create a custom design that uniquely tells your love story."
-          // }
-
-          // tattooTitle3={"Memories Etched in Ink"}
-          // partnerTattoo3={"/Memories-Etched-Ink.png"}
-          // tattooContent3={
-          //   "Work with our talented artists to create a custom design that uniquely tells your love story."
-          // }
+         
         />
+
+
 
         <FindT
           title="Find the tattoos with the right meaning for you"
@@ -174,8 +231,17 @@ export default function TattooIdeasForMen() {
           img1="/img-om.png"
           img2="/img-69.png"
         />
+
+
+
+
+
+
+
+
         <TrendingArtist />
 
+        
         <TattooExperience
           mainTitle="Explore inckd for Your Perfect Partner Tattoo Experience"
           title1="Expressing Individuality Regardless of Tattoo Size:"
@@ -192,14 +258,18 @@ export default function TattooIdeasForMen() {
         "
         />
 
-        <TrendinginckdArtist
-          title="Connecting with a Skilled "
-          title_sub="Tattoo Artist:"
-          content="Start your tattoo journey by finding the perfect artist. Look for skilled experts who understand your artistic vision. Work together on the design to make sure it reflects your story."
-          button="Explore more artists"
+        <PartnerTattoos
+          mainTitle="Navigating Tattoo Styles in 2023"
+          content1=""
+          content2="Ideas for Men in 2023: As we step into a new year, fresh tattoo trends emerge. Stay ahead of the curve with innovative ideas for men's tattoos in
+        "
+        tattooStyles={tattooStyles}
+          partnerTattoo1={"/Symbol-Unity.png"}
+          slide={"slide2"}
         />
 
-        <WhypartnerTattoos
+
+<WhypartnerTattoos
           mainTitle="Visualizing Your Tattoo Experience"
           title1="Tattoo Styles Image Gallery"
           content1="To inspire your tattoo journey, explore our curated image gallery showcasing various tattoo styles. Explore miniature tattoo concepts for men, including eagle tattoos, geometric tattoos, and rose tattoos, each demonstrating creativity, audacity, complexity, and enduring sophistication.
@@ -212,8 +282,18 @@ export default function TattooIdeasForMen() {
           story="Your Love Story in Ink?"
           downloadApp="Download inckd now. Your perfect partner tattoo experience is just a click away!"
         />
+     
 
-         <Faq /> 
+        <TrendinginckdArtist
+          title="Connecting with a Skilled "
+          title_sub="Tattoo Artist:"
+          content="Start your tattoo journey by finding the perfect artist. Look for skilled experts who understand your artistic vision. Work together on the design to make sure it reflects your story."
+          button="Explore more artists"
+        />
+
+      
+
+
       </div>
     </>
   );

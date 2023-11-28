@@ -195,7 +195,15 @@ export default function Home({ locale ,country }) {
 <section style={{"height":"100px","display":"flex","justifyContent":"space-between","alignItems":"center","padding":"33px"}}>
 <Link href={'exploring-tattoo-ideas-for-men'}>Exploring Tattoo Ideas For Men</Link>
 
+<Link href={'/FindtheBestTattooShopsNearYouWithOurApp'}>Find the Best TattooShops NearYou With Our App</Link>
+
+
+<Link href={'/book-tattoo-artists'}>Book Tattoo Artists Near Me with inckd - Discover & Connect</Link>
+
+
+
 <Link href={'/landingpage2'}>Landingpage2</Link>
+
 <Link href={'/landingpage3'}>Landingpage3</Link>
 
 </section>
