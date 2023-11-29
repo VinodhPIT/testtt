@@ -2,19 +2,38 @@
     "uk-en": [
       {
         "id":1,
-        "title":"Partner tattoo artists near me",
-        "tagTitle": "Partner Tattoo",
-        "desc": "Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process.",
-        "imageUrl": "/tattoo-klarna.png"
+        "title":"Exploring Tattoo Ideas for Men: From Concept to Canvas | Inckd",
+        "tagTitle": "Tattoo For Men",
+        "desc": "Discover the perfect tattoo ideas for men at Inckd. Express yourself with small tattoos, tribal designs, cross tattoos, and more. Explore diverse tattoo styles and find inspiration."
+        ,
+        "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg",
+      "url":"/exploring-tattoo-ideas-for-men"
         
       },
       {
         "id":2,
-        "title":"Partner tattoo artists near me",
-        "tagTitle": "Tattoo Artist",
-        "desc": "Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process.",
-        "imageUrl": "/tattoo-klarna.png"
+        "title":"Find the Finest Tattoo Shops Near Me for Exceptional Ink",
+        "tagTitle": "Tattoo Shops",
+        "desc": "Discover the perfect tattoo shop with our app. From body piercings to intricate designs, find skilled artists near you. Transform your vision into timeless art.",
+        "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/21450_20230309172955410-medium.jpg",
+        "url":"/FindtheBestTattooShopsNearYouWithOurApp"
+        
+      },
+      {
+        "id":3,
+        "title":"Book Tattoo Artists Near Me with inckd",
+        "tagTitle": "Tattoo Artists",
+        "desc": "Explore exceptional tattoo artists near you on inckd. Effortlessly book your preferred artist, discover diverse styles, and benefit from exclusive partnerships. Download inckd now!"
+        ,
+        "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image/2795_4657C062-5776-43D0-AC8F-43BBEE5B850E.jpg",
+        "url":"/book-tattoo-artists"
+        
       }
+
+
+
+
+
     ],
     "de-de": [
         {
