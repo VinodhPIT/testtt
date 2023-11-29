@@ -7,7 +7,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function processdragonTattoo () {
+export default function ProcessdragonTattoo () {
     // const { isMobileView } = useWindowResize();
     // let sliderSettings = {};
 
