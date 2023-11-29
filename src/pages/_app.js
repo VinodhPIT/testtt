@@ -70,6 +70,8 @@ function MyApp({ Component, pageProps }) {
       case "/explore/tattoos/[detail]":
       case "/explore/flash-tattoos/[detail]":
       case "/404":
+        
+       
         return (
           <CustomHeader
             logo={"/tattooSearch.svg"}
@@ -81,6 +83,7 @@ function MyApp({ Component, pageProps }) {
         case "/contact":
          case "/join-tattoo-artists":
           case "/tattoo-dictionary":
+            case "/listing":
       
           return <Header logo={'/inckd-logo.svg'} theme={"black"} isPosition={true} />;
         
@@ -88,6 +91,8 @@ function MyApp({ Component, pageProps }) {
 
       case "/faq":
         case "/privacy-policy":
+          
+          case "/listingDetail/[detail]":
         return (
           <Header
             logo={"/Inckd-logo-footer-black.svg"}
@@ -106,6 +111,7 @@ function MyApp({ Component, pageProps }) {
         );
 
       case "/for-tattoo-artists":
+       
         return (
           <CustomHeader
             logo={"/artistHeaderLogo.svg"}

@@ -1,0 +1,36 @@
+{
+    "uk-en": [
+      {
+        "id":1,
+        "title":"Partner tattoo artists near me",
+        "tagTitle": "Partner Tattoo",
+        "desc": "Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process.",
+        "imageUrl": "/tattoo-klarna.png"
+        
+      },
+      {
+        "id":2,
+        "title":"Partner tattoo artists near me",
+        "tagTitle": "Tattoo Artist",
+        "desc": "Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process.",
+        "imageUrl": "/tattoo-klarna.png"
+      }
+    ],
+    "de-de": [
+        {
+          "id":1,
+            "title":"Partner-Tätowierer in meiner Nähe",
+            "tagTitle": "Partner-Tattoo",
+            "desc": "Die Buchung Ihres Partner-Tattoo-Erlebnisses ist ein Kinderspiel. Vereinbaren Sie Ihren Termin sicher über unsere benutzerfreundliche App und sorgen Sie so für einen bequemen und stressfreien Ablauf.",
+            "imageUrl": "/tattoo-klarna.png"
+          },
+          {
+            "id":2,
+            "title":"Partner-Tätowierer in meiner Nähe",
+            "tagTitle": "Partner-Tattoo",
+            "desc": "Die Buchung Ihres Partner-Tattoo-Erlebnisses ist ein Kinderspiel. Vereinbaren Sie Ihren Termin sicher über unsere benutzerfreundliche App und sorgen Sie so für einen bequemen und stressfreien Ablauf.",
+            "imageUrl": "/tattoo-klarna.png"
+          }
+    ]
+  }
+  

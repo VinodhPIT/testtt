@@ -30,18 +30,18 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url:"/explore/tattoos"
+      url:`${router.locale}/explore/tattoos`
     },
 
     {
       id: 2,
       title: t("common:menus.artistSearch"),
-      url:"/explore/tattoo-artists"
+      url:`${router.locale}/explore/tattoo-artists`
     },
     {
       id: 3,
       title: t("common:menus.flashSearch"),
-      url:"/explore/flash-tattoos"
+      url:`${router.locale}/explore/flash-tattoos`
     },
   ];
 
@@ -52,18 +52,18 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.styleGuide"),
-      url: "/tattoo-styleguide",
+      url: `/${router.locale}/tattoo-styleguide`,
     },
 
     {
       id: 2,
       title: t("common:menus.dictionary"),
-      url: "/tattoo-dictionary",
+      url: `/${router.locale}/tattoo-dictionary`,
     },
     {
       id: 3,
       title: t("common:menus.klarna"),
-      url: "/klarna",
+      url: `/${router.locale}/klarna`,
     },
   ];
 
@@ -73,7 +73,7 @@ export default function Footer() {
     {
       id: 2,
       title: t("common:menus.forTattooArtists"),
-      url: "/for-tattoo-artists",
+      url: `/${router.locale}/for-tattoo-artists`,
     },
   ];
 
@@ -81,12 +81,12 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.contactUs"),
-      url: "/contact",
+      url:`/${router.locale}/contact`,
     },
     {
       id: 2,
       title: t("common:menus.faq"),
-      url: "/faq",
+      url: `/${router.locale}/faq`,
     },
 
   ];

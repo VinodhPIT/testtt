@@ -13,12 +13,30 @@ import useWindowResize from "@/hooks/useWindowSize";
 import useTranslation from "next-translate/useTranslation";
 import { getLocaleProps } from "@/utils/getlocale";
 import { useGlobalState } from "@/context/Context";
-
+import { useRouter } from 'next/router'
 export default function StyleGuide({ locale }) {
   const { isMobileView } = useWindowResize();
   const { getLocale } = useGlobalState();
+  const router = useRouter()
+
+
+
+useEffect(()=>{
+
+  // router.push(`/${locale}`);
+},[])
+
+
 
   useEffect(() => {
+
+       // Redirect to the default locale if no locale is provided
+       
+      
+    
+ 
+
+
     try {
       getLocale({
         locale,
