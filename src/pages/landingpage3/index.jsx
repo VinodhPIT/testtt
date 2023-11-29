@@ -1,6 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
-import {blurDataURL} from '@/constants/constants'
 import Banner from "@/landingComponents-3/banner/banner";
 import UniquePartner from "@/landingComponents-3/uniquePartner/uniquePartner";
 import PartnerTattoos from "@/landingComponents-3/partnerTattoos/tattoos";
@@ -13,7 +11,7 @@ import DownloadApps from '@/landingComponents-3/downloadApps/downloadApps';
 
 export default function Landing3() {
   return (
-    <div>
+    <>
       <Banner
         bannerTitle={"Discover Unforgettable Partner Tattoos with inckd"}
         bannerImg={"/young-beautiful-couple-posing-old-building-1.jpg"}
@@ -56,6 +54,6 @@ export default function Landing3() {
       
 
       
-    </div>
+    </>
   )
 }

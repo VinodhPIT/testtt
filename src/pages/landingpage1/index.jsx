@@ -201,12 +201,19 @@ export default function TattooIdeasForMen() {
           bannerButton={"Know more about inckd"}
         />
 
+
+
         <UniquePartner
           title="Crafting Your Unique Tattoo Journey"
+          
           content="Getting a tattoo is a personal and life-changing experience. Each tattoo represents a story and important moments in your life. Whether you prefer religious, eagle, or rose tattoos, your choice shows who you are as a person."
           img="/pexels-cottonbro-studio-5320037.jpg"
           alt="Celebrate Your Love Journey with Unique Partner Tattoos"
         />
+
+
+
+
 
         <PartnerTattoos
           mainTitle="Exploring Diverse Tattoo Styles"

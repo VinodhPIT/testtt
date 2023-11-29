@@ -8,22 +8,16 @@ import useWindowResize from "@/hooks/useWindowSize";
 // import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 export default function processdragonTattoo () {
-    // const { isMobileView } = useWindowResize();
-    // let sliderSettings = {};
+   
 
-    // sliderSettings = {
-    // infinite: false,
-    // speed: 300,
-    // slidesToShow: isMobileView ? 1 : 5,
-    // slidesToScroll: 1,
-    // dots: true,
-    // };
 
     const [images, setImage] = useState([
     { image: "/dragon-pro-1.png" },
     { image: "/dragon-pro-2.png" },
     { image: "/dragon-pro-3.png" },
     ]);
+
+
   return (
     <section className="img_text_banner_box">
         <div className="text_box_wrap full-block-wrap">

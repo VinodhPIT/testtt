@@ -22,6 +22,10 @@ import myPromise from "@/components/myPromise";
 import Loader from "@/components/loader";
 
 export default function Detail({ data, status, locale }) {
+
+  console.log(data,"datadata")
+
+  
   
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const router = useRouter();

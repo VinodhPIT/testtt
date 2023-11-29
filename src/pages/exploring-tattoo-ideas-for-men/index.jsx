@@ -195,6 +195,7 @@ export default function TattooIdeasForMen() {
         <Banner
           bannerTitle={"Exploring Tattoo Ideas for Men: From Concept to Canvas"}
           subTitlte="Are you on the hunt for the perfect tattoo ideas for men? You're in the right place! Tattoos are a way to express yourself and tell a story. Our guide will help you explore the world of men's tattoos, whether you're new to it or already a fan.
+          
         "
           alt="Exploring Tattoo Ideas for Men"
           bannerImg={"/young-beautiful-couple-posing-old-building-1.jpg"}
@@ -202,11 +203,18 @@ export default function TattooIdeasForMen() {
         />
 
         <UniquePartner
-          title="Crafting Your Unique Tattoo Journey"
-          content="Getting a tattoo is a personal and life-changing experience. Each tattoo represents a story and important moments in your life. Whether you prefer religious, eagle, or rose tattoos, your choice shows who you are as a person."
+          title="Exploring Diverse Tattoo Styles"
+          subTitle="Small Tattoo Ideas for Men"
+          content="Let's begin with the charm of small tattoos. These gems are perfect for those seeking subtle yet meaningful designs. From minimalist symbols to tiny icons, small tattoos can be a powerful expression of your personality.If you like cultural symbols, think about getting tribal tattoos. These designs have deep roots in various cultures, reflecting strength, heritage, and unity. From intricate patterns to bold lines, tribal tattoos make a bold statement."
           img="/pexels-cottonbro-studio-5320037.jpg"
           alt="Celebrate Your Love Journey with Unique Partner Tattoos"
         />
+
+
+<TrendingArtist />
+
+
+
 
         <PartnerTattoos
           mainTitle="Exploring Diverse Tattoo Styles"
@@ -239,8 +247,7 @@ export default function TattooIdeasForMen() {
 
 
 
-        <TrendingArtist />
-
+       
         
         <TattooExperience
           mainTitle="Explore inckd for Your Perfect Partner Tattoo Experience"

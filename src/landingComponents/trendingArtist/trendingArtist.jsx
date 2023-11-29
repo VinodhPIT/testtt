@@ -16,17 +16,15 @@ export default function TrendingArtist() {
   sliderSettings = {    
     infinite: true,
     speed: 300,
-    slidesToShow:isMobileView ? 1.64 : 4.72,
-    slidesToScroll: isMobileView ? 1.64 : 2,  
+    slidesToShow:isMobileView ? 1.64 : 3.4,
+    slidesToScroll: isMobileView ? 1.64 :3.4,  
   };
   const [images, setImage] = useState([
-    { image: "/trend-couple-1.png" },
-    { image: "/trend-couple-2.png" },
-    { image: "/trend-couple-3.png" },
+    { image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg" },
+    { image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg" },
+    { image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg" },
+    { image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg" },
 
-    { image: "/trend-couple-1.png" },
-    { image: "/trend-couple-2.png" },
-    { image: "/trend-couple-3.png" },
   ]);
 
   return (
@@ -63,8 +61,8 @@ export default function TrendingArtist() {
                                         <Image
                                         src={imgPath.image}
                                         alt="Trending couple tattoos"
-                                        width={752}
-                                        height={776}
+                                        width={478}
+                                        height={478}
                                         loading="lazy"
                                         placeholder="blur"
                                         blurDataURL={blurDataURL}
