@@ -1,5 +1,5 @@
 {
-    "locales": ["ch-en", "ch-it","ch-de","de-de","de-en","uk-en" ],
+    "locales": ["ch-en","ch-de","ch-it","de-de","de-en","uk-en" ],
     "defaultLocale": "ch-en",
     "pages": {
       "*": ["common"],

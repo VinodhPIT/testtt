@@ -8,7 +8,7 @@ export const getUrl = (catgy, term, style, address, router) => {
     };
     const category = categoryMapping[catgy] || null;
 
-    let url = `/explore/${category}/`;
+    let url = `/${router.locale}/explore/${category}/`;
 
     const queryParams = {};
 
