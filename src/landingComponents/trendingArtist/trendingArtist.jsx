@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-export default function TrendingArtist() {
+export default function TrendingArtist({title}) {
     const { isMobileView } = useWindowResize();
   let sliderSettings = {};
 
@@ -34,7 +34,7 @@ export default function TrendingArtist() {
                 <div className="justify_content_start container w_100pc">
                   <div className="text_box_content_inner max_w_100pc pt_80 pb_65 m_pt_pb_50">
                       <div className="d_flex align_item_center justify_space_between m_flex_direction_column">
-                        <h2 className="color_gray_550 mb_0 heading_h2 m_mb_25 mr_20 m_mr_0">Trending couple tattoos</h2>
+                        <h2 className="color_gray_550 mb_0 heading_h2 m_mb_25 mr_20 m_mr_0">{title}</h2>
                         <Link href="/explore/tattoos"  className="btn_primary btn_img btn_xxl m_btn_custom_48">
                           Explore more tattoos
                           <Image

@@ -7,26 +7,25 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function TrendinginckdArtist ({title,title_sub , content ,button}) {
+export default function TrendinginckdArtist ({title,title_sub , content ,button   ,trendingArtist}) {
     const { isMobileView } = useWindowResize();
     let sliderSettings = {};
 
     sliderSettings = {
-    infinite: false,
+    infinite: true,
     speed: 300,
-    slidesToShow: isMobileView ? 1 : 3,
-    slidesToScroll: isMobileView ? 1 : 3,
+    slidesToShow: isMobileView ? 1.2 : 4,
+    slidesToScroll: isMobileView ? 1. : 4,
     dots: true,
     };
 
-    const [images, setImage] = useState([
-    { artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/1048_484EAC34-6F4B-4438-A8C2-33928DD44B38.jpg",  image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4620_20221006100342954-medium.jpg" ,name:"Chris harvey" ,location:"London, United Kingdom"},
-    { artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/732_2E380F59-A6D7-489A-A63D-8EDBCD930746.jpg",  image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/2415_20220913092008354-medium.jpg" ,name:"Southgate SG Tattoo" ,location:"London, United Kingdom"},
-    {artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/1012_a6338e0d-9888-4ca1-b6dc-06f911cd3361.jpg",   image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/4373_20221003072650823-medium.jpg" ,name:"pennygrit" ,location:"Redhill, United Kingdom"},
-    {artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/3585_inckd/image/20230204141144902_C9621048-27B5-40BB-A611-4A7596955485.jpg",   image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/17570_20230204154920550-medium.jpg" ,name:"Nhong Niramit" ,location:"Nottinghamshire, United Kingdom"},
-    { artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/1711_18448F13-4566-46B1-ABFB-05C708D51B88.jpg",  image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/8444_20221108224339907-medium.jpg" ,name:"Hugoink_bristol" ,location:"Weston-super-Mare, United Kingdom"},
 
-    ]);
+
+
+
+
+
+
   return (
     <section className="img_text_banner_box">
         <div className="text_box_wrap full-block-wrap">
@@ -65,7 +64,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button}
                     <div className={`${'mt_0 mb_80 m_mb_30 trending_artist_slider'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>
                         <Slider {...sliderSettings}>
-                                {images.map((imgPath, index) => (
+                                {trendingArtist.map((imgPath, index) => (
                                     <div className={styles.listing_gridItem} key={index}>
                                     <div className={styles.listing_grid_img_col}>
                                         <Image
@@ -78,6 +77,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button}
                                         blurDataURL={blurDataURL}
                                         layout="responsive"
                                         style={{"borderTopRightRadius":"20px","borderTopLeftRadius":"20px"}}
+                                        className="imggg"
                                         />
                                     </div>
                 

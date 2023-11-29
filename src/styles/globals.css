@@ -58,6 +58,19 @@ a {
   text-decoration: none;
 }
 
+.tets{    max-height: 268px!important;
+  border-radius: 10px; object-fit: cover;
+}
+.imggg{    max-height: 342px!important;object-fit: cover;
+}
+
+
+.slick-track {
+ 
+   margin-left: 0!important; 
+   margin-right: 0!important; 
+}
+
 a:hover {
   text-decoration: none;
   color: #b6b6b6;

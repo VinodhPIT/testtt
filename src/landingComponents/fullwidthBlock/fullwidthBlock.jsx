@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function FullWidthBlock({title,content}) {
+export default function FullWidthBlock({title,content ,sectionBackgrounColor}) {
   return (
-    <section className="img_text_banner_box">
-    <div className="col_full">
+    <section className="img_text_banner_box" style={{"backgroundColor":sectionBackgrounColor}}>
+    <div className={`${'col_full'}`}>
         <div className="img_text_box_wrapper">
             <div className={"text_box_wrap right pt_75 pb_75 m_pt_pb_50"}>
                 <div className="img_text_box_inner container">

@@ -88,6 +88,7 @@ export default function PartnerTattoos({mainTitle ,button,content1 ,content2 ,da
                                            blurDataURL={blurDataURL}
                                            layout="responsive"
                                            style={{"borderRadius":"14px"}}
+                                           
                                        />
                                    </div>
                                    <div className={styles.listing_grid_details}>
