@@ -8,11 +8,22 @@ import useTranslation from "next-translate/useTranslation";
 import useWindowResize from "@/hooks/useWindowSize";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 import { useModal } from "@/utils/modalUtils";
+import { useGlobalState } from "@/context/Context";
+
+
 
 
 export default function Header({ logo, theme, isPosition }) {
+  const router = useRouter();
+ 
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
+  const { state } = useGlobalState();
+
+
+
+
+
   const { t } = useTranslation();
 
   const [toggle, setToggle] = useState(false);
@@ -40,28 +51,51 @@ export default function Header({ logo, theme, isPosition }) {
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url:"/explore/tattoos"
+      url: `${router.locale}/explore/tattoos`
       
     },
     {
       id: 2,
       title: t("common:menus.styleGuide"),
-      url: "/tattoo-styleguide",
+      url: `${router.locale}/tattoo-styleguide`,
     },
     {
       id: 3,
       title: t("common:menus.dictionary"),
-      url: "/tattoo-dictionary",
+      url: `${router.locale}/tattoo-dictionary`,
     },
 
     {
       id: 4,
       title: t("common:menus.klarna"),
-      url: "/klarna",
+      url: `${router.locale}/klarna`,
     },
   ];
 
-  const router = useRouter();
+  let linkComponent;
+
+  switch (router.locale) {
+    case "uk-en":
+    case "de-de":
+      linkComponent = (
+        <Link
+          href={"/listing"}
+          className={
+            theme === "black"
+              ? "textWhite"
+              : theme === "normal"
+              ? "textWhite"
+              : "textBlack"
+          }
+        >
+          ListingPage
+        </Link>
+      );
+      break;
+    default:
+      linkComponent = null;
+      break;
+  }
 
   return (
     <>
@@ -127,14 +161,14 @@ export default function Header({ logo, theme, isPosition }) {
               </div>
 
 
-          <button style={{"background":"#000","padding":"10px" ,"color":"#fff"}}  onClick={openPopup}>Choose Country</button>
+        {router.pathname==='/listing' || router.pathname=== '/listingDetail/[detail]'? null  : <button style={{"background":"#000","padding":"10px" ,"color":"#fff"}}  onClick={openPopup}>Choose Country</button>}
 
-
-
+        {linkComponent}
+        
               <div className="header_right">
                 <button
                   type="button"
-                  onClick={() => router.push("/for-tattoo-artists")}
+                  onClick={() => router.push(`/${router.locale}/for-tattoo-artists`)}
                   className={`btn btn_tattoo_art ${
                     theme === "black" ? "bgWhite" : "bgBlack"
                   }`}

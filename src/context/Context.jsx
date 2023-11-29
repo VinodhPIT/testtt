@@ -168,9 +168,16 @@ export const GlobalStateProvider = ({ children }) => {
 
   const [selectedIds, setSelectedIds] = useState([]);
 
+
+
+  
   const clearStyleId = async () => {
     dispatch({ type: "CLEARSTYLE_ID", payload: "" });
   };
+
+
+
+
 
   const onSearch = async (router) => {
     await getUrl(

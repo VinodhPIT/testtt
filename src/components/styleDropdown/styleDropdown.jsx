@@ -13,7 +13,7 @@ export default function StyleDropdown({
     useGlobalState();
 
 
-
+console.log(state.styleCollection ,"dcjodco[d")
 
 
   const handleCheckboxChange = (elId) => {
@@ -23,6 +23,7 @@ export default function StyleDropdown({
       setSelectedIds([...selectedIds, elId]);
     }
   };
+
 
   const clearAll = async () => {
     setSelectedIds([]);

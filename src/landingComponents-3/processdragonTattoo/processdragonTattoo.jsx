@@ -8,7 +8,10 @@ import useWindowResize from "@/hooks/useWindowSize";
 // import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 export default function ProcessdragonTattoo () {
+
    
+  
+    
 
 
     const [images, setImage] = useState([

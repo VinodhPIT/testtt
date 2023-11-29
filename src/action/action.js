@@ -25,8 +25,10 @@ export const getStyles = async () => {
     const reponseStyles = await getApiCall(
       `/style/all`
     );
-
+  
     return reponseStyles;
+   
+   
   } catch (error) {
 
     // Handle error if needed

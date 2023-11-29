@@ -8,9 +8,10 @@ import useTranslation from "next-translate/useTranslation";
 
 
 
+
 export default function Header({ logo, theme, isPosition }) {
  
-
+const router = useRouter()
   const { t } = useTranslation();
 
 
@@ -46,23 +47,23 @@ export default function Header({ logo, theme, isPosition }) {
     {
       id: 1,
       title:t("common:menus.tattooSearch"),
-      url:"/explore/tattoos"
+      url:`/${router.locale}/explore/tattoos`
     },
     {
       id: 2,
       title:t("common:menus.styleGuide"),
-      url: "/tattoo-styleguide",
+      url:`/${router.locale}/tattoo-styleguide`,
     },
     {
       id: 3,
       title:t("common:menus.dictionary"),
-      url: "/tattoo-dictionary",
+      url: `/${router.locale}/tattoo-dictionary`,
     },
 
     {
       id: 4,
       title:t("common:menus.klarna"),
-      url: "/klarna",
+      url: `/${router.locale}/klarna`,
     },
 
 
@@ -70,7 +71,7 @@ export default function Header({ logo, theme, isPosition }) {
 
   ];
 
-  const router = useRouter();
+
   return (
     <>
       <header className={isPosition === true ? "header_wrapper" : null}>
@@ -112,7 +113,7 @@ export default function Header({ logo, theme, isPosition }) {
               <div className="header_right">
                 <button
                   type="button"
-                  onClick={() => router.push("/fortattooartists")}
+                  onClick={() => router.push(`/${router.locale}/for-tattoo-artists`)}
                   className={`btn btn_tattoo_art ${
                     theme === "black" ? "bgWhite" : "bgBlack"
                   }`}

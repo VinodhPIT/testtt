@@ -8,9 +8,11 @@ import useTranslation from "next-translate/useTranslation";
 import { useGlobalState } from "@/context/Context";
 import { getLocaleProps } from '@/utils/getlocale';
 
+import { useNavigation } from '@/hooks/useRouter';
 
 
 export default function Tattooartists({ locale }) {
+  const { router } = useNavigation();
 
   const { getLocale } = useGlobalState();
 
@@ -206,7 +208,7 @@ export default function Tattooartists({ locale }) {
                           {t("common:forArtistPage.content1")}
                         </p>
                         <Link
-                          href={"/join-tattoo-artists"}
+                          href={`/${router.locale}/join-tattoo-artists`}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
                           {t("common:forArtistPage.button")}
@@ -225,7 +227,7 @@ export default function Tattooartists({ locale }) {
                           {t("common:forArtistPage.content2")}
                         </p>
                         <Link
-                          href={"/join-tattoo-artists"}
+                          href={`/${router.locale}/join-tattoo-artists`}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
                           {t("common:forArtistPage.button")}
@@ -260,7 +262,7 @@ export default function Tattooartists({ locale }) {
                           {t("common:forArtistPage.title3")}
                         </h3>
                         <Link
-                          href={"/join-tattoo-artists"}
+                          href={`/${router.locale}/join-tattoo-artists`}
                           className="btn_secondary btn_cutom_new bdr_rad_4"
                         >
                           {t("common:forArtistPage.button")}
@@ -295,7 +297,7 @@ export default function Tattooartists({ locale }) {
                           {t("common:forArtistPage.content4")}
                         </p>
                         <Link
-                          href={"/join-tattoo-artists"}
+                          href={`/${router.locale}/join-tattoo-artists`}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
                           {t("common:forArtistPage.button")}
@@ -314,7 +316,7 @@ export default function Tattooartists({ locale }) {
                           {t("common:forArtistPage.content5")}
                         </p>
                         <Link
-                          href={"/join-tattoo-artists"}
+                          href={`/${router.locale}/join-tattoo-artists`}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
                           {t("common:forArtistPage.button")}
@@ -370,7 +372,7 @@ export default function Tattooartists({ locale }) {
                           {t("common:forArtistPage.content6")}
                         </p>
                         <Link
-                          href={"/join-tattoo-artists"}
+                          href={`/${router.locale}/join-tattoo-artists`}
                           className="btn_default btn_cutom_new bdr_rad_4"
                         >
                           {t("common:forArtistPage.button")}

@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextTranslate = require("next-translate-plugin");
 const nextConfig = {
   images: {
@@ -11,15 +10,22 @@ const nextConfig = {
 
   i18n: {
     localeDetection: false,
-   
-
+    defaultLocale: "ch-en",
   },
 };
-
 
 module.exports = nextTranslate({
   webpack: (nextConfig) => {
     return { ...nextConfig, ...nextConfig };
   },
   ...nextConfig,
+  async rewrites() {
+    return [
+      // Rewrite homepage to include the default locale
+      {
+        source: '/',
+        destination: '/[locale]',
+      },
+    ];
+  },
 });

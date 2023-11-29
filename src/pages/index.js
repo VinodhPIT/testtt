@@ -51,6 +51,8 @@ export default function Home({ locale ,country }) {
   useEffect(() => {
 
 
+router.replace(`/${locale}`)
+
 
 
 
@@ -141,7 +143,7 @@ export default function Home({ locale ,country }) {
                             <li className="list_inline_item">
                               <Link
                                     href="/explore/[[...slug]]"
-                                    as="/explore/tattoos"
+                                   as={`${router.locale}/explore/tattoos`}
                               >
                                 <img src="/Flame.svg" alt="Tattoos" />
                                 {t("common:homePage.tattoos")}
@@ -150,7 +152,8 @@ export default function Home({ locale ,country }) {
                             <li className="list_inline_item">
                               <Link
                                    href="/explore/[[...slug]]"
-                                   as="/explore/flash-tattoos"
+                                  
+                                   as={`${router.locale}/explore/flash-tattoos`}
                               >
                                 <img src="/Bolt.svg" alt="Flash" />
                                 {t("common:homePage.flash")}
@@ -159,7 +162,8 @@ export default function Home({ locale ,country }) {
                             <li className="list_inline_item">
                               <Link
                                 href="/explore/[[...slug]]"
-                                as={`/explore/tattoo-artists`} 
+                               
+                                as={`${router.locale}/explore/tattoo-artists`}
                               >
                                 <img src="/colour-palette.svg" alt="Artists" />
 
@@ -232,7 +236,7 @@ export default function Home({ locale ,country }) {
                         <p>{t("common:homePage.content1")}</p>
                         <Link
                            href="/explore/[[...slug]]"
-                           as="/explore/tattoo-artists"
+                           as={`${router.locale}/explore/tattoo-artists`}
                           class="btn_secondary btn_cutom_new btn_img"
                         >
                           {t("common:findArtist's")}
@@ -609,6 +613,7 @@ export default function Home({ locale ,country }) {
 
 
 export async function getServerSideProps(context) {
+
   
   try {
 

@@ -9,9 +9,13 @@ import ArtistAdd from "../adds/artistAdd";
 import KlarnaAdd from "../adds/klarnaAdd";
 import Offer from "../adds/offer";
 import Link from "next/link";
+import { useNavigation } from '@/hooks/useRouter';
+
 
 export default function Flash({ data }) {
   const { state } = useGlobalState();
+
+  const { router } = useNavigation();
 
   return (
     <div className={styles.pageContainer}>
@@ -33,7 +37,7 @@ export default function Flash({ data }) {
               )
             ) : (
               <Link
-                href={`flash-tattoos/${item._source.tattoo_uid}`}
+                href={`/${router.locale}/explore/flash-tattoos/${item._source.tattoo_uid}`}
                 className={styles.listing_gridItem}
                 key={key}
               >
