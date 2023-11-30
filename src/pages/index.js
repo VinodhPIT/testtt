@@ -200,7 +200,6 @@ router.replace(`/${locale}`)
 
 
 
-<Link href={'/landingpage2'}>Landingpage2</Link>
 
 <Link href={'/landingpage3'}>Landingpage3</Link>
 
