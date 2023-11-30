@@ -7,7 +7,7 @@ import useWindowResize from "@/hooks/useWindowSize";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
-export default function TrendinginckdArtist () {
+export default function TrendinginckdArtist ({title ,titleSub , content ,buttonName ,data ,url}) {
     // const { isMobileView } = useWindowResize();
     // let sliderSettings = {};
 
@@ -19,13 +19,7 @@ export default function TrendinginckdArtist () {
     // dots: true,
     // };
 
-    const [images, setImage] = useState([
-    { image: "/trend-couple-T2.png" },
-    { image: "/Memories-Etched-Ink-T1.png" },
-    { image: "/trend-couple-T1.png" },
-    { image: "/trend-couple-T2.png" },
-    { image: "/Memories-Etched-Ink-T1.png" },
-    ]);
+ 
   return (
     <section className="img_text_banner_box">
         <div className="text_box_wrap full-block-wrap">
@@ -35,15 +29,17 @@ export default function TrendinginckdArtist () {
                         <div className="d_flex align_item_start text_left justify_space_between m_flex_direction_column">
                             <div className="d_flex align_item_left justify_space_between flex_direction_column md_max_60 m_max_100">
                                 <h2 className="color_gray_550 text_left heading_h2 mb_20 m_mb_25 mr_0">
-                                    <span class="m_dis_inline">Trending </span>
-                                    <span class="textBlock m_dis_inline">inckd tattoo artists</span>
+                                    <span class="m_dis_inline">{title}</span>
+                                    <span class="textBlock m_dis_inline">{titleSub}</span>
                                 </h2>
-                                <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 mb_0 m_pb_35">Dive into our extensive network of tattoo artists, each skilled in the art of partner tattoos. Browse portfolios, find styles that resonate with you, and discover the perfect match.</p>
+                               
                             </div>
                             
-                            <Link href="/explore/tattoo-artists"
+                           
+                            
+                            <Link href={url}
                                  className="btn_primary btn_img btn_xxl m_btn_custom_48">
-                                Explore more artists
+                                {buttonName}
                                 <Image
                                 src="/arow-white-right.svg"
                                 width={24}
@@ -58,32 +54,33 @@ export default function TrendinginckdArtist () {
                         </div>
 
 
-
+                        <p class="custom_fs_20 custom_fs_m_16 color_gray_550 lh_33 m_mt_25 mb_0 m_pb_35">{content}</p>
 
                         
                     </div>                               
                     <div className={`${'mt_0 mb_80 m_mb_30 m_mt_25 trending_artist_slider'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>                        
-                                {images.map((imgPath, index) => (
+                                {data.map((el, index) => (
                                     <div className={styles.listing_gridItem} key={index}>
                                         <div className={styles.listing_grid_img_col}>
                                             <Image
-                                            src={imgPath.image}
-                                            alt="Trending couple tattoos"
+                                            src={el.image}
+                                            alt="tattoo"
                                             width={752}
                                             height={776}
                                             loading="lazy"
                                             placeholder="blur"
                                             blurDataURL={blurDataURL}
                                             layout="responsive"
+                                            style={{"borderTopRightRadius":"11px" ,"borderTopLeftRadius":"11px"}}
                                             />
                                         </div>
                 
                                         <div className={styles.listing_grid_content_wrap}>
                                             <div className={styles.listing_grid_img_profile}>
                                                 <Image
-                                                    src="/Jamie-Sebastian.png"
-                                                    alt="Trending couple tattoos"
+                                                    src={el.artistImage}
+                                                    alt={el.artistName}
                                                     width={97}
                                                     height={97}
                                                     loading="lazy"
@@ -94,10 +91,10 @@ export default function TrendinginckdArtist () {
                                             </div>
                                             <div className={styles.listing_grid_profile_details}>
                                                 <h6 className={styles.listing_grid_profile_title}>
-                                                    Jamie Sebastian
+                                                    {el.artistName}
                                                 </h6>
                                                 <span className={styles.listing_grid_profile_address}>
-                                                    Zurich, Switzerland
+                                                   {el.location}
                                                 </span>
                                             </div>
                                         </div>

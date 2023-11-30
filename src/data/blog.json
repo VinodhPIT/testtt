@@ -38,18 +38,13 @@
     "de-de": [
         {
           "id":1,
-            "title":"Partner-Tätowierer in meiner Nähe",
-            "tagTitle": "Partner-Tattoo",
-            "desc": "Die Buchung Ihres Partner-Tattoo-Erlebnisses ist ein Kinderspiel. Vereinbaren Sie Ihren Termin sicher über unsere benutzerfreundliche App und sorgen Sie so für einen bequemen und stressfreien Ablauf.",
-            "imageUrl": "/tattoo-klarna.png"
-          },
-          {
-            "id":2,
-            "title":"Partner-Tätowierer in meiner Nähe",
-            "tagTitle": "Partner-Tattoo",
-            "desc": "Die Buchung Ihres Partner-Tattoo-Erlebnisses ist ein Kinderspiel. Vereinbaren Sie Ihren Termin sicher über unsere benutzerfreundliche App und sorgen Sie so für einen bequemen und stressfreien Ablauf.",
-            "imageUrl": "/tattoo-klarna.png"
+            "title":"Cover Up Tattoos: Tipps, Methoden und Kreative Lösungen für Dein Neues Tattoo",
+            "tagTitle": "Cover Up Tattoos",
+            "desc": "Erfahre, warum Cover Up Tattoos die ideale Lösung für veraltete Motive sind. Entdecke verschiedene Methoden, beachte wichtige Faktoren und finde die beste Lösung mit unseren erfahrenen Tätowierern.",
+            "imageUrl": "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20380_20230223232347378-medium.jpg",
+            "url":"/cover-up-tattoos"
           }
+         
     ]
   }
   

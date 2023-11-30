@@ -16,7 +16,7 @@ import {
 
 
 
-export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
+export default function Banner({bannerTitle ,subTitlte ,bannerImg ,bannerButton}) {
 
   const currentPage = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -70,7 +70,15 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
                 <h1>
                   <span>{bannerTitle}</span>                    
                 </h1>
-                <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
+
+
+<div className={styles.bannerSubTitle}>
+<p >{subTitlte}</p>
+</div>
+        
+
+
+                {/* <a class="btn_primary btn_img btn_xxl m_btn_custom_48" href="#">
                   {bannerButton}
                   <Image
                     src="/arow-white-right.svg"
@@ -82,7 +90,7 @@ export default function Banner({bannerTitle ,bannerImg ,bannerButton}) {
                     blurDataURL={blurDataURL}
                     className="ml-8 mt-2"
                   />
-                </a>
+                </a> */}
                 </div> 
             </div>
           </div>
