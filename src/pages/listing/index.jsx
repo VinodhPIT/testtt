@@ -3,8 +3,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from "./listing.module.css"
+import path from "path";
+import fs from "fs";
 
-export default function ListingPage() {
+
+export default function ListingPage({ data, locale }) {
+
+  const listing = data[locale];
+
+ 
+
+
   return ( 
     <div>
 
@@ -44,52 +53,14 @@ export default function ListingPage() {
                     <div className={`${'mt_65 mb_80 m_mb_30 m_mt_25'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>  
 
-                          <div className={styles.listing_gridItem}>
-                              <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
-                                  <Image
-                                    src="/partner-tattoo-artists-1.png"
-                                    alt="Partner tattoo artists near me"
-                                    width={752}
-                                    height={480}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={blurDataURL}
-                                    layout="responsive"
-                                  />
-                                </Link>
-                                <div className={styles.listing_grid_brand}>
-                                  Partner tattoo
-                                </div>
-                              </div>      
-                              <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
-                                </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
-                                <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
-                                    Read more
-                                    <Image
-                                      src="/arow-white-right.svg"
-                                      width={24}
-                                      height={24}
-                                      alt="logo"
-                                      loading="lazy"
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                      className="ml-8 mt-2"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                          </div>
+   {listing.map((el)=>{
 
-                          <div className={styles.listing_gridItem}>
+return (
+<div className={styles.listing_gridItem} key={el.id}>
                               <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
+                                <Link href={el.url}>
                                   <Image
-                                    src="/partner-tattoo-artists-2.png"
+                                    src={el.imageUrl}
                                     alt="Partner tattoo artists near me"
                                     width={752}
                                     height={480}
@@ -100,178 +71,14 @@ export default function ListingPage() {
                                   />
                                 </Link>
                                 <div className={styles.listing_grid_brand}>
-                                  Tattoo artist
+                                 {el.tagTitle}
                                 </div>
                               </div>      
                               <div className={styles.listing_grid_content_wrap}>
                                 <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
+                                  <h5>{el.title}</h5>
                                 </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
-                                <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
-                                    Read more
-                                    <Image
-                                      src="/arow-white-right.svg"
-                                      width={24}
-                                      height={24}
-                                      alt="logo"
-                                      loading="lazy"
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                      className="ml-8 mt-2"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                          </div>
-
-                          <div className={styles.listing_gridItem}>
-                              <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
-                                  <Image
-                                    src="/partner-tattoo-artists-3.png"
-                                    alt="Partner tattoo artists near me"
-                                    width={752}
-                                    height={480}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={blurDataURL}
-                                    layout="responsive"
-                                  />
-                                </Link>
-                                <div className={styles.listing_grid_brand}>
-                                  Partner tattoo
-                                </div>
-                              </div>      
-                              <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
-                                </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
-                                <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
-                                    Read more
-                                    <Image
-                                      src="/arow-white-right.svg"
-                                      width={24}
-                                      height={24}
-                                      alt="logo"
-                                      loading="lazy"
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                      className="ml-8 mt-2"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                          </div>
-
-                          <div className={styles.listing_gridItem}>
-                              <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
-                                  <Image
-                                    src="/partner-tattoo-artists-1.png"
-                                    alt="Partner tattoo artists near me"
-                                    width={752}
-                                    height={480}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={blurDataURL}
-                                    layout="responsive"
-                                  />
-                                </Link>
-                                <div className={styles.listing_grid_brand}>
-                                  Partner tattoo
-                                </div>
-                              </div>      
-                              <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
-                                </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
-                                <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
-                                    Read more
-                                    <Image
-                                      src="/arow-white-right.svg"
-                                      width={24}
-                                      height={24}
-                                      alt="logo"
-                                      loading="lazy"
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                      className="ml-8 mt-2"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                          </div>
-
-                          <div className={styles.listing_gridItem}>
-                              <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
-                                  <Image
-                                    src="/partner-tattoo-artists-2.png"
-                                    alt="Partner tattoo artists near me"
-                                    width={752}
-                                    height={480}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={blurDataURL}
-                                    layout="responsive"
-                                  />
-                                </Link>
-                                <div className={styles.listing_grid_brand}>
-                                  Tattoo artist
-                                </div>
-                              </div>      
-                              <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
-                                </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
-                                <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
-                                    Read more
-                                    <Image
-                                      src="/arow-white-right.svg"
-                                      width={24}
-                                      height={24}
-                                      alt="logo"
-                                      loading="lazy"
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                      className="ml-8 mt-2"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                          </div>
-
-                          <div className={styles.listing_gridItem}>
-                              <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
-                                  <Image
-                                    src="/partner-tattoo-artists-3.png"
-                                    alt="Partner tattoo artists near me"
-                                    width={752}
-                                    height={480}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={blurDataURL}
-                                    layout="responsive"
-                                  />
-                                </Link>
-                                <div className={styles.listing_grid_brand}>
-                                  Partner tattoo
-                                </div>
-                              </div>      
-                              <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
-                                </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
+                                <p>{el.desc} </p>
                                 <div className="w_100pc d_flex justify_content_end">
                                   <Link href="#" className="btn_primary btn_img btn_custom_48">
                                     Read more
@@ -291,128 +98,31 @@ export default function ListingPage() {
                           </div>
 
 
-                          <div className={styles.listing_gridItem}>
-                              <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
-                                  <Image
-                                    src="/partner-tattoo-artists-1.png"
-                                    alt="Partner tattoo artists near me"
-                                    width={752}
-                                    height={480}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={blurDataURL}
-                                    layout="responsive"
-                                  />
-                                </Link>
-                                <div className={styles.listing_grid_brand}>
-                                  Partner tattoo
-                                </div>
-                              </div>      
-                              <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
-                                </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
-                                <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
-                                    Read more
-                                    <Image
-                                      src="/arow-white-right.svg"
-                                      width={24}
-                                      height={24}
-                                      alt="logo"
-                                      loading="lazy"
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                      className="ml-8 mt-2"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                          </div>
+)
 
-                          <div className={styles.listing_gridItem}>
-                              <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
-                                  <Image
-                                    src="/partner-tattoo-artists-2.png"
-                                    alt="Partner tattoo artists near me"
-                                    width={752}
-                                    height={480}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={blurDataURL}
-                                    layout="responsive"
-                                  />
-                                </Link>
-                                <div className={styles.listing_grid_brand}>
-                                  Tattoo artist
-                                </div>
-                              </div>      
-                              <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
-                                </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
-                                <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
-                                    Read more
-                                    <Image
-                                      src="/arow-white-right.svg"
-                                      width={24}
-                                      height={24}
-                                      alt="logo"
-                                      loading="lazy"
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                      className="ml-8 mt-2"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                          </div>
 
-                          <div className={styles.listing_gridItem}>
-                              <div className={styles.listing_grid_img_col}>
-                                <Link href="#">
-                                  <Image
-                                    src="/partner-tattoo-artists-3.png"
-                                    alt="Partner tattoo artists near me"
-                                    width={752}
-                                    height={480}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={blurDataURL}
-                                    layout="responsive"
-                                  />
-                                </Link>
-                                <div className={styles.listing_grid_brand}>
-                                  Partner tattoo
-                                </div>
-                              </div>      
-                              <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
-                                  <h5>Partner tattoo artists near me</h5>
-                                </Link>
-                                <p>Booking your partner tattoo experience is a breeze. Securely schedule your appointment through our user-friendly app, ensuring a convenient and stress-free process. </p>
-                                <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
-                                    Read more
-                                    <Image
-                                      src="/arow-white-right.svg"
-                                      width={24}
-                                      height={24}
-                                      alt="logo"
-                                      loading="lazy"
-                                      placeholder="blur"
-                                      blurDataURL={blurDataURL}
-                                      className="ml-8 mt-2"
-                                    />
-                                  </Link>
-                                </div>
-                              </div>
-                          </div>
+
+
+
+
+   })}
+
+
+
+
+                          
+
+                        
+
+                          
+                          
+                          
+
+                        
+
+
+                        
+                          
                         </div>                        
                     </div>
                 </div>
@@ -428,3 +138,17 @@ export default function ListingPage() {
 }
 
 
+export async function getServerSideProps(context) {
+  const filePath = path.join(process.cwd(), "src", "data", "blog.json");
+  const jsonData = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(jsonData);
+console.log(data,'cdd')
+ 
+
+  return {
+    props: {
+      data,
+      locale: context.locale,
+    },
+  };
+}
