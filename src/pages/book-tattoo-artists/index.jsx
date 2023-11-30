@@ -5,6 +5,7 @@ import Banner from "@/landingComponents/banner/banner";
 
 import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
 import PartnerTattoos from "@/landingComponents/partnerTattoos/tattoos";
+import WhypartnerTattoos from "@/landingComponents/whypartnerTattoos/whypartnerTattoos";
 
 export default function TattooIdeasForMen() {
   const currentPage = typeof window !== "undefined" ? window.location.href : "";
@@ -118,24 +119,28 @@ export default function TattooIdeasForMen() {
 
 
 
-        <FourColumnSection
+      
+
+
+<WhypartnerTattoos
+          mainTitle=""
           title1="Connect with Your Ideal Tattoo Artist
-"
-          content1="inckd goes beyond just discovering tattoo artists; we simplify the entire booking process. Use our app to connect with your artist, discuss designs, and book your appointment easily."
-          title2="Explore More with inckd"
-          content2="Your tattoo journey is a unique expression of yourself, and we're here to make it exceptional. Our app connects you with tattoo artists and shops that value your individuality, regardless of tattoo size.
-Embark on your tattoo journey with confidence. Our app empowers you to discover top-rated tattoo shops, ensuring your experience is as brilliant as your ink. Book your appointment today and celebrate your unique style with the perfect tattoo artist for you.
+          "
+          content1="inckd goes beyond just discovering tattoo artists; we simplify the entire booking process. Use our app to connect with your artist, discuss designs, and book your appointment easily.
+        "
+          title2="Explore More with inckd
+          "
+          content2="In addition to connecting with tattoo artists, inckd offers a wealth of information and inspiration. Check out our journal for info on tattoo care, trends, and tips for a great tattooing experience.
 
-"
-          title3="Download inckd Now
-"
-          content3="Ready to embark on your tattoo journey? Download inckd now and explore the world of tattoo artists near you. Connect, create, and book your next tattoo with ease.
-
-
-"
-          title4=""
-          content4=""
+        "
+          embrace="Ready to embark"
+          story="on your tattoo journey?"
+          downloadApp="Download inckd now and explore the world of tattoo artists near you. Connect, create, and book your next tattoo with ease.
+          "
         />
+
+
+
       </div>
     </>
   );

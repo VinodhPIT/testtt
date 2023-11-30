@@ -9,24 +9,22 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-export default function TrendingArtist() {
+export default function TrendingArtist({title}) {
     const { isMobileView } = useWindowResize();
   let sliderSettings = {};
 
   sliderSettings = {    
     infinite: true,
     speed: 300,
-    slidesToShow:isMobileView ? 1.64 : 4.72,
-    slidesToScroll: isMobileView ? 1.64 : 2,  
+    slidesToShow:isMobileView ? 1.64 : 3.4,
+    slidesToScroll: isMobileView ? 1.64 :3.4,  
   };
   const [images, setImage] = useState([
-    { image: "/trend-couple-1.png" },
-    { image: "/trend-couple-2.png" },
-    { image: "/trend-couple-3.png" },
+    { image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg" },
+    { image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg" },
+    { image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg" },
+    { image: "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg" },
 
-    { image: "/trend-couple-1.png" },
-    { image: "/trend-couple-2.png" },
-    { image: "/trend-couple-3.png" },
   ]);
 
   return (
@@ -36,7 +34,7 @@ export default function TrendingArtist() {
                 <div className="justify_content_start container w_100pc">
                   <div className="text_box_content_inner max_w_100pc pt_80 pb_65 m_pt_pb_50">
                       <div className="d_flex align_item_center justify_space_between m_flex_direction_column">
-                        <h2 className="color_gray_550 mb_0 heading_h2 m_mb_25 mr_20 m_mr_0">Trending couple tattoos</h2>
+                        <h2 className="color_gray_550 mb_0 heading_h2 m_mb_25 mr_20 m_mr_0">{title}</h2>
                         <Link href="/explore/tattoos"  className="btn_primary btn_img btn_xxl m_btn_custom_48">
                           Explore more tattoos
                           <Image
@@ -63,8 +61,8 @@ export default function TrendingArtist() {
                                         <Image
                                         src={imgPath.image}
                                         alt="Trending couple tattoos"
-                                        width={752}
-                                        height={776}
+                                        width={478}
+                                        height={478}
                                         loading="lazy"
                                         placeholder="blur"
                                         blurDataURL={blurDataURL}

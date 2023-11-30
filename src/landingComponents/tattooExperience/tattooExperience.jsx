@@ -7,7 +7,7 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
   return (
     <section className="img_text_banner_box">
 
-        <div className="text_box_wrap full-block-wrap block_bg_gray_150">
+     {mainTitle &&   <div className="text_box_wrap full-block-wrap block_bg_gray_150">
             <div className="img_text_box_inner">
                 <div className="justify_content_start container w_100pc">
                     <div className="text_box_content_inner pt_pb_80 max_w_100pc m_pt_pb_50">
@@ -15,7 +15,7 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                     </div>                  
                 </div>
             </div>  
-        </div>
+        </div>}
 
         <div className="col_full">
             <div className="img_text_box_wrapper">
