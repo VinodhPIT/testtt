@@ -36,6 +36,10 @@ export default function TattooIdeasForMen() {
       image:
         "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/5623_20221015121407735-medium.jpg",
     },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/26845_20230917203559564-medium.jpg",
+    },
   ]);
 
   const [dragonTattoo, setDragonTattoo] = useState([

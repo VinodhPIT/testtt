@@ -12,18 +12,63 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
     let sliderSettings = {};
 
     sliderSettings = {
-    infinite: true,
-    speed: 300,
-    slidesToShow: isMobileView ? 1.2 : 4,
-    slidesToScroll: isMobileView ? 1. : 4,
-    dots: true,
-    };
-
-
-
-
-
-
+        infinite: true,
+        speed: 300,
+        slidesToShow: isMobileView ? 1.2 : 4,
+        slidesToScroll: isMobileView ? 1. : 4,
+        dots: true,
+     
+        responsive: [
+            {
+                breakpoint: 1290,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    infinite: false,
+                    dots: true,
+                },
+            },
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: false,
+                dots: true,
+              },
+            },
+      
+            {
+              breakpoint: 900,
+              settings: {
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 3,
+                dots: true,
+              },
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+              },
+            },
+      
+            {
+              breakpoint: 400,
+              settings: {
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+              },
+            },
+          ],      
+     
+        };
 
 
   return (
@@ -63,10 +108,10 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                     </div>                               
                     <div className={`${'mt_0 mb_80 m_mb_30 trending_artist_slider'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>
-                        <Slider {...sliderSettings}>
+                            <Slider {...sliderSettings} className="custom_content_slick_slider">
                                 {trendingArtist.map((imgPath, index) => (
-                                    <div className={styles.listing_gridItem} key={index}>
-                                    <div className={styles.listing_grid_img_col}>
+                                    <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index}>
+                                    <div className={`${'listing_grid_img_col'} ${styles.listing_grid_img_col}`}>
                                         <Image
                                         src={imgPath.image}
                                         alt="Trending couple tattoos"
@@ -81,7 +126,7 @@ export default function TrendinginckdArtist ({title,title_sub , content ,button 
                                         />
                                     </div>
                 
-                                    <div className={styles.listing_grid_content_wrap}>
+                                    <div className={`${'listing_grid_content_wrap'} ${styles.listing_grid_content_wrap}`}>
                                         <div className={styles.listing_grid_img_profile}>
                                         <Image
                                             src={imgPath.artistImage}
