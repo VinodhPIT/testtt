@@ -2,30 +2,20 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import SideDrawer from "@/components/sideDrawer/sideDrawer";
-import LanguageSwitcher from "@/components/languageSwitcher/languageSwitcher";
+
 import Image from "next/image";
 import useTranslation from "next-translate/useTranslation";
 import useWindowResize from "@/hooks/useWindowSize";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 import { useModal } from "@/utils/modalUtils";
-import { useGlobalState } from "@/context/Context";
-
-
 
 
 export default function Header({ logo, theme, isPosition }) {
   const router = useRouter();
- 
+
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
-  const { state } = useGlobalState();
-
-
-
-
-
   const { t } = useTranslation();
-
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
@@ -51,8 +41,7 @@ export default function Header({ logo, theme, isPosition }) {
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url: `${router.locale}/explore/tattoos`
-      
+      url: `${router.locale}/explore/tattoos`,
     },
     {
       id: 2,
@@ -79,7 +68,7 @@ export default function Header({ logo, theme, isPosition }) {
     case "de-de":
       linkComponent = (
         <Link
-          href={"/listing"}
+          href={"/journal"}
           className={
             theme === "black"
               ? "textWhite"
@@ -88,7 +77,7 @@ export default function Header({ logo, theme, isPosition }) {
               : "textBlack"
           }
         >
-          ListingPage
+          {t("common:menus.journal")}
         </Link>
       );
       break;
@@ -144,7 +133,6 @@ export default function Header({ logo, theme, isPosition }) {
                     <li key={link.id} className="nav_item">
                       <Link
                         href={link.url}
-
                         className={
                           theme === "black"
                             ? "textWhite"
@@ -157,27 +145,37 @@ export default function Header({ logo, theme, isPosition }) {
                       </Link>
                     </li>
                   ))}
+                  <li>{linkComponent}</li>
                 </ul>
               </div>
 
-
-        {router.pathname==='/listing' || router.pathname=== '/listingDetail/[detail]'? null  : <button style={{"background":"#000","padding":"10px" ,"color":"#fff"}}  onClick={openPopup}>Choose Country</button>}
-
-        {linkComponent}
-        
               <div className="header_right">
                 <button
                   type="button"
-                  onClick={() => router.push(`/${router.locale}/for-tattoo-artists`)}
+                  onClick={() =>
+                    router.push(`/${router.locale}/for-tattoo-artists`)
+                  }
                   className={`btn btn_tattoo_art ${
-                    theme === "black" ? "bgWhite" : "bgBlack"
-                  }`}
+                    theme === "black" && router.pathname === "/journal" ? "bgBlack" : theme === "black" ? "bgWhite" : "bgBlack"
+                }`}
                 >
                   {t("common:menus.forTattooArtists")}
                 </button>
 
-                {/* {router.pathname === "/404" ||  router.pathname === "/search" ? null :   <LanguageSwitcher theme={theme}   />} */}
+                
+                  <button
+                    style={{
+                      background: "#000",
+                      padding: "10px",
+                      color: "#fff",
+                    }}
+                    onClick={openPopup}
+                  >
+                     English
+                  </button>
+                
 
+\
                 <Image
                   className="nav_btn_toggle"
                   onClick={() => onToggle(true)}
@@ -198,16 +196,11 @@ export default function Header({ logo, theme, isPosition }) {
       </header>
       {toggle === true ? <SideDrawer onCloseToggle={onCloseToggle} /> : null}
 
-
-      
-           <CountryPickerModel
-            className="custom-modal"
-            isOpen={isPopupOpen}
-            closeModal={closePopup}
-          />
-
-
-
+      <CountryPickerModel
+        className="custom-modal"
+        isOpen={isPopupOpen}
+        closeModal={closePopup}
+      />
     </>
   );
 }

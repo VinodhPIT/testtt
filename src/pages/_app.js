@@ -83,7 +83,7 @@ function MyApp({ Component, pageProps }) {
         case "/contact":
          case "/join-tattoo-artists":
           case "/tattoo-dictionary":
-            case "/listing":
+            case "/journal":
       
           return <Header logo={'/inckd-logo.svg'} theme={"black"} isPosition={true} />;
         

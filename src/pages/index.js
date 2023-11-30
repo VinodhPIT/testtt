@@ -196,14 +196,14 @@ router.replace(`/${locale}`)
             </div>
           </div>
 
-<section style={{"height":"100px","display":"flex","justifyContent":"space-between","alignItems":"center","padding":"33px"}}>
+{/* <section style={{"height":"100px","display":"flex","justifyContent":"space-between","alignItems":"center","padding":"33px"}}>
 
 
 
 
 <Link href={'/landingpage3'}>Landingpage3</Link>
 
-</section>
+</section> */}
 
 
 
