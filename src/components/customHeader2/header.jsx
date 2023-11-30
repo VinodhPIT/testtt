@@ -7,6 +7,8 @@ import useTranslation from "next-translate/useTranslation";
 import { useModal } from "@/utils/modalUtils";
 import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 
+
+
 export default function Header({ logo, theme, isPosition }) {
   const router = useRouter();
   const { t } = useTranslation();

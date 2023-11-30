@@ -7,7 +7,6 @@ import styles from './style.module.css'
 import { useRouter } from 'next/router'
 import setLanguage from "next-translate/setLanguage";
 
-
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(6, 6, 6, 0.78)",
