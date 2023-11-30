@@ -14,11 +14,61 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
     const { isMobileView } = useWindowResize();
   let sliderSettings = {};
 
-  sliderSettings = {    
-    infinite: false,
+  sliderSettings = {
+    infinite: isMobileView ? true : false,
     speed: 300,
-    slidesToShow:isMobileView ? 1.64 :datas.length>5 ?5 :5,
-    slidesToScroll: isMobileView ? 1.64 :datas.length>5 ?5 :2 ,  
+    slidesToShow: isMobileView ? 1 : datas.length > 5 ? 5 : 5,
+    slidesToScroll: isMobileView ? 1 : datas.length > 5 ? 5 : 2,
+    responsive: [
+      {
+        breakpoint: 1290,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          infinite: false,
+          dots: true,
+        },
+      },     
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: false,
+          dots: true,
+        },
+      },
+ 
+      {
+        breakpoint: 900,
+        settings: {
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          infinite: true,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+ 
+      {
+        breakpoint: 460,
+        settings: {
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+        },
+      },
+      
+    ],
   };
   
  
@@ -78,10 +128,10 @@ export default function CarouselSection({title ,content,datas ,buttonName ,isBut
                 <div className="justify_content_start container w_100pc">                
                     <div className={`${'mt_0 mb_80 m_mb_50'} ${styles.listing_pageContainer}`}>
                       <div className={styles.listing_grid_wrapper}>                          
-                            <Slider {...sliderSettings}>
+                            <Slider {...sliderSettings} className="custom_slick_slider">
                                 {datas.map((imgPath, index) => (
-                                    <div className={styles.listing_gridItem} key={index}>
-                                    <div className={styles.listing_grid_img_col}>
+                                    <div className={`${'listing_gridItem'} ${styles.listing_gridItem}`} key={index} >
+                                    <div className={`${'listing_grid_img_col'} ${styles.listing_grid_img_col}`}>
                                         <Image
                                         src={imgPath.image}
                                         alt="Trending couple tattoos"

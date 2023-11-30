@@ -58,19 +58,6 @@ a {
   text-decoration: none;
 }
 
-.tets{    max-height: 268px!important;
-  border-radius: 10px; object-fit: cover;
-}
-.imggg{    max-height: 342px!important;object-fit: cover;
-}
-
-
-.slick-track {
- 
-   margin-left: 0!important; 
-   margin-right: 0!important; 
-}
-
 a:hover {
   text-decoration: none;
   color: #b6b6b6;
@@ -3923,6 +3910,94 @@ li {
   border-radius: 0;
   margin-bottom: -3px;
 }
+
+.custom_slick_slider {
+  height: 100%;
+  display: flex;
+}
+.custom_slick_slider .slick-track { 
+  margin-left: 0!important; 
+  margin-right: 0!important; 
+  height: 100%;
+  display: flex;
+}
+
+.custom_slick_slider .slick-track .slick-slide {
+  display: flex!important;
+  flex-flow: column;
+  height: auto;
+}
+.custom_slick_slider .slick-track .slick-slide > div {
+  height: 100%;
+  display: flex;
+}
+
+.custom_slick_slider .listing_gridItem {
+  display: flex!important;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom_slick_slider .listing_gridItem .listing_grid_img_col {
+  height: 100%;
+  width: calc(100% - 10px);
+}
+.custom_slick_slider .listing_gridItem .listing_grid_img_col img {
+  height: 100%!important;
+  object-fit: cover;
+}
+
+
+
+.custom_content_slick_slider {
+  height: 100%;
+  display: flex!important;
+}
+.custom_content_slick_slider .slick-track { 
+  margin-left: 0!important; 
+  margin-right: 0!important; 
+  height: 100%;
+  display: flex;
+}
+
+.custom_content_slick_slider .slick-track .slick-slide {
+  display: flex!important;
+  flex-flow: column;
+}
+.custom_content_slick_slider .slick-track .slick-slide > div {
+  height: 100%;
+  display: flex;
+}
+
+.custom_content_slick_slider .listing_gridItem {
+  display: flex!important;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom_content_slick_slider .listing_gridItem .listing_grid_img_col {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 300px;
+  width: 100%;
+}
+.custom_content_slick_slider .listing_gridItem .listing_grid_img_col img {
+  height: 100%!important;
+  object-fit: cover;
+}
+.custom_content_slick_slider .listing_grid_content_wrap {  
+  min-height: 110px;
+}
+
+
+
+
+
+
+
+
+
 
 /* responsive */
 @media screen and (max-width: 767.98px) {

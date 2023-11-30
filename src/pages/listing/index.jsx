@@ -49,7 +49,7 @@ export default function ListingPage({ data, locale }) {
       <section className="img_text_banner_box">
         <div className="text_box_wrap full-block-wrap">
             <div className="img_text_box_inner">
-                <div className="justify_content_start container w_100pc block_bg_gray_100">                                                  
+                <div className="justify_content_start container w_100pc">                                                  
                     <div className={`${'mt_65 mb_80 m_mb_30 m_mt_25'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>  
 
