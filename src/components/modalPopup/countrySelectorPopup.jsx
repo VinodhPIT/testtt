@@ -42,25 +42,22 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   }, []);
 
 
-  const tets = (id  ,domain  ,li ) =>{
+  const tets = async (id  ,domain  ,li ) =>{
 
     setCountryId(id)
 
     setVisible(true)
 
-    setDomain(domain)
+  
 
-    setlng(li)
+    await setLanguage(`${domain}${"-"}${li}`)
+    closeModal()
     
 
   }
   
 
-  const chooseLanguage = async () => {
-    await setLanguage(`${domain}${"-"}${lng}`)
-    closeModal()
-   
-  };
+
 
 
 
@@ -84,8 +81,8 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
               <ul>
                 {country.map((e) => {
                   return (                
-                      <li>                  
-                        <button key={e.id} className={countryId===e.id ? styles.activeCountry :styles.inActivecountry } onClick={()=>tets(e.id  ,e.domain ,e.lng)}   >
+                      <li key={e.id}>                  
+                        <button  className={countryId===e.id ? styles.activeCountry :styles.inActivecountry } onClick={()=>tets(e.id  ,e.domain ,e.lng)}   >
                           <Image
                             alt={`${e.country}${"-"}${e.language}`}
                             src={e.image}

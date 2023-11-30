@@ -3996,13 +3996,20 @@ button.language_switcher {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid #FFF;
+  
   background: transparent;
-  color: #fff;
+
   font-size: 18px;
   font-weight: 500;
   line-height: 25px;
 }
+.switcherThemeBlack{border: 1px solid #fff;}
+.switcherThemeWhite{border: 1px solid #000}
+
+.switchTextBlack{color: #fff;}
+.switchTextWhite{color: #000;}
+
+
 button.language_switcher img {
   width: 24px;
   height: 24px;

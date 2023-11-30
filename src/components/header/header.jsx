@@ -163,7 +163,10 @@ export default function Header({ logo, theme, isPosition }) {
                 </button>
 
                 
-                  <button className="language_switcher"                     
+                  <button   
+                    className={`language_switcher ${
+                      theme === "black" ? "switcherThemeBlack" :  theme === "normal" ? "switcherThemeBlack" :    "switcherThemeWhite"
+                  }`}                   
                     onClick={openPopup}
                   >
                     <Image 
@@ -173,7 +176,13 @@ export default function Header({ logo, theme, isPosition }) {
                       height={32}
                       priority
                     />
-                     English
+                     <span   className={` ${
+                      theme === "black"
+                        ? "switchTextBlack"
+                        : theme === "normal"
+                        ? "switchTextBlack"
+                        : "switchTextWhite"
+                    }`}>English</span>
                   </button>                
 
                 <Image
