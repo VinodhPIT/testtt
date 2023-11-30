@@ -19,7 +19,7 @@ export default function PartnerTattoos({mainTitle ,button,content1 ,content2 ,da
     let sliderSettings = {};
 
     sliderSettings = {
-    infinite: false,
+    infinite: true,
     speed: 300,
     slidesToShow: isMobileView ? 1 : 3,
     slidesToScroll: isMobileView ? 1 : 3,
@@ -79,7 +79,7 @@ export default function PartnerTattoos({mainTitle ,button,content1 ,content2 ,da
                                    <div className={styles.listing_gridItem}  key={el.id}>                        
                                    <div className={styles.listing_grid_img_col}>                            
                                        <Image
-                                           src={'/Symbol-Unity.png'}                 
+                                           src={el.image}                 
                                            alt={'tattoo'}
                                            width={746}
                                            height={776}

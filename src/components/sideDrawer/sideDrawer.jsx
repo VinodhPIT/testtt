@@ -3,11 +3,23 @@ import Link from "next/link";
 import  styles from './sideDrawer.module.css'
 import Image from 'next/image'
 import useTranslation from "next-translate/useTranslation";
+import{useNavigation} from '@/hooks/useRouter'
+import {useGlobalState} from '@/context/Context'
 
 
 export default function SideDrawer({onCloseToggle}) {
 
   const { t } = useTranslation();
+
+
+
+
+  const {
+    state,
+   
+  } = useGlobalState();
+
+
 
 
   const links = [
@@ -54,7 +66,24 @@ export default function SideDrawer({onCloseToggle}) {
     },
   ];
 
+  let linkComponent;
 
+  switch (state.locale) {
+    case "uk-en":
+    case "de-de":
+      linkComponent = (
+        <Link
+          href={"/journal"}
+        
+        >
+          {t("common:menus.journal")}
+        </Link>
+      );
+      break;
+    default:
+      linkComponent = null;
+      break;
+  }
 
 
 
@@ -81,7 +110,12 @@ export default function SideDrawer({onCloseToggle}) {
             <Link href={link.url}onClick={()=>onCloseToggle()}>{link.title}</Link>
           </li>
         ))}
+
+        <li><Link href={'/journal'}onClick={()=>onCloseToggle()}>{linkComponent}</Link></li>
       </ul>
+
+
+
     </div>
   );
 }

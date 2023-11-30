@@ -57,8 +57,9 @@ export default function ListingPage({ data, locale }) {
 
 return (
 <div className={styles.listing_gridItem} key={el.id}>
+<Link href={el.url}>
                               <div className={styles.listing_grid_img_col}>
-                                <Link href={el.url}>
+                               
                                   <Image
                                     src={el.imageUrl}
                                     alt="Partner tattoo artists near me"
@@ -69,18 +70,18 @@ return (
                                     blurDataURL={blurDataURL}
                                     layout="responsive"
                                   />
-                                </Link>
+                                
                                 <div className={styles.listing_grid_brand}>
-                                 {el.tagTitle}
+                              <p style={{"margin":"0",color:"#000"}}>{el.tagTitle}</p>   
                                 </div>
                               </div>      
                               <div className={styles.listing_grid_content_wrap}>
-                                <Link href="#">
+                                
                                   <h5>{el.title}</h5>
-                                </Link>
+                                
                                 <p>{el.desc} </p>
                                 <div className="w_100pc d_flex justify_content_end">
-                                  <Link href="#" className="btn_primary btn_img btn_custom_48">
+                                  <Link href={el.url} className="btn_primary btn_img btn_custom_48">
                                     Read more
                                     <Image
                                       src="/arow-white-right.svg"
@@ -95,6 +96,7 @@ return (
                                   </Link>
                                 </div>
                               </div>
+                              </Link>
                           </div>
 
 
@@ -139,10 +141,10 @@ return (
 
 
 export async function getServerSideProps(context) {
-  const filePath = path.join(process.cwd(), "src", "data", "blog.json");
+  const filePath = path.join(process.cwd(), "src", "data", "journal.json");
   const jsonData = fs.readFileSync(filePath, "utf-8");
   const data = JSON.parse(jsonData);
-console.log(data,'cdd')
+
  
 
   return {

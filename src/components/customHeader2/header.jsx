@@ -3,10 +3,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import SideDrawer from "@/components/sideDrawer/sideDrawer";
 import Image from "next/image";
-import LanguageSwitcher from "@/components/languageSwitcher/languageSwitcher";
 import useTranslation from "next-translate/useTranslation";
-
-
+import { useModal } from "@/utils/modalUtils";
+import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 
 
 export default function Header({ logo, theme, isPosition }) {
@@ -14,7 +13,7 @@ export default function Header({ logo, theme, isPosition }) {
 const router = useRouter()
   const { t } = useTranslation();
 
-
+  const { isPopupOpen, openPopup, closePopup } = useModal();
 
   const [toggle, setToggle] = useState(false);
   useEffect(() => {
@@ -70,6 +69,30 @@ const router = useRouter()
 
 
   ];
+  let linkComponent;
+
+  switch (router.locale) {
+    case "uk-en":
+    case "de-de":
+      linkComponent = (
+        <Link
+          href={"/journal"}
+          className={
+            theme === "black"
+              ? "textWhite"
+              : theme === "normal"
+              ? "textWhite"
+              : "textBlack"
+          }
+        >
+          {t("common:menus.journal")}
+        </Link>
+      );
+      break;
+    default:
+      linkComponent = null;
+      break;
+  }
 
 
   return (
@@ -107,6 +130,8 @@ const router = useRouter()
                       </Link>
                     </li>
                   ))}
+
+<li>{linkComponent}</li>
                 </ul>
               </div>
 
@@ -121,7 +146,20 @@ const router = useRouter()
                    {t("common:menus.forTattooArtists")}
                 </button>
                 
-                {/* {router.pathname === "/404" ||  router.pathname === "/search" ? null :   <LanguageSwitcher theme={theme}   />} */}
+
+                  
+                <button
+                    style={{
+                      background: "#000",
+                      padding: "10px",
+                      color: "#fff",
+                    }}
+                    onClick={openPopup}
+                  >
+                     English
+                  </button>
+
+
 
                 <Image
                     className="nav_btn_toggle"
@@ -141,6 +179,13 @@ const router = useRouter()
           </div>
         </div>
       </header>
+
+      <CountryPickerModel
+        className="custom-modal"
+        isOpen={isPopupOpen}
+        closeModal={closePopup}
+      />
+
 
       {toggle === true ? <SideDrawer onCloseToggle={onCloseToggle} /> : null}
     </>
