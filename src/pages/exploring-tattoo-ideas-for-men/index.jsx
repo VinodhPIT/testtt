@@ -147,7 +147,7 @@ export default function TattooIdeasForMen() {
 
     {
       image:
-        " https://storage.googleapis.com/hllincd-bucket/profile/image/2686_A8B7EB97-F3E3-45ED-9FC0-6B5D544C1415.jpg"
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/2686_A8B7EB97-F3E3-45ED-9FC0-6B5D544C1415.jpg"
       
     },
   ])
