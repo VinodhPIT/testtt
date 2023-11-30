@@ -202,7 +202,7 @@ header ul.nav.main_nav>li>a:hover {
 }
 
 .header_right button.btn_tattoo_art {
-  margin-right: 32px;
+  margin-right: 25px;
 }
 
 header .header_navigation {
@@ -3910,7 +3910,6 @@ li {
   border-radius: 0;
   margin-bottom: -3px;
 }
-
 .custom_slick_slider {
   height: 100%;
   display: flex;
@@ -3921,7 +3920,6 @@ li {
   height: 100%;
   display: flex;
 }
-
 .custom_slick_slider .slick-track .slick-slide {
   display: flex!important;
   flex-flow: column;
@@ -3946,9 +3944,6 @@ li {
   height: 100%!important;
   object-fit: cover;
 }
-
-
-
 .custom_content_slick_slider {
   height: 100%;
   display: flex!important;
@@ -3989,14 +3984,30 @@ li {
 .custom_content_slick_slider .listing_grid_content_wrap {  
   min-height: 110px;
 }
+.icon_language_link {
+  position: absolute;
+  right: 16px;
+}
 
-
-
-
-
-
-
-
+button.language_switcher {
+  display: flex;
+  padding: 8px 14px;
+  margin-right: 25px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #FFF;
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+}
+button.language_switcher img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
 
 
 /* responsive */
@@ -5737,7 +5748,14 @@ li {
     padding-left: 0;
     padding-right: 0;
   }
-
+  button.language_switcher {
+    position: relative;
+    top: 10px;
+    padding: 5px 10px;
+    margin-right: 20px;
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 @media screen and (min-width: 992px) {
