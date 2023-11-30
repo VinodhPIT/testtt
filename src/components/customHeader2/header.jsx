@@ -148,18 +148,18 @@ const router = useRouter()
                 
 
                   
-                <button
-                    style={{
-                      background: "#000",
-                      padding: "10px",
-                      color: "#fff",
-                    }}
+                <button className="language_switcher"                  
                     onClick={openPopup}
                   >
+                    <Image 
+                      src={'/united-kingdom.svg'}
+                      alt="countries"
+                      width={32}
+                      height={32}
+                      priority
+                    />                   
                      English
                   </button>
-
-
 
                 <Image
                     className="nav_btn_toggle"
