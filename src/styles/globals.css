@@ -3995,26 +3995,21 @@ button.language_switcher {
   margin-right: 25px;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  
+  border-radius: 8px;  
   background: transparent;
-
   font-size: 18px;
   font-weight: 500;
   line-height: 25px;
 }
-.switcherThemeBlack{border: 1px solid #fff;}
-.switcherThemeWhite{border: 1px solid #000}
-
-.switchTextBlack{color: #fff;}
-.switchTextWhite{color: #000;}
-
-
 button.language_switcher img {
   width: 24px;
   height: 24px;
   margin-right: 10px;
 }
+.switcherThemeBlack{border: 1px solid #fff;}
+.switcherThemeWhite{border: 1px solid #000}
+.switchTextBlack{color: #fff;}
+.switchTextWhite{color: #000;}
 
 
 /* responsive */
