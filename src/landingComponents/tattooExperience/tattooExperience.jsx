@@ -22,8 +22,8 @@ export default function TattooExperience({mainTitle ,title1 ,title2 ,title3 ,tit
                 <div className={"text_box_wrap right block_bg_gray_150 pb_75 m_pb_40"}>                    
                     <div className="img_text_box_inner container">
                         <div className="text_box_content justify_content_start align_item_normal p_0 pr_40 m_pr_0 m_min_h_reset">
-                            <div className="text_box_content_inner max_w_100pc">
-                                <div className="d_flex flex_direction_column mb_65 mt_10pc m_mt_15 m_mb_45">
+                            <div className="text_box_content_inner max_w_100pc mt_10pc m_mt_35">
+                                <div className="d_flex flex_direction_column mb_65 mt_0 m_mb_45">
                                     <h4 className="color_gray_550 custom_fs_32 fw_700 custom_fs_m_24">{title1}</h4>
                                     <p className="custom_fs_20 custom_fs_m_16 color_gray_550 mb_0 mt-15 lh_33">{content1}</p>
                                 </div>

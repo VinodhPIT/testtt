@@ -14,7 +14,7 @@ export default function WhypartnerTattoos({mainTitle ,title1 , content1 ,title2 
             <div className="img_text_box_inner">
                 <div className="justify_content_start container w_100pc">
                     <div className="text_box_content_inner pt_pb_80 max_w_100pc m_pt_pb_50">
-                        <h3 className="color_gray_550 mb_0 heading_h2">{mainTitle}</h3>                        
+                        <h2 className="color_gray_550 mb_0 heading_h2 m_text_left">{mainTitle}</h2>                        
                     </div>                  
                 </div>
             </div>  

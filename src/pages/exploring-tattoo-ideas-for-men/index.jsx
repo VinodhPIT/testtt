@@ -494,14 +494,11 @@ const [trendingArtist, setTendingArtist] = useState([
       <div>
         <Banner
           bannerTitle={"Exploring Tattoo Ideas for Men: From Concept to Canvas"}
-          subTitlte="Are you on the hunt for the perfect tattoo ideas for men? You're in the right place! Tattoos are a way to express yourself and tell a story. Our guide will help you explore the world of men's tattoos, whether you're new to it or already a fan.
-          
-        "
+          subTitlte="Are you on the hunt for the perfect tattoo ideas for men? You're in the right place! Tattoos are a way to express yourself and tell a story. Our guide will help you explore the world of men's tattoos, whether you're new to it or already a fan."
           alt="Exploring Tattoo Ideas for Men"
           bannerImg={"/young-beautiful-couple-posing-old-building-1.jpg"}
           bannerButton={"Know more about inckd"}
         />
-
         <UniquePartner
           title="Exploring Diverse Tattoo Styles"
           subTitle="Small Tattoo Ideas for Men"
@@ -509,18 +506,15 @@ const [trendingArtist, setTendingArtist] = useState([
           img="/pexels-cottonbro-studio-5320037.jpg"
           alt="Celebrate Your Love Journey with Unique Partner Tattoos"
         />
-
         <CarouselSection
           title={"Cross Tattoos"}
-          content="Symbolizing faith, cross tattoos are timeless classics. Choose a basic cross or a stylish design, these tattoos have deep meaning and are popular among men of all ages.
-"
+          content="Symbolizing faith, cross tattoos are timeless classics. Choose a basic cross or a stylish design, these tattoos have deep meaning and are popular among men of all ages."
           datas={crossTattoo}
           buttonName="Explore more"
           keyword={'Cross'}
         />
-
         <FourColumnSection
-          title1={"Star Tatto"}
+          title1={"Star Tattoo"}
           content1={
             "Reach for the stars with a star tattoo. Symbolizing guidance and aspiration, star tattoos come in various styles, from simple outlines to elaborate cosmic scenes.Unveiling the Artistry: Tattoo Design and Styles"
           }
@@ -533,27 +527,24 @@ const [trendingArtist, setTendingArtist] = useState([
             "The world of men's tattoos is vast and diverse. From traditional to contemporary, men's tattoos encompass a range of styles and themes. Find inspiration in the stories told by tattoos, each inked creation a unique expression of masculinity."
           }
         />
-
         <CarouselSection
-          title="DragonTattoo"
-          content="Embrace the mystique of dragon tattoos. These mythical creatures symbolize strength, wisdom, and good fortune. Dragon tattoos allow for artistic freedom, with variations ranging from fierce and bold to intricate and detailed.
-"
+          title="Dragon Tattoo"
+          content="Embrace the mystique of dragon tattoos. These mythical creatures symbolize strength, wisdom, and good fortune. Dragon tattoos allow for artistic freedom, with variations ranging from fierce and bold to intricate and detailed."
           buttonName="Explore more"
           datas={dragonTattoo}
           keyword={'Dragon'}
         />
 
         <CarouselSection
-          title="GeometricTattoo"
-          content=" Precision meets artistry in geometric tattoos. Explore the beauty of shapes and lines, creating visually stunning tattoos with a modern edge. Geometric tattoos are a playground for creativity, offering endless possibilities.
-"
+          title="Geometric Tattoo"
+          content=" Precision meets artistry in geometric tattoos. Explore the beauty of shapes and lines, creating visually stunning tattoos with a modern edge. Geometric tattoos are a playground for creativity, offering endless possibilities."
           buttonName="Explore more"
           datas={geometricTattoo}
           keyword={'Geometric'}
         />
 
         <FullWidthBlock
-          title={"FeatherTattoos"}
+          title={"Feather Tattoos"}
           content={
             "Light as a feather, these tattoos exude a delicate yet profound allure. Feather tattoos symbolize freedom, spirituality, and connection to nature. Let the feathers tell a story with their gentle elegance."
           }
@@ -561,9 +552,8 @@ const [trendingArtist, setTendingArtist] = useState([
         />
 
         <CarouselSection
-          title="SleeveTattoo"
-          content="For those craving an extensive canvas, a sleeve tattoo is a masterpiece. Sleeve tattoos are like art on the arm. They have lots of space for detailed designs, stories, or a group of smaller tattoos that go together.
-"
+          title="Sleeve Tattoo"
+          content="For those craving an extensive canvas, a sleeve tattoo is a masterpiece. Sleeve tattoos are like art on the arm. They have lots of space for detailed designs, stories, or a group of smaller tattoos that go together."
           buttonName="Explore more"
           datas={sleeveTattoo}
           keyword={'Sleeve'}
@@ -571,8 +561,7 @@ const [trendingArtist, setTendingArtist] = useState([
 
         <CarouselSection
           title="Eagle Tattoo"
-          content="Soar to new heights with an eagle tattoo. Symbolizing freedom, power, and vision, eagle tattoos captivate with their majestic presence. From realistic portrayals to stylized designs, an eagle tattoo is a bold choice.
-"
+          content="Soar to new heights with an eagle tattoo. Symbolizing freedom, power, and vision, eagle tattoos captivate with their majestic presence. From realistic portrayals to stylized designs, an eagle tattoo is a bold choice."
           buttonName="Explore more"
           datas={eagleTattoo}
           keyword={'Eagle'}
@@ -586,100 +575,58 @@ const [trendingArtist, setTendingArtist] = useState([
           sectionBackgrounColor={"#f8f8f8"}
         />
 
-
-
-
-<CarouselSection
-          title="TattooArtist"
-          content="Behind every remarkable tattoo is a skilled tattoo artist. Work with a skilled tattoo artist who gets your ideas and can turn them into an amazing tattoo. They have the technical skills and creativity to make your tattoo special and one-of-a-kind.
-
-"
+        <CarouselSection
+          title="Tattoo Artist"
+          content="Behind every remarkable tattoo is a skilled tattoo artist. Work with a skilled tattoo artist who gets your ideas and can turn them into an amazing tattoo. They have the technical skills and creativity to make your tattoo special and one-of-a-kind."
           buttonName="Explore more"
           datas={artist}
-          isButtonVisible={false}
-          
+          isButtonVisible={false}          
         />
-
-
-<CarouselSection
-          title="RoseTattoo"
-          content="Choose a beautiful rose tattoo to symbolize love, beauty, and passion. Customize it in various styles, from realistic to artistic designs, for a romantic touch.
-"
+        
+        <CarouselSection
+          title="Rose Tattoo"
+          content="Choose a beautiful rose tattoo to symbolize love, beauty, and passion. Customize it in various styles, from realistic to artistic designs, for a romantic touch."
           buttonName="Explore more"
           datas={roseTattoo}
           keyword={'Rose'}
         />
+        <TwoColumnSection title1={"Forearm tattoos"}     
+          content1={'are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you.'}
+          title2={'Tattoo Designs for Men'}
+          content2={"Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality."}
+        />
 
-<TwoColumnSection title1={"Forearmtattoos"}     content1={'are great for showing off your ink. They can be their own design or part of a larger one. You can choose the size and style that suits you.'}
-title2={'Tattoo Designs for Men'}
-
-content2={"Dive into the plethora of tattoo designs tailored for men. Explore themes like nature, animals, quotes, or opt for a custom design that holds personal significance. You have many choices for a tattoo design that matches your personality."}
-
-
-/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<CarouselSection
-          title="LionTattoo"
-          content="Roar with confidence with a lion tattoo. Symbolizing strength, courage, and leadership, lion tattoos command attention. Choose a regal mane or a fierce expression to capture the essence of the king of the jungle.
-
-"
+        <CarouselSection
+          title="Lion Tattoo"
+          content="Roar with confidence with a lion tattoo. Symbolizing strength, courage, and leadership, lion tattoos command attention. Choose a regal mane or a fierce expression to capture the essence of the king of the jungle."
           buttonName="Explore more"
           datas={lionTattoo}
           keyword={'Lion'}
         />
 
-
-
-
-<CarouselSection
-          title="WolfTattoo"
-          content="Embody the spirit of the wild with a wolf tattoo. Wolves symbolize loyalty, instinct, and freedom. A wolf tattoo has a mysterious appeal for those connected to their primal instincts.
-"
+        <CarouselSection
+          title="Wolf Tattoo"
+          content="Embody the spirit of the wild with a wolf tattoo. Wolves symbolize loyalty, instinct, and freedom. A wolf tattoo has a mysterious appeal for those connected to their primal instincts."
           buttonName="Explore more"
           datas={wolfTattoo}
           keyword={'Wolf'}
         />
 
-
-
-
-
-<CarouselSection
+        <CarouselSection
           title="Religious Tattoos"
-          content="For those seeking spiritual expression, religious tattoos offer a profound way to showcase faith. From religious symbols to depictions of revered figures, religious tattoos are a timeless choice.
-"
+          content="For those seeking spiritual expression, religious tattoos offer a profound way to showcase faith. From religious symbols to depictions of revered figures, religious tattoos are a timeless choice."
           buttonName="Explore more"
           datas={religiousTatoo}
           keyword={'Religious'}
         />
-
-
-
-
-
-
       
-<FullWidthBlock  title={"Crafting Your Unique Tattoo Journey"}
+        <FullWidthBlock 
+          title={"Crafting Your Unique Tattoo Journey"}
+          content={'Getting a tattoo is a personal and life-changing experience. Each tattoo represents a story and important moments in your life. Whether you prefer religious, eagle, or rose tattoos, your choice shows who you are as a person.'}
+          sectionBackgrounColor={"#f8f8f8"}
+        />
 
-content={'Getting a tattoo is a personal and life-changing experience. Each tattoo represents a story and important moments in your life. Whether you prefer religious, eagle, or rose tattoos, your choice shows who you are as a person.'}
-sectionBackgrounColor={"#f8f8f8"}
-
-
- />
-
-<TrendinginckdArtist
+        <TrendinginckdArtist
           title="Connecting with a Skilled "
           title_sub="Tattoo Artist:"
           content="Start your tattoo journey by finding the perfect artist. Look for skilled experts who understand your artistic vision. Work together on the design to make sure it reflects your story."
@@ -687,42 +634,28 @@ sectionBackgrounColor={"#f8f8f8"}
           trendingArtist={trendingArtist}
         />
 
-
-
-
-
         <TattooExperience
           mainTitle=""
           title1="Expressing Individuality Regardless of Tattoo Size"
-          content1="Small tattoo ideas for men hold as much significance as larger pieces. Every tattoo, regardless of size, contributes to the tapestry of your self-expression. Whether it's a discreet symbol or an extensive sleeve, your tattoo is a reflection of your identity.
-        "
+          content1="Small tattoo ideas for men hold as much significance as larger pieces. Every tattoo, regardless of size, contributes to the tapestry of your self-expression. Whether it's a discreet symbol or an extensive sleeve, your tattoo is a reflection of your identity."
           title2="Celebrating Diversity in Tattoo Styles"
-          content2="The diversity of tattoo styles allows for a myriad of choices. From classic cross tattoos to contemporary geometric designs, each style offers a unique way to convey your personality. Embrace the variety and choose a style that resonates with your aesthetic sensibilities.
-        "
+          content2="The diversity of tattoo styles allows for a myriad of choices. From classic cross tattoos to contemporary geometric designs, each style offers a unique way to convey your personality. Embrace the variety and choose a style that resonates with your aesthetic sensibilities."
           title3="Honoring Tradition with Tribal Tattoos"
-          content3=" For those with a connection to cultural heritage, tribal tattoos pay homage to tradition. These designs, rooted in ancient symbolism, bring a sense of identity and belonging. Explore the intricate patterns and meanings behind tribal tattoos.
-        "
+          content3=" For those with a connection to cultural heritage, tribal tattoos pay homage to tradition. These designs, rooted in ancient symbolism, bring a sense of identity and belonging. Explore the intricate patterns and meanings behind tribal tattoos."
           title4="New tattoo ideas for men in 2023"
-          content4="Keep up with the latest trends by exploring innovative ideas. Tattoo styles change and include new techniques and concepts. Be a trendsetter as you start your tattoo journey this year. Choose a lone wolf or a group, a wolf tattoo has a mysterious appeal for those connected to their primal instincts.
-        "
-        />
-
-     
+          content4="Keep up with the latest trends by exploring innovative ideas. Tattoo styles change and include new techniques and concepts. Be a trendsetter as you start your tattoo journey this year. Choose a lone wolf or a group, a wolf tattoo has a mysterious appeal for those connected to their primal instincts."
+        />    
 
         <WhypartnerTattoos
           mainTitle="Visualizing Your Tattoo Experience"
           title1="Tattoo Styles Image Gallery"
-          content1="To inspire your tattoo journey, explore our curated image gallery showcasing various tattoo styles. Explore miniature tattoo concepts for men, including eagle tattoos, geometric tattoos, and rose tattoos, each demonstrating creativity, audacity, complexity, and enduring sophistication.
-        "
+          content1="To inspire your tattoo journey, explore our curated image gallery showcasing various tattoo styles. Explore miniature tattoo concepts for men, including eagle tattoos, geometric tattoos, and rose tattoos, each demonstrating creativity, audacity, complexity, and enduring sophistication."
           title2="Connecting Through Body Art"
-          content2="Tattoos connect people, forming a shared language of expression. Join a community that celebrates the artistry of body ink. Share your tattoo journey, discover unique designs, and connect with fellow enthusiasts who appreciate the beauty of tattoo art.
-        Tattoos have power. They mark moments, express emotions, and remind us of personal growth. Each tattoo tells a story.
-        "
+          content2="Tattoos connect people, forming a shared language of expression. Join a community that celebrates the artistry of body ink. Share your tattoo journey, discover unique designs, and connect with fellow enthusiasts who appreciate the beauty of tattoo art. Tattoos have power. They mark moments, express emotions, and remind us of personal growth. Each tattoo tells a story."
           embrace="Ready to Embrace"
           story="Your Love Story in Ink?"
           downloadApp="Download inckd now. Your perfect partner tattoo experience is just a click away!"
         />
-
      
       </div>
     </>
