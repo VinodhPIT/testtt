@@ -10,12 +10,19 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function LocationSearch({
-  searchKey,
   currentTab,
+  searchKey,
   selectedStyle,
   router,
   onToggle,
 }) {
+// console.log( currentTab, "currentTab",
+//   searchKey,"searchKey",
+//   selectedStyle,"selectedStyle")
+
+
+
+
   const notify = () => {
     toast("Choose the location from the dropdown", {
       position: "top-center", // Set the position of the toast
@@ -42,7 +49,7 @@ export default function LocationSearch({
 
   const clear = async () => {
     setAddress("");
-    await getUrl(searchKey, currentTab, selectedStyle, "", "", router);
+    await getUrl( currentTab,searchKey , selectedStyle, "", router);
   };
 
   const onError = (status, clearSuggestions) => {

@@ -32,28 +32,21 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
   const router = useRouter()
   const [country, setCountry] = useState([])
   const[countryId,setCountryId]= useState(1)
-  const[visible,setVisible]= useState(false)
-  const[domain,setDomain]= useState('')
-  const[lng,setlng]= useState('')
+
 
   useEffect(() => {
     setCountry(countriesData);
   }, []);
 
 
-  const tets = async (id  ,domain  ,li ) =>{
-
-    setCountryId(id)
-
-    setVisible(true)
-
-  
-
-    await setLanguage(`${domain}${"-"}${li}`)
-    closeModal()
-    
-
+  const chooseLanguage = async (id, domain, li) => {
+    await setLanguage(`${domain}-${li}`);
+    setCountryId(id);
+    closeModal();
+    const newUrl =`/${domain}-${li}${router.asPath}`;
+    router.replace(newUrl);
   }
+  
   
 
 
@@ -81,7 +74,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
                 {country.map((e) => {
                   return (                
                       <li key={e.id}>                  
-                        <button  className={countryId===e.id ? styles.activeCountry :styles.inActivecountry } onClick={()=>tets(e.id  ,e.domain ,e.lng)}   >
+                        <button  className={countryId===e.id ? styles.activeCountry :styles.inActivecountry } onClick={()=>chooseLanguage(e.id  ,e.domain ,e.lng)}   >
                           <Image
                             alt={`${e.country}${"-"}${e.language}`}
                             src={e.image}
@@ -105,9 +98,7 @@ const CountrySelectorModel = ({ isOpen, closeModal }) => {
             </div>
 
 
-{/* {visible&& <button onClick={()=>chooseLanguage()} style={{"background":"#000" ,"padding":"10px" ,"color":"#fff"}}>
-  Select Language
-</button>} */}
+
 
           </div>
         </div>

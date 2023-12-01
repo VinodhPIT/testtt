@@ -9,7 +9,7 @@ import CountryPickerModel from "@/components/modalPopup/countrySelectorPopup";
 import { useModal } from "@/utils/modalUtils";
 
 
-export default function Header({ logo, theme, isPosition }) {
+export default function Header({ logo, theme, isPosition ,imgWidth ,imgHeight }) {
   const router = useRouter();
 
   const { isPopupOpen, openPopup, closePopup } = useModal();
@@ -40,23 +40,23 @@ export default function Header({ logo, theme, isPosition }) {
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url: `${router.locale}/explore/tattoos`,
+      url: `/${router.locale}/explore/tattoos`,
     },
     {
       id: 2,
       title: t("common:menus.styleGuide"),
-      url: `${router.locale}/tattoo-styleguide`,
+      url: `/${router.locale}/tattoo-styleguide`,
     },
     {
       id: 3,
       title: t("common:menus.dictionary"),
-      url: `${router.locale}/tattoo-dictionary`,
+      url: `/${router.locale}/tattoo-dictionary`,
     },
 
     {
       id: 4,
       title: t("common:menus.klarna"),
-      url: `${router.locale}/klarna`,
+      url: `/${router.locale}/klarna`,
     },
   ];
 
@@ -67,7 +67,7 @@ export default function Header({ logo, theme, isPosition }) {
     case "de-de":
       linkComponent = (
         <Link
-          href={"/journal"}
+          href={`${router.locale}/journal`}
           className={
             theme === "black"
               ? "textWhite"
@@ -84,6 +84,45 @@ export default function Header({ logo, theme, isPosition }) {
       linkComponent = null;
       break;
   }
+
+
+  
+
+
+  function getCountryIcon( locale) {
+    let countrySplit = locale.split('-')[0];
+    switch (countrySplit) {
+      case "ch":
+        return "/switzerland.svg";
+      case "de":
+        return "/germany.svg";
+        case "uk":
+          return "/united-kingdom.svg";
+        
+      default:
+        return null;
+    }
+  }
+
+  function getLanguage( locale) {
+    let languageSplit = locale.split('-')[1];
+    switch (languageSplit) {
+      case "en":
+        return "English";
+      case "de":
+        return "German";
+        case "it":
+          return "Italy";
+        
+      default:
+        return null;
+    }
+  }
+
+
+
+
+
 
   return (
     <>
@@ -119,8 +158,8 @@ export default function Header({ logo, theme, isPosition }) {
                   <Image
                     src={logo}
                     alt="Logo"
-                    width={105}
-                    height={31}
+                    width={imgWidth}
+                    height={imgHeight}
                     priority
                   />
                 </Link>
@@ -161,7 +200,7 @@ export default function Header({ logo, theme, isPosition }) {
                   {t("common:menus.forTattooArtists")}
                 </button>
 
-                
+                 
                   <button   
                     className={`language_switcher ${
                       theme === "black" ? "switcherThemeBlack" :  theme === "normal" ? "switcherThemeBlack" :    "switcherThemeWhite"
@@ -169,7 +208,7 @@ export default function Header({ logo, theme, isPosition }) {
                     onClick={openPopup}
                   >
                     <Image 
-                      src={'/united-kingdom.svg'}
+                      src={getCountryIcon(router.locale)}
                       alt="countries"
                       width={32}
                       height={32}
@@ -181,8 +220,8 @@ export default function Header({ logo, theme, isPosition }) {
                         : theme === "normal"
                         ? "switchTextBlack"
                         : "switchTextWhite"
-                    }`}>English</span>
-                  </button>                
+                    }`}> {getLanguage(router.locale)}</span>
+                  </button>               
 
                 <Image
                   className="nav_btn_toggle"

@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from "@/pages/artists/artistdetail.module.css";
+import styles from "@/pages/explore/tattoo-artists/artistdetail.module.css";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-
+import{useNavigation} from '@/hooks/useRouter'
 
 const ArtistInfo = ({data}) => {
   
@@ -11,7 +11,7 @@ const ArtistInfo = ({data}) => {
 
   const { t } = useTranslation();
 
-
+  const {router}=useNavigation()
 
   return (
     <div className={styles.galleryWrapper} >
@@ -23,7 +23,7 @@ const ArtistInfo = ({data}) => {
                   data.style.map((e) => {
                     return (
                       <li key={e.id}>
-                        <Link  href={`/explore/all/style/${e.slug}`} >
+                        <Link  href={`/${router.locale}/explore/all/?style=${e.slug}`} >
                           {e.name}
                           <img
                             src="/arrow-right-gray.svg"

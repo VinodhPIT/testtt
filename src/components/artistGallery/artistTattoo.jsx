@@ -6,8 +6,12 @@ import { blurDataURL } from "@/constants/constants";
 
 import style from "@/components/styles/listing.module.css";
 import NoData from './noData'
+import{useNavigation} from '@/hooks/useRouter'
+
 
 const Tattoo = ({ data }) => {
+  const {router}=useNavigation()
+  
   return (
 <div className={styles.galleryWrapper} >
       {data.length == 0 ? <div className={style.blockCenter}>   <NoData/>  </div>:
@@ -15,7 +19,7 @@ const Tattoo = ({ data }) => {
         <div className={styles.grid_wrapper_tattoo}>
           {data.map((item) => (
             <Link
-              href={`/explore/tattoos/${item.tattoo_uid}`}
+              href={`/${router.locale}/explore/tattoos/${item.tattoo_uid}`}
               className={styles.listing_gridItem}
               key={item.tattoo_uid}
             >

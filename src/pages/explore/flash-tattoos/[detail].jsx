@@ -43,8 +43,8 @@ export default function Detail({ data, status, locale }) {
 
   useEffect(() => {
     styleCollection();
-    setSelectedIds([])
-    clearStyleId()
+    // setSelectedIds([])
+    // clearStyleId()
 
     try {
       getLocale({
@@ -189,7 +189,7 @@ export default function Detail({ data, status, locale }) {
                     </div>
                     <div className={styles.search_profile_link}>
                       <Link
-                        href={`/artists/${data.artist.slug}`}
+                        href={`/${router.locale}/explore/tattoo-artists/${data.artist.slug}`}
                         className={styles.profile_getin}
                       >
                         {t("common:viewProfile")}
@@ -224,7 +224,7 @@ export default function Detail({ data, status, locale }) {
                           <li key={e.id}>
                             {" "}
                             <Link
-                              href={`/explore/flash-tattoos/style/${
+                              href={`/${locale}/explore/flash-tattoos?style=${
                                 e.slug
                               }`}
                             >
@@ -326,7 +326,7 @@ export default function Detail({ data, status, locale }) {
               <div className={styles.grid_wrapper_tattoo}>
                 {tattoo.map((item) => (
                   <Link
-                    href={`${item.tattoo_uid}`}
+                    href={`/${router.locale}/explore/flash-tattoos/${item.tattoo_uid}`}
                     className={styles.listing_gridItem}
                     key={item.tattoo_uid}
                     prefetch

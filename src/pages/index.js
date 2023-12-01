@@ -46,7 +46,6 @@ export default function Home({ locale ,country }) {
 
 
 
-
   
   useEffect(() => {
 
@@ -196,14 +195,6 @@ router.replace(`/${locale}`)
             </div>
           </div>
 
-{/* <section style={{"height":"100px","display":"flex","justifyContent":"space-between","alignItems":"center","padding":"33px"}}>
-
-
-
-
-<Link href={'/landingpage3'}>Landingpage3</Link>
-
-</section> */}
 
 
 
@@ -229,7 +220,7 @@ router.replace(`/${locale}`)
                         <p>{t("common:homePage.content1")}</p>
                         <Link
                            href="/explore/[[...slug]]"
-                           as={`${router.locale}/explore/tattoo-artists`}
+                           as={`/${router.locale}/explore/tattoo-artists`}
                           class="btn_secondary btn_cutom_new btn_img"
                         >
                           {t("common:findArtist's")}
@@ -328,7 +319,7 @@ router.replace(`/${locale}`)
                         </h2>
                         <p>{t("common:homePage.content3")}</p>
                         <Link
-                          href="/klarna"
+                          href={`/${router.locale}/klarna`}
                           class="btn_secondary btn_cutom_new btn_img"
                         >
                           {t("common:learnmore")}
@@ -356,7 +347,7 @@ router.replace(`/${locale}`)
                           </h2>
                           <p>{t("common:homePage.content4")}</p>
                           <Link
-                            href="/tattoo-dictionary"
+                            href={`/${router.locale}/tattoo-dictionary`}
                             className="btn_default btn_cutom_new btn_img"
                           >
                             {t("common:visitTattoo")}
@@ -436,7 +427,7 @@ router.replace(`/${locale}`)
                           </span>
                         </h2>
                         <Link
-                          href="/tattoo-styleguide"
+                          href={`/${router.locale}/tattoo-styleguide`}
                           class="btn_primary btn_cutom_new btn_img mt_65 m_mt_35"
                         >
                           Check the Styleguide
@@ -463,7 +454,7 @@ router.replace(`/${locale}`)
                         </h2>
                         <p>{t("common:homePage.content5")}</p>
                         <Link
-                          href="/for-tattoo-artists"
+                          href={`${router.locale}/for-tattoo-artists`}
                           class="btn_default btn_cutom_new btn_img"
                         >
                           {t("common:learnmore")}

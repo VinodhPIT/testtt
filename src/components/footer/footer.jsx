@@ -30,18 +30,18 @@ export default function Footer() {
     {
       id: 1,
       title: t("common:menus.tattooSearch"),
-      url:`${router.locale}/explore/tattoos`
+      url:`/${router.locale}/explore/tattoos`
     },
 
     {
       id: 2,
       title: t("common:menus.artistSearch"),
-      url:`${router.locale}/explore/tattoo-artists`
+      url:`/${router.locale}/explore/tattoo-artists`
     },
     {
       id: 3,
       title: t("common:menus.flashSearch"),
-      url:`${router.locale}/explore/flash-tattoos`
+      url:`/${router.locale}/explore/flash-tattoos`
     },
   ];
 

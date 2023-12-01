@@ -12,7 +12,7 @@ export default function SideDrawer({onCloseToggle}) {
   const { t } = useTranslation();
 
 
-
+const {router} =useNavigation()
 
   const {
     state,
@@ -32,37 +32,37 @@ export default function SideDrawer({onCloseToggle}) {
     {
       id: 2,
       title:t("common:menus.search"),
-      url:"/explore/tattoos"
+      url:`/${router.locale}/explore/tattoos`
     },
 
 
     {
       id: 3,
       title:t("common:menus.styleGuide"),
-      url: "/tattoo-styleguide",
+      url: `/${router.locale}/tattoo-styleguide`,
     },
     {
       id: 4,
       title: t("common:menus.dictionary"),
-      url: "/tattoo-dictionary",
+      url: `/${router.locale}//tattoo-dictionary`
     },
 
     {
       id: 5,
       title: t("common:menus.klarna"),
-      url: "/klarna",
+      url: `/${router.locale}/klarna`,
     },
 
     {
       id: 6,
       title:t("common:menus.forTattooArtists"),
-      url: "/for-tattoo-artists",
+      url: `/${router.locale}/for-tattoo-artists`,
     },
 
     {
       id: 7,
       title:t("common:menus.contactUs"),
-      url: "/contact",
+      url: `/${router.locale}/contact`,
     },
   ];
 
@@ -112,6 +112,11 @@ export default function SideDrawer({onCloseToggle}) {
         ))}
 
         <li><Link href={'/journal'}onClick={()=>onCloseToggle()}>{linkComponent}</Link></li>
+
+
+
+
+        
       </ul>
 
 
