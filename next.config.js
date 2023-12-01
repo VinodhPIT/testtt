@@ -4,10 +4,8 @@ const nextConfig = {
     domains: ["storage.googleapis.com"],
   },
   env: {
-
-    apiDomain:'https://admin.inckd.com/web/api',
-   
-    googlePlacesApiKey: "AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo",
+    apiDomain:"https://admin.inckd.com/web/api",
+    googlePlacesApiKey:"AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo",
   },
 
   i18n: {
@@ -23,7 +21,7 @@ module.exports = nextTranslate({
   ...nextConfig,
   async rewrites() {
     return [
-      // Rewrite homepage to include the default locale
+
       {
         source: '/',
         destination: '/[locale]',
