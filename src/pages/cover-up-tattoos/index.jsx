@@ -1,93 +1,67 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Banner from "@/landingComponents-2/banner/banner";
-import TrendingArtist from "@/landingComponents-2/trendingArtist/trendingArtist";
 import TrendinginckdArtist from "@/landingComponents-2/trendinginckdArtist/trendinginckdArtist";
 import FourColumnSection from "@/landingComponents/fourColumnSection/fourColumnSection";
 import TwoColumnSection from "@/landingComponents/TwoColumSection/twoColumnSection";
-import WhypartnerTattoos from "@/landingComponents-2/whypartnerTattoos/whypartnerTattoos";
 import YellowThreeCol from "@/landingComponents/yellowThreeeColumBlock/yellowThreeCol";
 
 export default function CoverUpTattoos() {
+  const [artist, setArtist] = useState([
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/2584_97206FDC-D3C8-4308-84A2-2CC25B7A1369.jpg",
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/2584_97206FDC-D3C8-4308-84A2-2CC25B7A1369.jpg",
+      artistName: "ineskalina",
 
-const[artist,setArtist]=useState([
-{image:"https://storage.googleapis.com/hllincd-bucket/profile/image/2584_97206FDC-D3C8-4308-84A2-2CC25B7A1369.jpg",
-artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/2584_97206FDC-D3C8-4308-84A2-2CC25B7A1369.jpg"
-,
-artistName:"ineskalina",
+      location: "Fulda, Germany",
+    },
 
-location:"Fulda, Germany"
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10094_20221125191535372-medium.jpg",
 
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/2147_B0F76368-8627-4B42-8A35-BCD14174DD5D.jpg",
+      artistName: "youcannotstopme",
 
-},
+      location: "Berlin, Germany",
+    },
 
-{image:"https://storage.googleapis.com/hllincd-bucket/profile/image_medium/10094_20221125191535372-medium.jpg",
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/1272_9ED2EFEB-9051-4328-AD32-90E104AD4513.jpg",
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/1272_9ED2EFEB-9051-4328-AD32-90E104AD4513.jpg",
 
-artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/2147_B0F76368-8627-4B42-8A35-BCD14174DD5D.jpg"
-,
-artistName:"youcannotstopme",
+      artistName: "SashaFoteev",
 
-location:"Berlin, Germany"
+      location: "Berlin, Germany",
+    },
 
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6331_20221023075813298-medium.jpg",
 
-},
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/1294_3EC6394E-CEA6-4263-B402-C13777DDD90C.jpg",
 
-{image:"https://storage.googleapis.com/hllincd-bucket/profile/image/1272_9ED2EFEB-9051-4328-AD32-90E104AD4513.jpg"
-,
+      artistName: "Herr Schneider",
 
-artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/1272_9ED2EFEB-9051-4328-AD32-90E104AD4513.jpg"
+      location: "Berlin, Germany",
+    },
+    {
+      image:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20380_20230223232347378-medium.jpg",
+      artistImage:
+        "https://storage.googleapis.com/hllincd-bucket/profile/image/4133_20230223231344373_FBE73D07-9404-4870-AB2A-BD4B4A99CA3F.jpg",
 
-,
-artistName:"SashaFoteev",
+      artistName: "Filo Casablanca",
 
-location:"Berlin, Germany"
-
-
-},
-
-
-{image:"https://storage.googleapis.com/hllincd-bucket/profile/image_medium/6331_20221023075813298-medium.jpg",
-
-artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/1294_3EC6394E-CEA6-4263-B402-C13777DDD90C.jpg"
-
-,
-artistName:"Herr Schneider",
-
-location:"Berlin, Germany"
-
-
-},
-{image:"https://storage.googleapis.com/hllincd-bucket/profile/image_medium/20380_20230223232347378-medium.jpg"
-,
-
-artistImage:"https://storage.googleapis.com/hllincd-bucket/profile/image/4133_20230223231344373_FBE73D07-9404-4870-AB2A-BD4B4A99CA3F.jpg",
-
-
-
-artistName:"Filo Casablanca",
-
-location:"Reinbek, Germany"
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-])
-
-
-
-
+      location: "Reinbek, Germany",
+    },
+  ]);
 
   return (
     <>
@@ -162,57 +136,27 @@ location:"Reinbek, Germany"
           mainTitle="Verschiedene Methoden"
           title1="Das Touch-up"
           content1="Frisches Stechen, um verblasste Farben wieder aufleben zu lassen."
-        
           title2="Ausbessern"
           content2="Das Grundmotiv bleibt, aber neue Details werden hinzugefügt."
-          
           title3="Integrieren"
           content3="Altes Motiv wird in ein neues integriert, ideal für sentimentale Erinnerungen."
-
           title4="Blast Over"
-
- content4="Neues Tattoo harmonisch über dem alten platzieren."
-        
-
- title5="Überdecken"
-
- content5="Neues Tattoo harmonisch über dem alten platzieren."
-        
-
- title6="Heavy Blackwork"
-
- content6="Extremer Ansatz, ungeliebte Kunstwerke mit Schwarz zu überdecken."
- 
-        
-
-
-
-
-
-        /> 
-
-       
+          content4="Neues Tattoo harmonisch über dem alten platzieren."
+          title5="Überdecken"
+          content5="Neues Tattoo harmonisch über dem alten platzieren."
+          title6="Heavy Blackwork"
+          content6="Extremer Ansatz, ungeliebte Kunstwerke mit Schwarz zu überdecken."
+        />
 
         <TrendinginckdArtist
-        
-        title={'Finde die Beste Lösung mit unseren Tätowierern'}
-        titleSub={'mit unseren Tätowierern'}
-      content="Die Vielfalt der Cover-Up-Methoden kann überwältigend sein. Bei uns auf der Plattform stehen dir erfahrene Tätowierer zur Verfügung, die nicht nur über umfassendes Fachwissen verfügen, sondern auch deine individuellen Wünsche verstehen. Informiere dich bei einem unserer Tätowierer, um die beste Lösung für dein Cover Up zu finden. Von der Auswahl der Methoden bis zur Abstimmung auf deine Hautbeschaffenheit – wir begleiten dich auf dem Weg zu einem neuen, bedeutungsvollen Tattoo.Unsere Tätowierer sind Experten auf ihrem Gebiet und können dir nicht nur mit fachkundigem Rat dienen, sondern auch sicherstellen, dass das Cover Up nicht nur ästhetisch ansprechend, sondern auch langfristig zufriedenstellend ist. Vertraue auf ihre Erfahrung und lass dich auf dem Weg zu einem gelungenen Cover Up von unseren Profis begleiten.
+          title={"Finde die Beste Lösung mit unseren Tätowierern"}
+          titleSub={"mit unseren Tätowierern"}
+          content="Die Vielfalt der Cover-Up-Methoden kann überwältigend sein. Bei uns auf der Plattform stehen dir erfahrene Tätowierer zur Verfügung, die nicht nur über umfassendes Fachwissen verfügen, sondern auch deine individuellen Wünsche verstehen. Informiere dich bei einem unserer Tätowierer, um die beste Lösung für dein Cover Up zu finden. Von der Auswahl der Methoden bis zur Abstimmung auf deine Hautbeschaffenheit – wir begleiten dich auf dem Weg zu einem neuen, bedeutungsvollen Tattoo.Unsere Tätowierer sind Experten auf ihrem Gebiet und können dir nicht nur mit fachkundigem Rat dienen, sondern auch sicherstellen, dass das Cover Up nicht nur ästhetisch ansprechend, sondern auch langfristig zufriedenstellend ist. Vertraue auf ihre Erfahrung und lass dich auf dem Weg zu einem gelungenen Cover Up von unseren Profis begleiten.
       Dein Cover-Up-Prozess beginnt hier. Informiere dich jetzt bei einem unserer Tätowierer und starte die Reise zu einem erneuerten und beeindruckenden Tattoo
       "
-buttonName="Entdecke mehr Tätowierer"
-
-
-data={artist}
-
-url="explore/tattoo-artists?location=Berlin"
-        
-
-
-        
-        
-        
-        
+          buttonName="Entdecke mehr Tätowierer"
+          data={artist}
+          url="explore/tattoo-artists?location=Berlin"
         />
 
         <FourColumnSection

@@ -17,6 +17,7 @@ import {TattooSearchModal} from "@/utils/modalUtils";
 import { useModal } from "@/utils/modalUtils";
 import { useGlobalState } from "@/context/Context";
 import { getLocaleProps } from '@/utils/getlocale';
+import {useNavigation} from '@/hooks/useRouter'
 
 
 
@@ -24,6 +25,7 @@ export default function Dictionary({locale}) {
 
 
   const {getLocale } = useGlobalState();
+  const {router} =useNavigation()
   const { isPopupOpen, openPopup, closePopup } = useModal();
   const { isMobileView } = useWindowResize();
   const { t } = useTranslation();
@@ -212,7 +214,7 @@ export default function Dictionary({locale}) {
                     <span className="textBlock">{t("common:dictionaryPage.bannerContent1-Sub")}</span> </h2>
                     <p>{t("common:dictionaryPage.bannerContent2")}</p>
                       <Link   href="/explore/[[...slug]]"
-                                   as="/explore/tattoo-artists"
+                                   as={`${router.locale}/explore/tattoo-artists`}
                                    
                                    
                                    className="btn_default btn_cutom_new btn_img">

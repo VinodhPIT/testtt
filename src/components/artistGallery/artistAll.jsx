@@ -3,10 +3,10 @@ import styles from "@/pages/explore/tattoodetail.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
-import Load from '@/components/pageLoad'
-import style from "@/components/styles/listing.module.css";
+import{useNavigation} from '@/hooks/useRouter'
 
 const All = ({ data ,loading}) => {
+  const {router}=useNavigation()
 
   return (
     <div className={styles.galleryWrapper} >
@@ -17,9 +17,9 @@ const All = ({ data ,loading}) => {
             <Link
             href={
               item.tattoo_type === "normal"
-                ? `/explore/tattoos/${item.tattoo_uid}`
+                ? `/${router.locale}/explore/tattoos/${item.tattoo_uid}`
                 :
-                 `/explore/flash-tattoos/${item.tattoo_uid}`
+                 `/${router.locale}/explore/flash-tattoos/${item.tattoo_uid}`
                
             }
               

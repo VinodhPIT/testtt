@@ -67,8 +67,8 @@ console.log(data ,'cdckodscks')
   ];
 
   useEffect(() => {
-    clearStyleId()
-    setSelectedIds([])
+    // clearStyleId()
+    // setSelectedIds([])
     styleCollection()
     
     try {

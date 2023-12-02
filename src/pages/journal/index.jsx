@@ -1,15 +1,35 @@
-import React from "react";
+import React ,{useState,useEffect}from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataURL } from "@/constants/constants";
 import styles from "./listing.module.css"
 import path from "path";
 import fs from "fs";
+import {useRouter} from 'next/router'
 
 
 export default function ListingPage({ data, locale }) {
 
-  const listing = data[locale];
+
+
+
+  const [listing, setListing] = useState([]);
+  const [error, setError] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!data[locale] || !Array.isArray(data[locale]) || data[locale].length === 0) {
+    
+        setError(true)
+      
+    } else {
+      setListing(data[locale]);
+      setError(false)
+    }
+
+  
+   
+  }, [data, locale, router ,error]);
 
  
 
@@ -53,11 +73,14 @@ export default function ListingPage({ data, locale }) {
                     <div className={`${'mt_65 mb_80 m_mb_30 m_mt_25'} ${styles.listing_pageContainer}`}>
                         <div className={styles.listing_grid_wrapper}>  
 
-   {listing.map((el)=>{
+
+         {error ===  true ?  null :              
+
+   listing.map((el)=>{
 
 return (
 <div className={styles.listing_gridItem} key={el.id}>
-<Link href={el.url}>
+<Link href={`/${router.locale}/${el.url}`}>
                               <div className={styles.listing_grid_img_col}>
                                
                                   <Image

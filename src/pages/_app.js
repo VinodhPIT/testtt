@@ -2,7 +2,6 @@
 import {useEffect} from 'react'
 import { useRouter } from "next/router";
 import Header from "@/components/header/header";
-import CustomHeader from "@/components/customHeader2/header"
 import Footer from "@/components/footer/footer";
 import { GlobalStateProvider } from "@/context/Context";
 import { Figtree } from "next/font/google";
@@ -53,29 +52,34 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
 
+console.log(router.locale,)
 
 
 
 
-
-  function getHeaderComponent(pathname) {
-    switch (pathname) {
+  function getHeaderComponent( locale ,pathname) {
+    switch (locale ,pathname) {
       case "/":
       case "/klarna":
-        return <Header logo={'/inckd-logo.svg'} theme={"normal"} isPosition={true} />;
+        return <Header logo={'/inckd-logo.svg'} theme={"normal"} isPosition={true} 
+        imgWidth="105"
+            imgHeight="31"
+        />;
 
       case "/explore/[[...slug]]":
-      case "/artists/[detail]":
-      case "/explore/tattoos/[detail]":
+      case "/explore/tattoo-artists/[detail]":
+      case `/explore/tattoos/[detail]`:
       case "/explore/flash-tattoos/[detail]":
       case "/404":
         
        
         return (
-          <CustomHeader
+          <Header
             logo={"/tattooSearch.svg"}
             theme={"white"}
             isPosition={false}
+            imgWidth="109"
+            imgHeight="52"
           />
         );
 
@@ -84,38 +88,51 @@ function MyApp({ Component, pageProps }) {
           case "/tattoo-dictionary":
             case "/journal":
       
-          return <Header logo={'/inckd-logo.svg'} theme={"black"} isPosition={true} />;
+          return <Header logo={'/inckd-logo.svg'} theme={"black"} isPosition={true} 
+          
+          imgWidth="105"
+            imgHeight="31"
+          
+          />;
         
   
 
       case "/faq":
         case "/privacy-policy":
           
-          case "/listingDetail/[detail]":
+        
         return (
           <Header
             logo={"/Inckd-logo-footer-black.svg"}
             theme={"white"}
             isPosition={false}
+                  
+          imgWidth="105"
+          imgHeight="31"
           />
         );
 
       case "/tattoo-styleguide":
         return (
-          <CustomHeader
+          <Header
             logo={"/styleGuideLogo.svg"}
             theme={"normal"}
             isPosition={true}
+                  
+          imgWidth="109"
+          imgHeight="52"
           />
         );
 
       case "/for-tattoo-artists":
        
         return (
-          <CustomHeader
+          <Header
             logo={"/artistHeaderLogo.svg"}
             theme={"normal"}
             isPosition={true}
+            imgWidth="109"
+            imgHeight="52"
           />
         );
       default:
@@ -128,7 +145,7 @@ function MyApp({ Component, pageProps }) {
 
     <GlobalStateProvider>
       <div className={figtree.className}>
-        {getHeaderComponent(router.pathname)}
+        {getHeaderComponent( router.locale, router.pathname)}
 
         <UseLayout pathname={router.pathname}>
           <Component {...pageProps} />
