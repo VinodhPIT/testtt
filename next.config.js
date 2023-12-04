@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ["storage.googleapis.com"],
   },
   env: {
-    apiDomain:"https://apiadmin.inckd.com/web/api",
+    apiDomain:"https://admin.inckd.com/web/api",
     googlePlacesApiKey:"AIzaSyDo8sjdevbkqLGUx_DFpFlYlQFb1FpRAIo",
     NEXT_PUBLIC_BASE_URL:process.env.NEXT_PUBLIC_BASE_URL || "https://inckdweb2023.vercel.app"
   },
