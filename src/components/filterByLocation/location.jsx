@@ -37,10 +37,9 @@ export default function LocationSearch({
   const { getAddress } = useGlobalState();
 
   const handleSelect = async (value) => {
-    const textBeforeComma = value.split(',')[0].trim();
+    const textBeforeComma = value;
     getAddress(textBeforeComma);
     setAddress(textBeforeComma);
-  
   };
 
 
